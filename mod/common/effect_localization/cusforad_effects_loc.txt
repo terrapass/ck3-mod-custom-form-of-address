@@ -1,0 +1,5 @@
+﻿cusforad_effect_test = {
+	first = cusforad_effect_test
+	third = cusforad_effect_test
+	global = cusforad_effect_test
+}

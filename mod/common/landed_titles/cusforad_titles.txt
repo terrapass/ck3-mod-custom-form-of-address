@@ -1,0 +1,3 @@
+﻿d_cusforad_address_storage = {
+	color = { 255 0 255 }
+}

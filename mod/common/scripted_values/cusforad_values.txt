@@ -1,0 +1,5 @@
+﻿# TODO: Google/search Discord for scripted_values.
+#       Try to use a scripted_value as flavorization's priority after all.
+#
+#       Alternatively, check if Character, Char or CHARACTER is available from localization strings in character_l_english
+#       and, if so, whip something up via on-character variable(s).

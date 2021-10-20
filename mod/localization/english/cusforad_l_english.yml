@@ -1,0 +1,10 @@
+﻿l_english:
+ customfa_address:0 "[Localize(Concatenate('cusforad_', '$TIER$'))]"
+
+ cusforad_NOPE:0 "Okay"
+
+ cusforad_effect_test:0 "-> [TARGET_TITLE.GetBaseNameNoTierNoTooltip]/[CHARACTER.GetTitleAsNameNoTooltip] <-"
+
+#MakeScopeFlag('$TIER$_$NAME$_$TITLE$')
+ CUSFORAD_TIER:0 "[GetScriptedGui('cusforad_test_sgui_getter').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('character_key_flag', MakeScopeFlag('TEST_KEY')).End)]"
+ #CUSFORAD_TIER:0 "[MakeScopeFlag('TEST_KEY')]"

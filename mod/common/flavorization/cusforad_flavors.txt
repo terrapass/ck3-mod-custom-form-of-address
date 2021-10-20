@@ -1,0 +1,6 @@
+﻿# customfa_address = {
+# 	type = character
+# 	special = ruler_child
+# 	priority = 500
+# 	top_liege = no
+# }
