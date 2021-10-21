@@ -7,5 +7,11 @@
  cusforad_effect_test:0 "-> [TARGET_TITLE.GetBaseNameNoTierNoTooltip] <-"
 
 #MakeScopeFlag('$TIER$_$NAME$_$TITLE$')
- CUSFORAD_TIER:0 "[GetScriptedGui('cusforad_test_sgui_getter').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('character_key_flag', MakeScopeFlag('CUSFORAD_FLAG_$TITLE$')).End)]"
+
+ # TODO: Probably cannot use $TIER$ here, since there's no way to reconstruct it on the other side
+ # (GetTitleAsNameNoTooltip uses CHARACTER_TITLE_NAME).
+ # Should definitely add $NAME$ and probably $DYNASTY$ for further disambiguation between rulers of same-named titles.
+ CUSFORAD_CHARACTER_KEY_FLAG:0 "CUSFORAD_FLAG_$TITLE$"
+
+ CUSFORAD_TIER:0 "[GetScriptedGui('cusforad_test_sgui_getter').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('character_key_flag', MakeScopeFlag('$CUSFORAD_CHARACTER_KEY_FLAG$')).End)]"
  #CUSFORAD_TIER:0 "[MakeScopeFlag('TEST_KEY')]"
