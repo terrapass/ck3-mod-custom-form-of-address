@@ -15,7 +15,7 @@ window = {
 		on_start = "[GetVariableSystem.Clear( 'display_allegiance' )]"
 		on_start = "[GetVariableSystem.Set( 'hide_bottom_left_HUD', 'true' )]"
 		# MOD(custom-form-of-address)
-		on_start = "[GetScriptedGui('cusforad_test_sgui').Execute(GuiScope.SetRoot( TitleViewWindow.GetTitle.MakeScope ).AddScope( 'character_key_flag', MakeScopeFlag(Concatenate(Concatenate('CUSFORAD_FLAG', '_'), TitleViewWindow.GetTitle.GetBaseNameNoTierNoTooltip)) ).End )]"
+		on_start = "[GetScriptedGui('cusforad_sgui_init_title_character_key_flag').Execute(GuiScope.SetRoot( TitleViewWindow.GetTitle.MakeScope ).AddScope( 'character_key_flag', MakeScopeFlag(Concatenate('CUSFORAD_FLAG_', TitleViewWindow.GetTitle.GetBaseNameNoTierNoTooltip)) ).End )]"
 		# END MOD
 
 		using = Animation_FadeIn_Quick
@@ -138,6 +138,7 @@ window = {
 
 									button_edit_text = {
 										visible = "[TitleViewWindow.GetTitle.CanPlayerRenameTitle]"
+										onclick = "[GetVariableSystem.Toggle('cusforad_must_use_foa_mode_for_title_rename')]"
 										onclick = "[OpenTitleRenamePopup(TitleViewWindow.GetTitle)]"
 										tooltip = "EDIT_TITLE_NAME"
 									}

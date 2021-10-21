@@ -1,4 +1,4 @@
-﻿cusforad_test_sgui = {
+﻿cusforad_sgui_init_title_character_key_flag = {
 	scope = title
 
 	saved_scopes = {
