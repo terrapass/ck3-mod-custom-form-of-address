@@ -15,7 +15,7 @@ window = {
 		on_start = "[GetVariableSystem.Clear( 'display_allegiance' )]"
 		on_start = "[GetVariableSystem.Set( 'hide_bottom_left_HUD', 'true' )]"
 		# MOD(custom-form-of-address)
-		on_start = "[GetScriptedGui('cusforad_test_sgui').Execute( GuiScope.SetRoot( TitleViewWindow.GetTitle.MakeScope ).AddScope( 'character_key_flag', MakeScopeFlag('TEST_KEY') ).End )]"
+		on_start = "[GetScriptedGui('cusforad_test_sgui').Execute(GuiScope.SetRoot( TitleViewWindow.GetTitle.MakeScope ).AddScope( 'character_key_flag', MakeScopeFlag(Concatenate(Concatenate('CUSFORAD_FLAG', '_'), TitleViewWindow.GetTitle.GetBaseNameNoTierNoTooltip)) ).End )]"
 		# END MOD
 
 		using = Animation_FadeIn_Quick

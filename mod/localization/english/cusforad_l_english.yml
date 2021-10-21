@@ -3,8 +3,9 @@
 
  cusforad_NOPE:0 "Okay"
 
- cusforad_effect_test:0 "-> [TARGET_TITLE.GetBaseNameNoTierNoTooltip]/[CHARACTER.GetTitleAsNameNoTooltip] <-"
+ #cusforad_effect_test:0 "-> [TARGET_TITLE.GetBaseNameNoTierNoTooltip]/[CHARACTER.GetTitleAsNameNoTooltipRegnal] <-"
+ cusforad_effect_test:0 "-> [TARGET_TITLE.GetBaseNameNoTierNoTooltip] <-"
 
 #MakeScopeFlag('$TIER$_$NAME$_$TITLE$')
- CUSFORAD_TIER:0 "[GetScriptedGui('cusforad_test_sgui_getter').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('character_key_flag', MakeScopeFlag('TEST_KEY')).End)]"
+ CUSFORAD_TIER:0 "[GetScriptedGui('cusforad_test_sgui_getter').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('character_key_flag', MakeScopeFlag('CUSFORAD_FLAG_$TITLE$')).End)]"
  #CUSFORAD_TIER:0 "[MakeScopeFlag('TEST_KEY')]"
