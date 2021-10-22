@@ -1,4 +1,4 @@
-﻿cusforad_sgui_init_title_character_key_flag = {
+﻿VNTL_sgui_init_title_character_key_flag = {
 	scope = title
 
 	saved_scopes = {
@@ -15,7 +15,7 @@
 	effect = {
 		# scope:character_key_flag = {
 		# 	set_variable = {
-		# 		name = cusforad_
+		# 		name = VNTL_
 		# 	}
 		# }
 
@@ -24,13 +24,13 @@
 				# FIXME: Error: set_variable effect [ This scope doesn't support variables. Scope: Flag TEST_KEY [9386] ]
 				#        Maybe I should try in reverse? I.e. save flag on title?
 				# set_variable = {
-				# 	name = cusforad_title_for_address
+				# 	name = VNTL_title_for_address
 				# 	value = root
 				# }
 			}
 
 			set_variable = {
-				name = cusforad_character_key_flag
+				name = VNTL_character_key_flag
 				value = scope:character_key_flag
 			}
 
@@ -52,7 +52,7 @@
 	}
 }
 
-cusforad_test_sgui_getter = {
+VNTL_test_sgui_getter = {
 	scope = character
 
 	saved_scopes = {
@@ -61,12 +61,12 @@ cusforad_test_sgui_getter = {
 
 	effect = {
 		hidden_effect = {
-			# FIXME: This doesn't work since var:cusforad_title_for_address can't be stored on a flag in the first place.
+			# FIXME: This doesn't work since var:VNTL_title_for_address can't be stored on a flag in the first place.
 			# TODO:  Maybe try iterating over every_player (thanks Tobbzn) and
 			# scope:character_key_flag = {
 			# 	if = {
-			# 		limit = { exists = var:cusforad_title_for_address }
-			# 		var:cusforad_title_for_address = {
+			# 		limit = { exists = var:VNTL_title_for_address }
+			# 		var:VNTL_title_for_address = {
 			# 			save_scope_as = target_title
 			# 		}
 			# 	}
@@ -88,7 +88,7 @@ cusforad_test_sgui_getter = {
 			every_player = {
 				limit = {
 					primary_title = {
-						var:cusforad_character_key_flag = scope:character_key_flag
+						var:VNTL_character_key_flag = scope:character_key_flag
 					}
 				}
 
@@ -100,7 +100,7 @@ cusforad_test_sgui_getter = {
 		}
 
 		custom_description_no_bullet = {
-			text = cusforad_effect_test
+			text = VNTL_effect_test
 			subject = scope:target_character
 			object = scope:target_title
 		}

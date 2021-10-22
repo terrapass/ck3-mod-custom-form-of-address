@@ -1,0 +1,5 @@
+﻿VNTL_effect_test = {
+	first = VNTL_effect_test
+	third = VNTL_effect_test
+	global = VNTL_effect_test
+}

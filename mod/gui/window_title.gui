@@ -14,8 +14,8 @@ window = {
 		position = { 0 0 }
 		on_start = "[GetVariableSystem.Clear( 'display_allegiance' )]"
 		on_start = "[GetVariableSystem.Set( 'hide_bottom_left_HUD', 'true' )]"
-		# MOD(custom-form-of-address)
-		on_start = "[GetScriptedGui('cusforad_sgui_init_title_character_key_flag').Execute(GuiScope.SetRoot( TitleViewWindow.GetTitle.MakeScope ).AddScope( 'character_key_flag', MakeScopeFlag(Concatenate('CUSFORAD_FLAG_', TitleViewWindow.GetTitle.GetBaseNameNoTierNoTooltip)) ).End )]"
+		# MOD(vanity-titles)
+		on_start = "[GetScriptedGui('VNTL_sgui_init_title_character_key_flag').Execute(GuiScope.SetRoot( TitleViewWindow.GetTitle.MakeScope ).AddScope( 'character_key_flag', MakeScopeFlag(Concatenate('VNTL_FLAG_', TitleViewWindow.GetTitle.GetBaseNameNoTierNoTooltip)) ).End )]"
 		# END MOD
 
 		using = Animation_FadeIn_Quick
@@ -138,10 +138,24 @@ window = {
 
 									button_edit_text = {
 										visible = "[TitleViewWindow.GetTitle.CanPlayerRenameTitle]"
-										onclick = "[GetVariableSystem.Toggle('cusforad_must_use_foa_mode_for_title_rename')]"
 										onclick = "[OpenTitleRenamePopup(TitleViewWindow.GetTitle)]"
 										tooltip = "EDIT_TITLE_NAME"
 									}
+
+									# MOD(vanity-titles)
+									button_edit_text = {
+										visible = "[TitleViewWindow.GetTitle.CanPlayerRenameTitle]"
+										# MOD(vanity-titles)
+										onclick = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
+										# END MOD
+										onclick = "[OpenTitleRenamePopup(TitleViewWindow.GetTitle)]"
+										# MOD(vanity-titles)
+										onclick = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
+										# END MOD
+										tooltip = "EDIT_TITLE_NAME"
+										texture = "gfx/interface/icons/flat_icons/find_title.dds"
+									}
+									# END MOD
 
 									hbox = {
 										using = remove_title_prefix_toggle
@@ -250,14 +264,14 @@ window = {
 										visible = "[And(NotEqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID ), GetPlayer.HasClaimOnTitle(TitleViewWindow.GetTitle ))]"
 									}
 
-									#MOD(custom-form-of-address)
+									#MOD(vanity-titles)
 									hbox = {
-										name = "cusforad_title_ui"
+										name = "VNTL_title_ui"
 										layoutpolicy_horizontal = expanding
 										visible = "[EqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID )]"
 
 										text_multi = {
-											name = "cusforad_title_foa"
+											name = "VNTL_title_foa"
 											layoutpolicy_horizontal = expanding
 											text = "Form of Address: [Title.GetHolder.GetTitleAsNameNoTooltip] (default)"
 										}

@@ -5,5 +5,5 @@ tags={
 	"Utilities"
 	"Character Interactions"
 }
-name="Custom Form of Address"
+name="Vanity Titles"
 supported_version="1.4.4"
