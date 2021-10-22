@@ -1,5 +1,5 @@
 ﻿l_english:
- customfa_address:0 "[Localize(Concatenate('cusforad_', '$TIER$'))]"
+ customfa_address:0 "BOOM"
 
  cusforad_NOPE:0 "Okay"
 

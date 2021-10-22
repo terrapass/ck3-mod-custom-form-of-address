@@ -1,6 +1,8 @@
-﻿# customfa_address = {
+﻿# But what if I generated flavors with ZWSP?
+
+# customfa_address = {
 # 	type = character
-# 	special = ruler_child
+# 	special = holder
 # 	priority = 500
 # 	top_liege = no
 # }

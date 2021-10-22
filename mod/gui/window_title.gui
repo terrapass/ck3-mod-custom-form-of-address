@@ -249,6 +249,20 @@ window = {
 										minimumsize = { 200 50 }
 										visible = "[And(NotEqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID ), GetPlayer.HasClaimOnTitle(TitleViewWindow.GetTitle ))]"
 									}
+
+									#MOD(custom-form-of-address)
+									hbox = {
+										name = "cusforad_title_ui"
+										layoutpolicy_horizontal = expanding
+										visible = "[EqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID )]"
+
+										text_multi = {
+											name = "cusforad_title_foa"
+											layoutpolicy_horizontal = expanding
+											text = "Form of Address: [Title.GetHolder.GetTitleAsNameNoTooltip] (default)"
+										}
+									}
+									#END MOD
 								}
 
 								expand = {}
