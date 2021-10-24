@@ -1,0 +1,10 @@
+﻿l_english:
+ #
+ # Holder flavors
+ #
+ # TODO: Pre-generate offline
+ VNTL_flavor_vanity_title_holder_male_0:0 "[title:d_VNTL_vanity_0.GetBaseNameNoTierNoTooltip]"
+ VNTL_flavor_vanity_title_holder_female_0:0 "[title:d_VNTL_vanity_0.GetAdjectiveNoTooltip]"
+ VNTL_flavor_vanity_title_holder_male_1:0 "[title:d_VNTL_vanity_1.GetBaseNameNoTierNoTooltip]"
+ VNTL_flavor_vanity_title_holder_female_1:0 "[title:d_VNTL_vanity_1.GetAdjectiveNoTooltip]"
+ # TODO: etc

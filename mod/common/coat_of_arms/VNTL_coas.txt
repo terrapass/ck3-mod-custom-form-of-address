@@ -1,7 +1,23 @@
-﻿# These dummy CoA definitions are needed for compatibility with the CoA Designer mod by Lajos Tueur.
-# Without these the game crashes on entering new game ruler selection screen, if both mods are active.
+﻿# TODO: Pre-generate offline
 
-d_VNTL_address_storage = {
-    pattern = "pattern_solid.dds"
-    color1 = rgb { 255 0 255 }
+d_VNTL_vanity_0 = {
+	pattern = "pattern_solid.dds"
+	color1 = "black"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
 }
+
+d_VNTL_vanity_1 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "black"
+	}
+}
+
+# TODO: etc.

@@ -1,0 +1,27 @@
+﻿# Mod initialization logic
+on_game_start_after_lobby = {
+	on_actions = { VNTL_on_game_start_after_lobby }
+}
+
+VNTL_on_game_start_after_lobby = {
+	effect = {
+		#debug_log = "VNTL_on_game_start_after_lobby FIRED"
+
+		# TODO: Pre-generate offline
+		add_to_global_variable_list = { name = VNTL_vanity_titles target = title:d_VNTL_vanity_0 }
+		add_to_global_variable_list = { name = VNTL_vanity_titles target = title:d_VNTL_vanity_1 }
+		# TODO: etc.
+
+		# FIXME: Testing
+		random_player = {
+			destroy_title = title:e_hre
+		}
+		# END FIXME
+	}
+
+	# events = {
+	# 	# Empty
+	# }
+}
+
+# TODO: on_rank_up, on_rank_down etc.

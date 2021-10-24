@@ -1,0 +1,5 @@
+﻿VNTL_vanity_title = {
+	texture = "gfx/interface/icons/message_feed/VNTL_vanity_title.dds"
+	parent = title
+	alias = { VNTL_vanity_titles }
+}

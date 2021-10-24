@@ -1,3 +1,19 @@
-﻿d_VNTL_address_storage = {
-	color = { 255 0 255 }
+﻿# TODO: Pre-generate offline
+
+d_VNTL_vanity_0 = {
+	color = { 0 0 0 }
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
 }
+
+d_VNTL_vanity_1 = {
+	color = { 0 0 255 }
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+# TODO: etc.

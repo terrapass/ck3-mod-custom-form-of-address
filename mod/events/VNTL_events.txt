@@ -1,0 +1,36 @@
+﻿namespace = VNTL_events
+
+VNTL_events.1001 = {
+	type = character_event
+
+	hidden = yes
+
+	immediate = {
+		debug_log = "VNTL_events.1001 (test event)"
+
+		every_duchy = {
+			limit = {
+				VNTL_is_vanity_title = yes
+
+				# This works.
+				# is_target_in_global_variable_list = {
+				# 	name = VNTL_vanity_titles
+				# 	target = THIS
+				# }
+			}
+
+			# FIXME: Testing
+			#set_coa = title:k_papal_state
+			# END FIXME
+
+			debug_log = "HIT 1"
+		}
+
+		# This works.
+		# every_in_global_list = {
+		# 	variable = VNTL_vanity_titles
+
+		# 	debug_log = "HIT 2"
+		# }
+	}
+}

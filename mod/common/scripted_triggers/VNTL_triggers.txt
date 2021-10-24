@@ -1,0 +1,7 @@
+﻿# root - title
+VNTL_is_vanity_title = {
+	is_target_in_global_variable_list = {
+		name = VNTL_vanity_titles
+		target = THIS
+	}
+}

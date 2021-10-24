@@ -1,8 +1,46 @@
-﻿# But what if I generated flavors with ZWSP?
+﻿# TODO: Pre-generate offline
 
-# customfa_address = {
-# 	type = character
-# 	special = holder
-# 	priority = 500
-# 	top_liege = no
-# }
+VNTL_flavor_vanity_title_tier = {
+	type = title
+	tier = duchy
+	titles = { d_VNTL_vanity_0 d_VNTL_vanity_1 } # TODO: etc.
+	priority = 500
+}
+
+VNTL_flavor_vanity_title_holder_male_0 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_VNTL_vanity_0 }
+	top_liege = no
+}
+
+VNTL_flavor_vanity_title_holder_female_0 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_VNTL_vanity_0 }
+	top_liege = no
+}
+
+VNTL_flavor_vanity_title_holder_male_1 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_VNTL_vanity_1 }
+	top_liege = no
+}
+
+VNTL_flavor_vanity_title_holder_female_1 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_VNTL_vanity_1 }
+	top_liege = no
+}
+
+# TODO: etc.

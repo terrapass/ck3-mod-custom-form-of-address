@@ -1,0 +1,11 @@
+﻿# TODO: Pre-generate offline
+l_english:
+ # TODO: Should probably use ZWSP for these by default
+ #       and only set them to suggested "Male/Female Ruler" values
+ #       when the title is actually created.
+ #       This way these would be hidden from Find Title output until created.
+ d_VNTL_vanity_0:0 "$VNTL_default_vanity_title_name_male$"
+ d_VNTL_vanity_0_adj:0 "$VNTL_default_vanity_title_name_female$"
+ d_VNTL_vanity_1:0 "$VNTL_default_vanity_title_name_male$"
+ d_VNTL_vanity_1_adj:0 "$VNTL_default_vanity_title_name_female$"
+ # TODO: etc
