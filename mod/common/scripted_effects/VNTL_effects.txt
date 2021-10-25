@@ -1,0 +1,115 @@
+﻿#
+# Interface
+#
+
+# Scope is Character.
+VNTL_select_best_available_vanity_title_for_character = {
+	assert_if = {
+		limit = { NOT = { exists = primary_title }}
+
+		text = "character must have a primary title"
+	}
+
+	primary_title = {
+		VNTL_select_best_available_vanity_title_for_primary_title = yes
+	}
+}
+
+# Scope is (presumably someone's primary) Title.
+VNTL_select_best_available_vanity_title_for_primary_title = {
+	if = {
+		limit = { exists = scope:selected_vanity_title }	
+
+		clear_saved_scope = selected_vanity_title
+	}
+
+	# If PRIMARY_TITLE already has a bound vanity title,
+	# and bound VT is either held by the same holder or dormant, re-select this VT.
+	if = {
+		limit = {
+			AND = {
+				has_variable = VNTL_bound_vanity_title
+				OR = {
+					NOT = { exists = var:VNTL_bound_vanity_title.holder }
+					var:VNTL_bound_vanity_title.holder = holder
+				}
+			}
+		}
+
+		var:VNTL_bound_vanity_title = {
+			assert_if = {
+				limit = {
+					OR = {
+						NOT = { has_variable = VNTL_bound_primary_title }
+						NOT = { var:VNTL_bound_primary_title = PREV }
+					}
+				}
+
+				text = "bound VT must have VNTL_bound_primary_title set to the title it's bound to"
+			}
+
+			save_scope_as = selected_vanity_title
+
+			debug_log = "re-selected the already bound VT"
+		}
+	}
+	else = {
+		# Otherwise, select an unbound VT, if there are any.
+		random_in_global_list = {
+			variable = VNTL_vanity_titles
+			limit = {
+				NOT = { has_variable = VNTL_bound_primary_title }
+			}
+
+			assert_if = {
+				limit = { { exists = holder } }
+
+				text = "unbound vanity titles must not have holders"
+			}
+
+			save_scope_as = selected_vanity_title
+
+			debug_log = "selected an unbound VT"
+		}
+
+		if = {
+			limit = { NOT = { exists = scope:selected_vanity_title } }
+
+			# Otherwise, select someone else's bound but dormant VT, if there are any.
+			random_in_global_list = {
+				variable = VNTL_vanity_titles
+				limit = {
+					AND = {
+						has_variable = VNTL_bound_primary_title
+						NOT = { exists = holder }
+					}
+				}
+
+				save_scope_as = selected_vanity_title
+
+				debug_log = "selected someone else's bound but dormant VT"
+			}
+
+			if = {
+				limit = { NOT = { exists = scope:selected_vanity_title } }
+
+				# Finally, just go ahead and select any VT.
+				# (By elimination, at this point it will be someone else's bound and active VT,
+				# so we're going to have to steal it.)
+				random_in_global_list = {
+					variable = VNTL_vanity_titles
+
+					save_scope_as = selected_vanity_title
+
+					debug_log = "selected random VT"
+				}
+			}
+		}
+	}
+
+	assert_if = {
+		limit = { NOT = { exists = scope:selected_vanity_title } }
+
+		text = "VNTL_select_best_available_vanity_title failed to select any vanity title for primary title"
+	}
+}

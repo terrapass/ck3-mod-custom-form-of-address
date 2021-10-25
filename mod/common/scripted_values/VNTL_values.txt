@@ -1,5 +1,10 @@
-﻿# TODO: Google/search Discord for scripted_values.
-#       Try to use a scripted_value as flavorization's priority after all.
-#
-#       Alternatively, check if Character, Char or CHARACTER is available from localization strings in character_l_english
-#       and, if so, whip something up via on-character variable(s).
+﻿# Poor man's enum for vanity title selection priority.
+# The lower the number, the more desirable the VT.
+VNTL_vt_selector_own_current = 0
+VNTL_vt_selector_own_former = 1
+VNTL_vt_selector_never_used = 2
+VNTL_vt_selector_other_former = 3
+VNTL_vt_selector_other_current = 4
+VNTL_vt_selector_any = 5
+
+VNTL_vt_selector_MAX = 6

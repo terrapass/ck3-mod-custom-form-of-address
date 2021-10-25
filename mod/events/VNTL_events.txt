@@ -1,12 +1,26 @@
 ﻿namespace = VNTL_events
 
+# Find an available vanity title and bind it to this character's primary title.
 VNTL_events.1001 = {
 	type = character_event
 
 	hidden = yes
 
 	immediate = {
-		debug_log = "VNTL_events.1001 (test event)"
+		debug_log = "VNTL_events.1001 (Find an available vanity title and bind it to this character's primary title.)"
+
+		# TODO
+	}
+}
+
+# Test event, not used in production.
+VNTL_events.1999 = {
+	type = character_event
+
+	hidden = yes
+
+	immediate = {
+		debug_log = "VNTL_events.1999 (test event)"
 
 		every_duchy = {
 			limit = {

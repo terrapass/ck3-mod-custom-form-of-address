@@ -157,9 +157,13 @@ window = {
 									}
 									# END MOD
 
+									# MOD-COMPATIBILITY(remove-title-tier-prefix)
 									hbox = {
+										#visible = "" # TODO
+
 										using = remove_title_prefix_toggle
 									}
+									# END MOD COMPATIBILITY
 
 									expand = {}
 								}
