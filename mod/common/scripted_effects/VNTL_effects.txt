@@ -1,8 +1,9 @@
-﻿#
-# Interface
+﻿# Saves the best available vanity title for the primary title
+# of the scoped character into scope:selected_vanity_title.
+# Scope: Character
 #
-
-# Scope is Character.
+# See VNTL_select_best_available_vanity_title_for_primary_title
+# for VT selection logic.
 VNTL_select_best_available_vanity_title_for_character = {
 	assert_if = {
 		limit = { NOT = { exists = primary_title }}
@@ -15,97 +16,136 @@ VNTL_select_best_available_vanity_title_for_character = {
 	}
 }
 
-# Scope is (presumably someone's primary) Title.
+# Saves the best available vanity title for the scoped title
+# (assumed to be some character's primary)
+# into scope:selected_vanity_title.
+# Scope: Title
+#
+# Vanity title is selected according to the following order of preference:
+#   0. The VT already bound to this title and currently held by the same character as this title
+#      (there should never be more than 1 of these).
+#   1. Any VT already bound to this title and not currently held by any character.
+#   2. Any unbound VT (expected to have no holder).
+#   3. Any VT already bound to a different title and not currently held by any character.
+#   4. Any VT. (By elimination this will be an already bound VT already held by some character,
+#      so we're going to have to steal their VT unfortunatelly, since we ran out of better options.)
 VNTL_select_best_available_vanity_title_for_primary_title = {
+	assert_if = {
+		limit = { NOT = { exists = holder } }
+
+		text = "primary title must have a holder"
+	}
+
 	if = {
 		limit = { exists = scope:selected_vanity_title }	
-
 		clear_saved_scope = selected_vanity_title
 	}
 
-	# If PRIMARY_TITLE already has a bound vanity title,
-	# and bound VT is either held by the same holder or dormant, re-select this VT.
-	if = {
-		limit = {
-			AND = {
-				has_variable = VNTL_bound_vanity_title
-				OR = {
-					NOT = { exists = var:VNTL_bound_vanity_title.holder }
-					var:VNTL_bound_vanity_title.holder = holder
-				}
-			}
-		}
-
-		var:VNTL_bound_vanity_title = {
-			assert_if = {
-				limit = {
-					OR = {
-						NOT = { has_variable = VNTL_bound_primary_title }
-						NOT = { var:VNTL_bound_primary_title = PREV }
-					}
-				}
-
-				text = "bound VT must have VNTL_bound_primary_title set to the title it's bound to"
-			}
-
-			save_scope_as = selected_vanity_title
-
-			debug_log = "re-selected the already bound VT"
-		}
+	set_local_variable = {
+		name = selected_vanity_title_cost
+		value = VNTL_vt_cost_infinite
 	}
-	else = {
-		# Otherwise, select an unbound VT, if there are any.
-		random_in_global_list = {
-			variable = VNTL_vanity_titles
-			limit = {
-				NOT = { has_variable = VNTL_bound_primary_title }
-			}
 
-			assert_if = {
-				limit = { { exists = holder } }
+	every_in_global_list = {
+		variable = VNTL_vanity_titles
 
-				text = "unbound vanity titles must not have holders"
-			}
-
-			save_scope_as = selected_vanity_title
-
-			debug_log = "selected an unbound VT"
+		set_local_variable = {
+			name = current_vanity_title_cost
+			value = VNTL_vt_cost_infinite
 		}
+
+		#
+		# Assign cost to current title
+		#
 
 		if = {
-			limit = { NOT = { exists = scope:selected_vanity_title } }
-
-			# Otherwise, select someone else's bound but dormant VT, if there are any.
-			random_in_global_list = {
-				variable = VNTL_vanity_titles
-				limit = {
-					AND = {
-						has_variable = VNTL_bound_primary_title
-						NOT = { exists = holder }
-					}
+			limit = {
+				VNTL_is_vt_bound_to_title = {
+					TARGET_TITLE = PREV
 				}
-
-				save_scope_as = selected_vanity_title
-
-				debug_log = "selected someone else's bound but dormant VT"
 			}
 
 			if = {
-				limit = { NOT = { exists = scope:selected_vanity_title } }
+				limit = {
+					NOT = { exists = holder }
+				}
 
-				# Finally, just go ahead and select any VT.
-				# (By elimination, at this point it will be someone else's bound and active VT,
-				# so we're going to have to steal it.)
-				random_in_global_list = {
-					variable = VNTL_vanity_titles
+				# 1. This VT is already bound to this title and not currently held by any character.
+				set_local_variable = {
+					name = current_vanity_title_cost
+					value = VNTL_vt_cost_own_bound_former
+				}
+			}
+			else = {
+				assert_if = {
+					limit = {
+						NOT = { holder = PREV.holder }
+					}
 
-					save_scope_as = selected_vanity_title
+					text = "if a bound VT has a holder, it must match the holder of the title it's bound to"
+				}
 
-					debug_log = "selected random VT"
+				# 0. This VT is already bound to this title and currently held by the same character as this title.
+				set_local_variable = {
+					name = current_vanity_title_cost
+					value = VNTL_vt_cost_own_bound_current
 				}
 			}
 		}
+		else_if = {
+			limit = {
+				VNTL_is_vt_unbound = yes
+			}
+
+			assert_if = {
+				limit = { exists = holder }
+
+				text = "unbound VTs must not have holders"
+			}
+
+			# 2. This is an as-of-yet unbound VT.
+			set_local_variable = {
+				name = current_vanity_title_cost
+				value = VNTL_vt_cost_unbound
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { exists = holder }
+			}
+
+			# 3. This VT is already bound to a different title but not currently held by any character.
+			set_local_variable = {
+				name = current_vanity_title_cost
+				value = VNTL_vt_cost_other_bound_former
+			}
+		}
+		else = {
+			# 4. Worst case scenario. This VT is already bound to a different title and is currently held by some character.
+			set_local_variable = {
+				name = current_vanity_title_cost
+				value = VNTL_vt_cost_any
+			}
+		}
+
+		# Update selected VT and cost, if current title is better
+		if = {
+			limit = {
+				local_var:current_vanity_title_cost < local_var:selected_vanity_title_cost
+			}
+
+			save_scope_as = selected_vanity_title
+			set_local_variable = {
+				name = selected_vanity_title_cost
+				value = local_var:current_vanity_title_cost
+			}
+		}
 	}
+
+	# TODO: Log selected VT score
+
+	remove_local_variable = current_vanity_title_cost
+	remove_local_variable = selected_vanity_title_cost
 
 	assert_if = {
 		limit = { NOT = { exists = scope:selected_vanity_title } }

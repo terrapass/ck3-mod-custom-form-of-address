@@ -20,12 +20,8 @@ VNTL_sgui_is_vanity_title = {
 # IsValid() - enabled only for player's primary title.
 # Execute() - bind an available[1] vanity title to the given primary title.
 #
-# [1] Vanity title (VT) to bind is selected according to the following order of precedence:
-#       0 (no-op). Active VT already bound to this title (VNTL_bound_primary_title set to this primary title, holder matches).
-#       1. Any inactive VT already bound to this title (VNTL_bound_primary_title set to this primary title, no holder).
-#       2. Any unbound VT (no VNTL_bound_primary_title variable, no holder expected).
-#       3. Any inactive VT already bound to a different title (VNTL_bound_primary_title set to a different title, no holder).
-#       4. Any active VT already bound to a different title (VNTL_bound_primary_title set to a different title, different holder).
+# [1] For VT selection logic see VNTL_select_best_available_vanity_title_for_primary_title
+# scripted effect, which this sgui's effect uses internally.
 VNTL_sgui_bind_vanity_title = {
 	scope = title
 

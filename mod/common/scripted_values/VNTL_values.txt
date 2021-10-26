@@ -1,10 +1,10 @@
-﻿# Poor man's enum for vanity title selection priority.
-# The lower the number, the more desirable the VT.
-VNTL_vt_selector_own_current = 0
-VNTL_vt_selector_own_former = 1
-VNTL_vt_selector_never_used = 2
-VNTL_vt_selector_other_former = 3
-VNTL_vt_selector_other_current = 4
-VNTL_vt_selector_any = 5
+﻿# Vanity title selection costs used by
+# VNTL_select_best_available_vanity_title_for_primary_title
+# scripted effect.
+VNTL_vt_cost_own_bound_current = 0
+VNTL_vt_cost_own_bound_former = 1
+VNTL_vt_cost_unbound = 2
+VNTL_vt_cost_other_bound_former = 3
+VNTL_vt_cost_any = 4
 
-VNTL_vt_selector_MAX = 6
+VNTL_vt_cost_infinite = 999 # Shut up.
