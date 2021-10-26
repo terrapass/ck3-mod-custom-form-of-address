@@ -142,7 +142,16 @@ VNTL_select_best_available_vanity_title_for_primary_title = {
 		}
 	}
 
-	# TODO: Log selected VT score
+	# DEBUG
+	set_variable = {
+		name = VNTL_temp_selected_vanity_title_cost_for_logging
+		value = local_var:selected_vanity_title_cost
+	}
+
+	debug_log = "VNTL_select_best_available_vanity_title_for_primary_title selected VT cost: [TITLE.MakeScope.Var('VNTL_temp_selected_vanity_title_cost_for_logging')]"
+
+	remove_variable = VNTL_temp_selected_vanity_title_cost_for_logging
+	# END DEBUG
 
 	remove_local_variable = current_vanity_title_cost
 	remove_local_variable = selected_vanity_title_cost
