@@ -18,7 +18,7 @@ VNTL_flavor_vanity_title_holder_male_0 = {
 
 VNTL_flavor_vanity_title_holder_female_0 = {
 	type = character
-	gender = male
+	gender = female
 	special = holder
 	priority = 500
 	titles = { d_VNTL_vanity_0 }
@@ -36,7 +36,7 @@ VNTL_flavor_vanity_title_holder_male_1 = {
 
 VNTL_flavor_vanity_title_holder_female_1 = {
 	type = character
-	gender = male
+	gender = female
 	special = holder
 	priority = 500
 	titles = { d_VNTL_vanity_1 }
