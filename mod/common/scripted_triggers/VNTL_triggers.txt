@@ -6,6 +6,16 @@ VNTL_is_vanity_title = {
 	}
 }
 
+# Scope: Title
+VNTL_has_current_bound_vt = {
+	AND = {
+		has_variable = VNTL_bound_vanity_title
+		var:VNTL_bound_vanity_title = {
+			holder = PREV.holder
+		}
+	}
+}
+
 # Scope:        Title - Vanity Title
 # TARGET_TITLE: Title - Title to check binding with (should generally be someone's primary)
 VNTL_is_vt_bound_to_title = {

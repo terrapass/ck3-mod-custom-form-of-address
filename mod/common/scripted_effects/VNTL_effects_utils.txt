@@ -1,0 +1,12 @@
+﻿# Scope: Title - Title to destroy, if it currently has a holder
+VNTL_try_destroy_title = {
+	if = {
+		limit = {
+			exists = holder
+		}
+
+		holder = {
+			destroy_title = PREV
+		}
+	}
+}

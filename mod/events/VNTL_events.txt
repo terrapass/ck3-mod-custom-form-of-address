@@ -9,7 +9,29 @@ VNTL_events.1001 = {
 	immediate = {
 		debug_log = "VNTL_events.1001 (Find an available vanity title and bind it to this character's primary title.)"
 
-		# TODO
+		if = {
+			limit = {
+				NOT = { VNTL_has_current_bound_vt = yes }
+			}
+
+			# This sets scope:selected_vanity_title
+			VNTL_select_best_available_vanity_title_for_character = yes
+
+			assert_if = {
+				limit = { NOT = { exists = scope:selected_vanity_title } }
+
+				text = "VT selection must always succeed"
+			}
+
+			VNTL_bind_vanity_title = {
+				VANITY_TITLE = scope:selected_vanity_title
+			}
+
+			# TODO: Also reinit VT (reset FoA to default suggestions, maybe reset CoA)
+			# scope:selected_vanity_title = {
+			# 	VNTL_reinit_vanity_title = yes
+			# }
+		}
 	}
 }
 
