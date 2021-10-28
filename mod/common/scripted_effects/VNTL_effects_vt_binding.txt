@@ -32,6 +32,11 @@ VNTL_unbind_and_destroy_vanity_title = {
 VNTL_bind_vanity_title = {
 	VNTL_unbind_and_destroy_vanity_title = yes
 
+	set_variable = {
+		name = VNTL_bound_vanity_title
+		value = $VANITY_TITLE$
+	}
+
 	$VANITY_TITLE$ = {
 		VNTL_try_destroy_title = yes
 
@@ -39,10 +44,7 @@ VNTL_bind_vanity_title = {
 			name = VNTL_bound_primary_title
 			value = PREV
 		}
-	}
 
-	set_variable = {
-		name = VNTL_bound_vanity_title
-		value = $VANITY_TITLE$
+		# TODO: Give VT to scoped title holder
 	}
 }

@@ -2,7 +2,7 @@
 # of the scoped character into scope:selected_vanity_title.
 # Scope: Character
 #
-# See VNTL_select_best_available_vanity_title_for_primary_title
+# See VNTL_select_best_available_vanity_title
 # for VT selection logic.
 VNTL_select_best_available_vanity_title_for_character = {
 	assert_if = {
@@ -12,7 +12,7 @@ VNTL_select_best_available_vanity_title_for_character = {
 	}
 
 	primary_title = {
-		VNTL_select_best_available_vanity_title_for_primary_title = yes
+		VNTL_select_best_available_vanity_title = yes
 	}
 }
 
@@ -29,7 +29,7 @@ VNTL_select_best_available_vanity_title_for_character = {
 #   3. Any VT already bound to a different title and not currently held by any character.
 #   4. Any VT. (By elimination this will be an already bound VT already held by some character,
 #      so we're going to have to steal their VT unfortunatelly, since we ran out of better options.)
-VNTL_select_best_available_vanity_title_for_primary_title = {
+VNTL_select_best_available_vanity_title = {
 	assert_if = {
 		limit = { NOT = { exists = holder } }
 
@@ -131,7 +131,7 @@ VNTL_select_best_available_vanity_title_for_primary_title = {
 		# Update selected VT and cost, if current title is better
 		if = {
 			limit = {
-				local_var:current_vanity_title_cost < local_var:selected_vanity_title_cost
+				local_var:current_vanity_title_cost.compare_value < local_var:selected_vanity_title_cost.compare_value
 			}
 
 			save_scope_as = selected_vanity_title
@@ -143,14 +143,14 @@ VNTL_select_best_available_vanity_title_for_primary_title = {
 	}
 
 	# DEBUG
-	set_variable = {
+	set_global_variable = {
 		name = VNTL_temp_selected_vanity_title_cost_for_logging
 		value = local_var:selected_vanity_title_cost
 	}
 
-	debug_log = "VNTL_select_best_available_vanity_title_for_primary_title selected VT cost: [TITLE.MakeScope.Var('VNTL_temp_selected_vanity_title_cost_for_logging')]"
+	debug_log = "VNTL_select_best_available_vanity_title selected VT cost: [GetGlobalVariable('VNTL_temp_selected_vanity_title_cost_for_logging').GetValue]"
 
-	remove_variable = VNTL_temp_selected_vanity_title_cost_for_logging
+	remove_global_variable = VNTL_temp_selected_vanity_title_cost_for_logging
 	# END DEBUG
 
 	remove_local_variable = current_vanity_title_cost

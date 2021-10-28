@@ -10,9 +10,7 @@ VNTL_is_vanity_title = {
 VNTL_has_current_bound_vt = {
 	AND = {
 		has_variable = VNTL_bound_vanity_title
-		var:VNTL_bound_vanity_title = {
-			holder = PREV.holder
-		}
+		holder = var:VNTL_bound_vanity_title.holder
 	}
 }
 
