@@ -1,0 +1,3 @@
+﻿held_duchy_modifier = {
+	monthly_prestige = VNTL_svalue_test_simple
+}

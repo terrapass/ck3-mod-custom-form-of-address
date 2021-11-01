@@ -3,8 +3,8 @@
  # Holder flavors
  #
  # TODO: Pre-generate offline
- VNTL_flavor_vanity_title_holder_male_0:0 "[title:d_VNTL_vanity_0.GetBaseNameNoTierNoTooltip]"
- VNTL_flavor_vanity_title_holder_female_0:0 "[title:d_VNTL_vanity_0.GetAdjectiveNoTooltip]"
- VNTL_flavor_vanity_title_holder_male_1:0 "[title:d_VNTL_vanity_1.GetBaseNameNoTierNoTooltip]"
- VNTL_flavor_vanity_title_holder_female_1:0 "[title:d_VNTL_vanity_1.GetAdjectiveNoTooltip]"
+ VNTL_flavor_vanity_title_holder_male_0:0 "[GetGlobalVariable('VNTL_vanity_title_0').Title.GetBaseNameNoTierNoTooltip]"
+ VNTL_flavor_vanity_title_holder_female_0:0 "[GetGlobalVariable('VNTL_vanity_title_0').Title.GetAdjectiveNoTooltip]"
+ VNTL_flavor_vanity_title_holder_male_1:0 "[GetGlobalVariable('VNTL_vanity_title_1').Title.GetBaseNameNoTierNoTooltip]"
+ VNTL_flavor_vanity_title_holder_female_1:0 "[GetGlobalVariable('VNTL_vanity_title_1').Title.GetAdjectiveNoTooltip]"
  # TODO: etc

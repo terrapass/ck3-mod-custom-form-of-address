@@ -137,7 +137,7 @@ window = {
 									}
 
 									button_edit_text = {
-										visible = "[TitleViewWindow.GetTitle.CanPlayerRenameTitle]"
+										#visible = "[TitleViewWindow.GetTitle.CanPlayerRenameTitle]"
 										onclick = "[OpenTitleRenamePopup(TitleViewWindow.GetTitle)]"
 										tooltip = "EDIT_TITLE_NAME"
 									}

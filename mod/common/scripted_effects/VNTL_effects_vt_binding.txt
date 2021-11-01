@@ -45,6 +45,9 @@ VNTL_bind_vanity_title = {
 			value = PREV
 		}
 
-		# TODO: Give VT to scoped title holder
+		VNTL_give_vanity_title = {
+			TARGET_CHARACTER = PREV.holder
+			CHANGE_TYPE = created
+		}
 	}
 }

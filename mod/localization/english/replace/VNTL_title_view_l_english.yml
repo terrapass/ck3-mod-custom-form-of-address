@@ -5,9 +5,8 @@ l_english:
  #
  # Mod strings for FoA
  #
- # TODO: Also refer to the title we're editing FoA for via [TITLE.Var(whatever)...]
  VNTL_FOA_RENAME_TITLE_TITLE:0 "Customize Form of Address"
- VNTL_FOA_RENAME_TITLE_DESC:0 "Concatenate('Set form of address for rulers of ', 'Kingdom of TODO')"
+ VNTL_FOA_RENAME_TITLE_DESC:0 "Concatenate('Enter form of address for rulers of ', TITLE.MakeScope.Var('VNTL_bound_primary_title').Title.GetName)"
  VNTL_FOA_RENAME_TITLE_ACCEPT:0 "Save"
  VNTL_FOA_TITLE_NAME_FIELD:0 "Male Form"
  VNTL_FOA_TITLE_ADJECTIVE_FIELD:0 "Female Form"
@@ -29,3 +28,10 @@ l_english:
  RENAME_TITLE_ACCEPT:0 "[SelectLocalization(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), 'VNTL_FOA_RENAME_TITLE_ACCEPT', 'VNTL_VANILLA_RENAME_TITLE_ACCEPT')]"
  TITLE_NAME_FIELD:0 "[SelectLocalization(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), 'VNTL_FOA_TITLE_NAME_FIELD', 'VNTL_VANILLA_TITLE_NAME_FIELD')]"
  TITLE_ADJECTIVE_FIELD:0 "[SelectLocalization(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), 'VNTL_FOA_TITLE_ADJECTIVE_FIELD', 'VNTL_VANILLA_TITLE_ADJECTIVE_FIELD')]"
+ # FIXME: Also dynamically change "Rename" tooltip to "Save"?
+
+ # TODO: Move this to a separate loc file in replace/
+ # This hides vanity titles from "Heir to:" list in character tooltip
+ CHARACTER_LINE_OF_SUCCESSION_ENTRY:0 "[Select_CString(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), '', Concatenate(TITLE.GetName, '\n'))]" # Eyyy... this worked
+
+ MY_VALUE_LABEL:0 "sdsds[PlayerValueItem.GetConcept]: [PlayerValueItem.GetValue]"

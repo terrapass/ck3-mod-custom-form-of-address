@@ -30,7 +30,9 @@ VNTL_sgui_bind_vanity_title = {
 	}
 
 	is_shown = {
+		exists = holder
 		holder = scope:player
+		#NOT = { has_variable = VNTL_bound_vanity_title }
 	}
 
 	is_valid = {
@@ -40,7 +42,10 @@ VNTL_sgui_bind_vanity_title = {
 	}
 
 	effect = {
-		# TODO
+		holder = {
+			# Find an available vanity title and bind it to this character's primary title.
+			trigger_event = VNTL_events.1001
+		}
 	}
 }
 

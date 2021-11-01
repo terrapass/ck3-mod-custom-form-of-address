@@ -8,3 +8,9 @@ VNTL_vt_cost_other_bound_former = 3
 VNTL_vt_cost_any = 4
 
 VNTL_vt_cost_infinite = 999 # Shut up.
+
+# TODO: Extract into a separate file, if this works at all
+VNTL_svalue_test_simple = 42
+VNTL_svalue_test_formula = {
+	value = 43
+}
