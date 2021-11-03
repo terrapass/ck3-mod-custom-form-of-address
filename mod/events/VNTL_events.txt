@@ -43,6 +43,33 @@ VNTL_events.1001 = {
 	}
 }
 
+# Unbind and destroy vanity title, if one is currently bound to this character's primary title.
+VNTL_events.1002 = {
+	type = character_event
+
+	hidden = yes
+
+	immediate = {
+		debug_log = "VNTL_events.1002 (Unbind and destroy vanity title, if one is currently bound to this character's primary title.)"
+
+		assert_if = {
+			limit = { NOT = { exists = primary_title } }
+
+			text = "character must have a primary title"
+		}
+
+		primary_title = {
+			if = {
+				limit = {
+					VNTL_has_current_bound_vt = yes
+				}
+
+				VNTL_unbind_and_destroy_vanity_title = yes
+			}
+		}
+	}
+}
+
 # Test event, not used in production.
 VNTL_events.1999 = {
 	type = character_event

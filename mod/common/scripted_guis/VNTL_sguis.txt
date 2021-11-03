@@ -7,6 +7,15 @@ VNTL_sgui_is_vanity_title = {
 	}
 }
 
+# IsValid() - whether character given as root holds a vanity title
+VNTL_sgui_has_vanity_title = {
+	scope = character
+
+	is_valid = {
+		VNTL_has_vanity_title = yes
+	}
+}
+
 # Partial logic for "Edit FoA" button in window_title.gui .
 # If necessary, this prepares vanity title and binds it to the primary title given as root.
 # I.e. it selects available VT and makes the player its holder,
@@ -49,22 +58,36 @@ VNTL_sgui_bind_vanity_title = {
 	}
 }
 
-VNTL_test_sgui_getter = {
-	scope = character
+# Unbind and destroy the VT currently bound to the given primary title, if there is still such a bond.
+# I.e. it clears VNTL_bound_vanity_title and destroys the VT it was pointing to.
+# Note the reciprocal VNTL_bound_primary_title on the VT remains unchanged
+# (this is so this same VT would be chosen first, should another attempt to bind a VT be made).
+#
+# IsValid() - enabled only for player's primary title.
+# Execute() - unbind the VT (if currently bound) from the given primary title
+VNTL_sgui_unbind_vanity_title = {
+	scope = title
 
-	# saved_scopes = {
-	# 	character_key_flag
-	# }
+	saved_scopes = {
+		player
+	}
+
+	is_shown = {
+		exists = holder
+		holder = scope:player
+		#has_variable = VNTL_bound_vanity_title
+	}
+
+	is_valid = {
+		scope:player = {
+			primary_title = root
+		}
+	}
 
 	effect = {
-		hidden_effect = {
-			# TODO
+		holder = {
+			# Unbind and destroy vanity title, if one is currently bound to this character's primary title.
+			trigger_event = VNTL_events.1002
 		}
-
-		# custom_description_no_bullet = {
-		# 	text = VNTL_effect_test
-		# 	subject = scope:target_character
-		# 	object = scope:target_title
-		# }
 	}
 }

@@ -6,6 +6,13 @@ VNTL_is_vanity_title = {
 	}
 }
 
+# Scope: Character
+VNTL_has_vanity_title = {
+	any_held_title = {
+		VNTL_is_vanity_title = yes
+	}
+}
+
 # Scope: Title
 VNTL_has_current_bound_vt = {
 	AND = {

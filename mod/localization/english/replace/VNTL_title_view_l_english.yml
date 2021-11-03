@@ -31,7 +31,11 @@ l_english:
  # FIXME: Also dynamically change "Rename" tooltip to "Save"?
 
  # TODO: Move this to a separate loc file in replace/
- # This hides vanity titles from "Heir to:" list in character tooltip
- CHARACTER_LINE_OF_SUCCESSION_ENTRY:0 "[Select_CString(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), '', Concatenate(TITLE.GetName, '\n'))]" # Eyyy... this worked
+ # This hides vanity titles from "Heir to:" list in character tooltip # Eyyy... this worked
+ CHARACTER_LINE_OF_SUCCESSION_ENTRY:0 "[Select_CString(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), '', Concatenate(TITLE.GetName, '\n'))]"
+ #CHARACTER_LINE_OF_SUCCESSION_MORE:0 "And $COUNT|V$ more [titles|E]" # Somehow this works without modification?
 
  MY_VALUE_LABEL:0 "sdsds[PlayerValueItem.GetConcept]: [PlayerValueItem.GetValue]"
+
+# This corrects title count in character window
+CV_TITLES:0 "[Subtract_int32(GetDataModelSize(CharacterWindow.GetTitles), Select_int32(GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), '(int32)1', '(int32)0'))|V] [titles|E]"

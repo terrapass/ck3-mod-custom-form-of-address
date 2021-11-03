@@ -748,8 +748,11 @@ window = {
 
 							# MOD(vanity-titles)
 							button_edit_text = {
+								button_ignore = none # Necessary for onrightclick to work
+
 								datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title')]"
 								visible = "[And(ScriptedGui.IsShown( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End ), Not(GetVariableSystem.Exists('VTNL_must_show_fake_button')))]"
+
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
 								onclick = "[GetVariableSystem.Set('VTNL_must_show_fake_button', 'true')]"
 								# onclick = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
@@ -757,6 +760,10 @@ window = {
 								# # not when the current one changes in some way, while we're looking at them.
 								# onclick = "[OpenTitleRenamePopup(Character.GetPrimaryTitle.MakeScope.Var('VNTL_bound_vanity_title').Title)]"
 								# onclick = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
+
+								onrightclick = "[GetScriptedGui('VNTL_sgui_unbind_vanity_title').Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+
+								# TODO: Generate proper tooltip
 								tooltip = "Customize Form of Address (REAL)"
 								texture = "gfx/interface/icons/flat_icons/VNTL_edit_foa.dds"
 							}
@@ -3397,14 +3404,17 @@ window = {
 					hbox = {
 						layoutpolicy_horizontal = expanding
 
-						# TODO: Add MOD() comments everywhere needed
-						# TODO: Try changing to dynamicgridbox?
-						dynamicgridbox = { # HOLY SHIT this worked, I can actually hide titles now!
+						# MOD(vanity-titles): Changing to dynamicgridbox to make use of ignoreinvisible
+						dynamicgridbox = {
 						#fixedgridbox = {
+						# END MOD
 							datamodel = "[CharacterWindow.GetTitles]"
 							flipdirection = yes
+							# MOD(vanity-titles)
 							#addrow = 60
 							#addcolumn = 38
+							ignoreinvisible = yes
+							# END MOD
 							maxverticalslots = 1
 
 							block "titles_max_slots" {
@@ -3415,15 +3425,14 @@ window = {
 
 								coa_title_tiny_crown = {
 									datacontext = "[TitleItem.GetTitle]"
-									#	visible = "[GreaterThan_int32( Title.GetTierFrame, '(int32)3' )]"
+									# MOD(vanity-titles)
+									visible = "[Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TitleItem.GetTitle.MakeScope).End))]"
+									# END MOD
 									using = tooltip_ne
 
-									# FIXME: This still creates a gap in the list,
-									#        see if https://discord.com/channels/735413460439007241/735413461403566119/899614628949143592
-									#        can be used to modify the datamodel itself
 									# FIXME: Test
-									visible = "[Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TitleItem.GetTitle.MakeScope).End))]"
-									# END FIXME
+									onrightclick = "[CharacterWindow.SetTab('vassals')]" # TODO: This works! Why then doesn't it bloody work for button_icon?
+									# END FIMXE
 
 									icon = {
 										name = "has_laws"
@@ -3433,6 +3442,17 @@ window = {
 										position = { 5 0 }
 										texture = "gfx/interface/icons/title_status/icon_title_law.dds"
 									}
+
+									# MOD(vanity-titles)
+									icon = {
+										name = "VTNL_is_vanity_title"
+										visible = "[GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid( GuiScope.SetRoot(TitleItem.GetTitle.MakeScope).End )]"
+										parentanchor = bottom|right
+										size = { 25 25 }
+										position = { 5 0 }
+										texture = "gfx/interface/icons/title_status/VNTL_icon_vanity_title.dds"
+									}
+									# END MOD
 								}
 							}
 						}
