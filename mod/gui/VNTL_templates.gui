@@ -1,107 +1,31 @@
-﻿# "Edit FoA" button-icon to be displayed inline next to text
-template "VNTL_button_edit_foa_inline" {
-    button_icon = {
-        name = "VNTL_button_bind_vanity_title_inline"
+﻿template "VNTL_edit_foa_immediate_outer" {
+    datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title')]"
+    visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End ))]"
 
-        button_ignore = none # Necessary for onrightclick to work
-
-        datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title')]"
-        visible = "[And(ScriptedGui.IsShown( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End ), Not(GetVariableSystem.Exists('VTNL_must_show_fake_button_inline')))]"
-
-        onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
-        onclick = "[GetVariableSystem.Set('VTNL_must_show_fake_button_inline', 'true')]"
-
-        onrightclick = "[GetScriptedGui('VNTL_sgui_unbind_vanity_title').Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
-
-        # TODO: Generate part of the tooltip
-        tooltip = "VNTL_TOOLTIP_BIND_VANITY_TITLE"
-        texture = "gfx/interface/icons/flat_icons/VNTL_edit_foa.dds"
-    }
-
-    # Fake button, visual clone of the real one,
-    # used only as means to delay the call to OpenTitleRenamePopup
-    # for 0.1 second, so that it has enough time to
-    # recognize the title holder change, which will happen
-    # on the first call to VNTL_sgui_bind_vanity_title.
-    button_icon = {
-        name = "VNTL_button_bind_vanity_title_inline_fake"
-
-        visible = "[GetVariableSystem.Exists('VTNL_must_show_fake_button_inline')]"
-
-        tooltip = "VNTL_TOOLTIP_BIND_VANITY_TITLE"
-        texture = "gfx/interface/icons/flat_icons/VNTL_edit_foa.dds"
-
-        state = {
-            name = _show
-            duration = 0.1
-
-            on_finish = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
-            on_finish = "[OpenTitleRenamePopup(Character.GetPrimaryTitle.MakeScope.Var('VNTL_bound_vanity_title').Title)]"
-            on_finish = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
-
-            on_finish = "[GetVariableSystem.Clear('VTNL_must_show_fake_button_inline')]"
-        }
-    }
+    # TODO: Generate part of the tooltip
+    tooltip = "VNTL_TOOLTIP_BIND_VANITY_TITLE"
 }
 
-# Round "Edit FoA" button
-template "VNTL_button_edit_foa" {
-    button_normal = {
-        name = "VNTL_button_bind_vanity_title"
+template "VNTL_edit_foa_immediate_inner" {
+    button_ignore = none # Necessary for onrightclick to work
 
-        size = { 35 35 }
+    onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+    onclick = "[GetVariableSystem.Set('VTNL_is_edit_foa_delay_active', 'true')]"
 
-        datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title')]"
-        visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End ))]"
+    onrightclick = "[GetScriptedGui('VNTL_sgui_unbind_vanity_title').Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+}
 
-        tooltip = "VNTL_TOOLTIP_BIND_VANITY_TITLE"
-        using = tooltip_es
+template "VNTL_edit_foa_delayed" {
+    visible = "[GetVariableSystem.Exists('VTNL_is_edit_foa_delay_active')]"
 
-        icon = {
-            texture = "gfx/interface/buttons/button_lifestyles_base.dds"
-            size = { 100% 100% }
-        }
+    state = {
+        name = _show
+        duration = 0.1
 
-        button_icon = {
-            button_ignore = none # Necessary for onrightclick to work
+        on_finish = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
+        on_finish = "[OpenTitleRenamePopup(Character.GetPrimaryTitle.MakeScope.Var('VNTL_bound_vanity_title').Title)]"
+        on_finish = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
 
-            onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
-            onclick = "[GetVariableSystem.Set('VTNL_must_show_fake_button', 'true')]"
-
-            onrightclick = "[GetScriptedGui('VNTL_sgui_unbind_vanity_title').Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
-
-            size = { 25 25 }
-            parentanchor = center
-
-            texture = "gfx/interface/icons/flat_icons/VNTL_edit_foa.dds"
-
-            # Commented-out, since the icon is too big and gets cut off if masked.
-            # modify_texture = {
-            # 	texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
-            # 	blend_mode = alphamultiply
-            # }
-        }
-    }
-
-    # Fake button, visual clone of the real one,
-    # used only as means to delay the call to OpenTitleRenamePopup
-    # for 0.1 second, so that it has enough time to
-    # recognize the title holder change, which will happen
-    # on the first call to VNTL_sgui_bind_vanity_title.
-    flowcontainer = {
-        name = "VNTL_button_bind_vanity_title_fake"
-
-        visible = "[GetVariableSystem.Exists('VTNL_must_show_fake_button')]"
-
-        state = {
-            name = _show
-            duration = 0.1
-
-            on_finish = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
-            on_finish = "[OpenTitleRenamePopup(Character.GetPrimaryTitle.MakeScope.Var('VNTL_bound_vanity_title').Title)]"
-            on_finish = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
-
-            on_finish = "[GetVariableSystem.Clear('VTNL_must_show_fake_button')]"
-        }
+        on_finish = "[GetVariableSystem.Clear('VTNL_is_edit_foa_delay_active')]"
     }
 }

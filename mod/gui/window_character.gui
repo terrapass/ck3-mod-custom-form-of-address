@@ -681,7 +681,7 @@ window = {
 			}
 
 			# MOD(vanity-titles)
-			VNTL_flowcontainer_edit_foa = {}
+			VNTL_flowcontainer_edit_foa_offset = {}
 			# END MOD
 		}
 
@@ -719,7 +719,7 @@ window = {
 							margin_top = 1
 
 							# MOD(vanity-titles)
-							using = VNTL_button_edit_foa_inline
+							#VNTL_flowcontainer_edit_foa_inline = {}
 							# END MOD
 
 							text_single = {
