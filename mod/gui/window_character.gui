@@ -747,52 +747,7 @@ window = {
 							margin_top = 1
 
 							# MOD(vanity-titles)
-							button_edit_text = {
-								button_ignore = none # Necessary for onrightclick to work
-
-								datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title')]"
-								visible = "[And(ScriptedGui.IsShown( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End ), Not(GetVariableSystem.Exists('VTNL_must_show_fake_button')))]"
-
-								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
-								onclick = "[GetVariableSystem.Set('VTNL_must_show_fake_button', 'true')]"
-								# onclick = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
-								# # Tried character_window_refresh - it only fires when a different character is selected,
-								# # not when the current one changes in some way, while we're looking at them.
-								# onclick = "[OpenTitleRenamePopup(Character.GetPrimaryTitle.MakeScope.Var('VNTL_bound_vanity_title').Title)]"
-								# onclick = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
-
-								onrightclick = "[GetScriptedGui('VNTL_sgui_unbind_vanity_title').Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
-
-								# TODO: Generate proper tooltip
-								tooltip = "Customize Form of Address (REAL)"
-								texture = "gfx/interface/icons/flat_icons/VNTL_edit_foa.dds"
-							}
-
-							button_edit_text = {
-								#datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title')]"
-								visible = "[GetVariableSystem.Exists('VTNL_must_show_fake_button')]"
-								#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
-								#onclick = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
-								# Tried character_window_refresh - it only fires when a different character is selected,
-								# not when the current one changes in some way, while we're looking at them.
-								#onclick = "[OpenTitleRenamePopup(Character.GetPrimaryTitle.MakeScope.Var('VNTL_bound_vanity_title').Title)]"
-								#onclick = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
-								tooltip = "Customize Form of Address (FAKE)"
-								texture = "gfx/interface/icons/flat_icons/VNTL_edit_foa.dds"
-
-								state = {
-									#name = _mouse_hierarchy_enter
-									name = _show
-									duration = 0.1
-
-									on_finish = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
-									on_finish = "[OpenTitleRenamePopup(Character.GetPrimaryTitle.MakeScope.Var('VNTL_bound_vanity_title').Title)]"
-									on_finish = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
-
-									on_finish = "[GetVariableSystem.Clear('VTNL_must_show_fake_button')]"
-								}
-							}
-							# END FIXME
+							using = VNTL_button_edit_foa_inline
 							# END MOD
 
 							text_single = {
