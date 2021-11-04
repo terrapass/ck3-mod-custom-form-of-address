@@ -2,7 +2,7 @@
  #
  # GUI
  #
- VNTL_TOOLTIP_BIND_VANITY_TITLE:0 "Enable Custom Form of Address"
+ VNTL_TOOLTIP_BIND_VANITY_TITLE:0 "Edit Form of Address"
  VNTL_TOOLTIP_UNBIND_VANITY_TITLE:0 "Revert to Standard Form of Address"
 
  #

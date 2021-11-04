@@ -1,0 +1,12 @@
+﻿types VNTL_types
+{
+    # "Edit FoA" button with offset, to be displayed over character portrait in window_character.gui .
+    type VNTL_flowcontainer_edit_foa = flowcontainer {
+        margin_left = 45
+        margin_bottom = 5
+
+        using = VNTL_button_edit_foa
+
+        parentanchor = bottom
+    }
+}

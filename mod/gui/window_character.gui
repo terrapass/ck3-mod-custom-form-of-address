@@ -557,38 +557,6 @@ window = {
 					}
 				}
 
-				# MOD(vanity-titles)
-				button_normal = {
-					name = "VNTL_button_bind_vanity_title"
-
-					size = { 35 35 }
-
-					datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title')]"
-					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
-
-					tooltip = "VNTL_TOOLTIP_BIND_VANITY_TITLE"
-					using = tooltip_es
-
-					icon = {
-						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
-						size = { 100% 100% }
-					}
-
-					button_icon = {
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
-						size = { 25 25 }
-						parentanchor = center
-
-						texture = "gfx/interface/icons/flat_icons/war_outcome_victory.dds"
-
-						modify_texture = {
-							texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
-							blend_mode = alphamultiply
-						}
-					}
-				}
-				# END MOD
-
 				container = {
 					visible = "[Character.IsPlayer]"
 					tooltip = "PLAYER_STRESS_TOOLTIP"
@@ -711,6 +679,10 @@ window = {
 					}
 				}
 			}
+
+			# MOD(vanity-titles)
+			VNTL_flowcontainer_edit_foa = {}
+			# END MOD
 		}
 
 		############################
