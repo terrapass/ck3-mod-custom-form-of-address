@@ -3,6 +3,8 @@
 d_VNTL_vanity_0 = {
 	color = { 0 0 0 }
 
+	definite_form = yes
+
 	destroy_if_invalid_heir = yes
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
@@ -10,6 +12,8 @@ d_VNTL_vanity_0 = {
 
 d_VNTL_vanity_1 = {
 	color = { 0 0 255 }
+
+	definite_form = yes
 
 	destroy_if_invalid_heir = yes
 	no_automatic_claims = yes
