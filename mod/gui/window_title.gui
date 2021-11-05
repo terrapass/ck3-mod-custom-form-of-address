@@ -14,9 +14,6 @@ window = {
 		position = { 0 0 }
 		on_start = "[GetVariableSystem.Clear( 'display_allegiance' )]"
 		on_start = "[GetVariableSystem.Set( 'hide_bottom_left_HUD', 'true' )]"
-		# MOD(vanity-titles)
-		on_start = "[GetScriptedGui('VNTL_sgui_init_title_character_key_flag').Execute(GuiScope.SetRoot( TitleViewWindow.GetTitle.MakeScope ).AddScope( 'character_key_flag', MakeScopeFlag(Concatenate('VNTL_FLAG_', TitleViewWindow.GetTitle.GetBaseNameNoTierNoTooltip)) ).End )]"
-		# END MOD
 
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
@@ -137,33 +134,19 @@ window = {
 									}
 
 									button_edit_text = {
-										#visible = "[TitleViewWindow.GetTitle.CanPlayerRenameTitle]"
+										visible = "[TitleViewWindow.GetTitle.CanPlayerRenameTitle]"
 										onclick = "[OpenTitleRenamePopup(TitleViewWindow.GetTitle)]"
 										tooltip = "EDIT_TITLE_NAME"
 									}
 
 									# MOD(vanity-titles)
-									button_edit_text = {
-										visible = "[TitleViewWindow.GetTitle.CanPlayerRenameTitle]"
-										# MOD(vanity-titles)
-										onclick = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
-										# END MOD
-										onclick = "[OpenTitleRenamePopup(TitleViewWindow.GetTitle)]"
-										# MOD(vanity-titles)
-										onclick = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
-										# END MOD
-										tooltip = "EDIT_TITLE_NAME"
-										texture = "gfx/interface/icons/flat_icons/find_title.dds"
-									}
-									# END MOD
-
-									# MOD-COMPATIBILITY(remove-title-tier-prefix)
 									hbox = {
-										#visible = "" # TODO
+										# TODO: Should be encapsulated in remove_title_prefix_toggle itself?
+										visible = "[Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End))]"
 
 										using = remove_title_prefix_toggle
 									}
-									# END MOD COMPATIBILITY
+									# END MOD
 
 									expand = {}
 								}
@@ -204,11 +187,13 @@ window = {
 									}
 								}
 
+								# MOD(vanity-titles)
 								hbox = { using = rcoa_window_title }
 
 								flowcontainer = { using = title_manager_button_1 }
 
 								flowcontainer = { using = title_manager_button_2 }
+								# END MOD
 
 								expand = {}
 							}
@@ -268,19 +253,34 @@ window = {
 										visible = "[And(NotEqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID ), GetPlayer.HasClaimOnTitle(TitleViewWindow.GetTitle ))]"
 									}
 
-									#MOD(vanity-titles)
-									hbox = {
-										name = "VNTL_title_ui"
+									# MOD(vanity-titles)
+									flowcontainer = {
 										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = expanding
 										visible = "[EqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID )]"
 
-										text_multi = {
-											name = "VNTL_title_foa"
-											layoutpolicy_horizontal = expanding
-											text = "Form of Address: [Title.GetHolder.GetTitleAsNameNoTooltip] (default)"
+										vbox = {
+
+											text_multi = {
+												name = "VNTL_title_foa_label"
+
+												layoutpolicy_horizontal = expanding
+												#text = "#bold Form of Address: #!"
+												text = "[VNTL_foa|E]: [Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
+											}
+
+											# text_single = {
+											# 	name = "VNTL_title_foa"
+											# 	layoutpolicy_horizontal = expanding
+											# 	text = "[Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
+											# }
 										}
+
+										# divider_light = {
+										# 	layoutpolicy_horizontal = expanding
+										# }
 									}
-									#END MOD
+									# END MOD
 								}
 
 								expand = {}

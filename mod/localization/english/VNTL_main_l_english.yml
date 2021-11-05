@@ -2,7 +2,7 @@
  #
  # GUI
  #
- VNTL_TOOLTIP_BIND_VANITY_TITLE:0 "Edit Form of Address"
+ VNTL_TOOLTIP_BIND_VANITY_TITLE:0 "#T Customize [VNTL_form_of_address|E]#!\nFor your [primary_title|E] - [GetPlayer.GetPrimaryTitle.GetName]\n\n#I Click to edit FoA\nRight-click to revert to standard FoA#!"
  VNTL_TOOLTIP_UNBIND_VANITY_TITLE:0 "Revert to Standard Form of Address"
 
  #
@@ -10,7 +10,10 @@
  #
  game_concept_VNTL_vanity_title:0 "Vanity Title"
  game_concept_VNTL_vanity_titles:0 "Vanity Titles"
- game_concept_VNTL_vanity_title_desc:0 "A $game_concept_VNTL_vanity_title$ is a special [title|E], which carries no land, bonuses or obligations, and exists only to allow the player to manually enter their preferred form of address instead of using the standard one (\"Duke\", \"Queen\" etc.) based on their [primary_title|E].\nA [ruler|E] cannot hold more than one $game_concept_VNTL_vanity_title$ at the same time and must be at least a [duke|E] to be able to create one.\n\nThe $game_concept_VNTL_vanity_title$ is tied to its [holder_possessive|El] [primary_title|E] and will be automatically destroyed if this title ceases to be primary for any reason; in such a case the player will be able to create a new $game_concept_VNTL_vanity_title$ for their new [primary_title|E]."
+ game_concept_VNTL_vanity_title_desc:0 "A $game_concept_VNTL_vanity_title$ is a special [title|E], which carries no land, bonuses or obligations, and exists only to allow the player to manually enter their preferred [VNTL_form_of_address|E] instead of using the standard one (\"Duke\", \"Queen\" etc.) based on their [primary_title|E].\nA [ruler|E] cannot hold more than one $game_concept_VNTL_vanity_title$ at the same time and must be at least a [duke|E] to be able to create one.\n\nThe $game_concept_VNTL_vanity_title$ is tied to its [holder_possessive|El] [primary_title|E] and will be automatically destroyed if this title ceases to be primary for any reason; in such a case the player will be able to create a new $game_concept_VNTL_vanity_title$ for their new [primary_title|E]."
+ game_concept_VNTL_form_of_address:0 "Form of Address"
+ game_concept_VNTL_foa:0 "FoA"
+ game_concept_VNTL_form_of_address_desc:0 "TODO"
 
  #
  # Flavors

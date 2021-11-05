@@ -3,3 +3,9 @@
 	parent = title
 	alias = { VNTL_vanity_titles }
 }
+
+VNTL_form_of_address = {
+	texture = "gfx/interface/icons/message_feed/VNTL_foa.dds"
+	#parent = title
+	alias = { VNTL_foa }
+}
