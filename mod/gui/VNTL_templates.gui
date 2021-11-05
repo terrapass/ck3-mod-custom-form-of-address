@@ -29,3 +29,7 @@ template "VNTL_edit_foa_delayed" {
         on_finish = "[GetVariableSystem.Clear('VTNL_is_edit_foa_delay_active')]"
     }
 }
+
+template "VNTL_hide_if_vanity_title" {
+    visible = "[Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End))]"
+}
