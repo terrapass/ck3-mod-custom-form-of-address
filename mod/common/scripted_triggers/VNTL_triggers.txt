@@ -36,6 +36,18 @@ VNTL_is_vt_bound = {
 }
 
 # Scope: Title - Vanity Title
+VNTL_is_vt_bound_current = {
+	VNTL_is_vt_bound = yes
+	exists = holder
+}
+
+# Scope: Title - Vanity Title
+VNTL_is_vt_bound_former = {
+	VNTL_is_vt_bound = yes
+	VNTL_is_vt_bound_current = no
+}
+
+# Scope: Title - Vanity Title
 VNTL_is_vt_unbound = {
 	NOT = { VNTL_is_vt_bound = yes }
 }

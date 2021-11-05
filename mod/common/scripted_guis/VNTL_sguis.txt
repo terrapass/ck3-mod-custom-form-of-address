@@ -7,6 +7,36 @@ VNTL_sgui_is_vanity_title = {
 	}
 }
 
+# IsValid() - whether title given as root is a current (held) bound title
+VNTL_sgui_is_current_bound_vanity_title = {
+	scope = title
+
+	is_valid = {
+		VNTL_is_vanity_title = yes
+		VNTL_is_vt_bound_current = yes
+	}
+}
+
+# IsValid() - whether title given as root is a former (not held) bound title
+VNTL_sgui_is_former_bound_vanity_title = {
+	scope = title
+
+	is_valid = {
+		VNTL_is_vanity_title = yes
+		VNTL_is_vt_bound_former = yes
+	}
+}
+
+# IsValid() - whether title given as root is an unbound vanity title
+VNTL_sgui_is_unbound_vanity_title = {
+	scope = title
+
+	is_valid = {
+		VNTL_is_vanity_title = yes
+		VNTL_is_vt_unbound = yes
+	}
+}
+
 # IsValid() - whether character given as root holds a vanity title
 VNTL_sgui_has_vanity_title = {
 	scope = character

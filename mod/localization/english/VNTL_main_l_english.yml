@@ -4,6 +4,9 @@
  #
  VNTL_TOOLTIP_BIND_VANITY_TITLE:0 "#T Customize [VNTL_form_of_address|E]#!\nFor your [primary_title|E] - [GetPlayer.GetPrimaryTitle.GetName]\n\n#I Click to edit FoA\nRight-click to revert to standard FoA#!"
  VNTL_TOOLTIP_UNBIND_VANITY_TITLE:0 "Revert to Standard Form of Address"
+ VNTL_CURRENT_VANITY_TITLE_TYPE_TEXT:0 "[VNTL_form_of_address|E] for rulers of [Title.MakeScope.Var('VNTL_bound_primary_title').Title.GetName]"
+ VNTL_FORMER_VANITY_TITLE_TYPE_TEXT:0 "Former [VNTL_foa|E] for rulers of [Title.MakeScope.Var('VNTL_bound_primary_title').Title.GetName]"
+ VNTL_UNUSED_VANITY_TITLE_TYPE_TEXT:0 "Unused [VNTL_form_of_address|E]"
 
  #
  # Concepts

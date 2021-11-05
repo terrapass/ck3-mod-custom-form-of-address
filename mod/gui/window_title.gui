@@ -152,8 +152,14 @@ window = {
 								}
 
 								vbox_title_type_text = {
+									# MOD(vanity-titles)
+									using = VNTL_hide_if_vanity_title
+									# END MOD
+
 									layoutpolicy_horizontal = expanding
 								}
+
+								VNTL_vbox_title_type_text = {}
 							}
 
 							watch_window_button = {
@@ -257,28 +263,18 @@ window = {
 									flowcontainer = {
 										layoutpolicy_horizontal = expanding
 										layoutpolicy_vertical = expanding
-										visible = "[EqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID )]"
+
+										visible = "[And(EqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID ), Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)))]"
 
 										vbox = {
 
 											text_multi = {
-												name = "VNTL_title_foa_label"
+												name = "VNTL_title_foa"
 
 												layoutpolicy_horizontal = expanding
-												#text = "#bold Form of Address: #!"
 												text = "[VNTL_foa|E]: [Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
 											}
-
-											# text_single = {
-											# 	name = "VNTL_title_foa"
-											# 	layoutpolicy_horizontal = expanding
-											# 	text = "[Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
-											# }
 										}
-
-										# divider_light = {
-										# 	layoutpolicy_horizontal = expanding
-										# }
 									}
 									# END MOD
 								}
@@ -746,7 +742,10 @@ window = {
 				#### PORTRAITS ###
 				vbox = {
 					name = "succession_info"
-					visible = "[TitleViewWindow.GetTitle.HasHolder]"
+					# MOD(vanity-titles)
+					#visible = "[TitleViewWindow.GetTitle.HasHolder]"
+					visible = "[And(TitleViewWindow.GetTitle.HasHolder, Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)))]"
+					# END MOD
 					layoutpolicy_vertical = preferred
 					layoutpolicy_horizontal = expanding
 					ignoreinvisible = yes
