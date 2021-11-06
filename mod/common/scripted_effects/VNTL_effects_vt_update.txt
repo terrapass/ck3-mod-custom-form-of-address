@@ -10,6 +10,9 @@ VNTL_try_update_vanity_title = {
 # Scope: Character - Character whose primary title has changed
 # NEW_PRIMARY_TITLE: Title - The NEW primary title
 VNTL_on_character_primary_title_changed = {
+	# Workaround for PREV.PREV
+	save_temporary_scope_as = VNTL_temp_holder
+
 	# There should only ever be 1 held VT at a time
 	# but we'll use every_ in case something broke
 	# due to incompatibility with other mods or something.
@@ -46,13 +49,14 @@ VNTL_on_character_primary_title_changed = {
 					}
 
 					VNTL_give_vanity_title = {
-						# FIXME: It would be more robust to address target character via relative scope,
-						#        but PREV.PREV doesn't work for some reason.
-						TARGET_CHARACTER = $NEW_PRIMARY_TITLE$.holder
+						# Can't use PREV.PREV here, as it simply means PREV in CK3. :(
+						TARGET_CHARACTER = scope:VNTL_temp_holder
 						CHANGE_TYPE = created
 					}
 				}
 			}
 		}
 	}
+
+	clear_saved_scope = VNTL_temp_holder
 }
