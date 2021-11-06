@@ -38,4 +38,4 @@ l_english:
  MY_VALUE_LABEL:0 "sdsds[PlayerValueItem.GetConcept]: [PlayerValueItem.GetValue]"
 
 # This corrects title count in character window
-CV_TITLES:0 "[Subtract_int32(GetDataModelSize(CharacterWindow.GetTitles), Select_int32(GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), '(int32)1', '(int32)0'))|V] [titles|E]"
+ CV_TITLES:0 "[Subtract_int32(GetDataModelSize(CharacterWindow.GetTitles), Select_int32(GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), '(int32)1', '(int32)0'))|V] [titles|E]"
