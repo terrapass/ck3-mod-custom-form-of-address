@@ -124,7 +124,7 @@ VNTL_sgui_unbind_vanity_title = {
 
 # Upholds mod invariants on primary title change.
 # Destroys the VT bound to previously used primary title,
-# re-creates the VT (if any) currently bound to the new primary title.
+# re-creates the VT, if there's one already bound to the new primary title.
 #
 # Execute() - destroy any VTs which are bound to no-longer-primary titles,
 #             re-create the VT bound to new primary title
@@ -133,47 +133,15 @@ VNTL_sgui_on_title_made_primary = {
 	scope = title # The NEW primary title
 
 	effect = {
-		holder = {
-			# There should only ever be 1 held VT at a time
-			# but we'll use every_ in case something broke
-			# due to incompatibility with other mods or something.
-			every_held_title = {
-				limit = {
-					tier = tier_duchy
-					VNTL_is_vanity_title = yes
-					exists = var:VNTL_bound_primary_title
-					NOT = { var:VNTL_bound_primary_title = root }
-				}
+		assert_if = {
+			limit = { NOT = { exists = holder } }
 
-				VNTL_try_destroy_title = yes
-			}
+			text = "title passed as root to VNTL_sgui_on_title_made_primary must have a holder"
 		}
 
-		# If there is an already bound and still available destroyed VT, re-create it.
-		# This scenario is possible if, e.g. the player previously set up a VT
-		# for their primary title, then had another title made primary
-		# (at which point its VT got destroyed but remained bound),
-		# and now their primary title is being changed back to the old one.
-		# This logic ensures they get their original FoA back,
-		# as long as their original VT is still available.
-		if = {
-			limit = {
-				has_variable = VNTL_bound_vanity_title
-			}
-
-			var:VNTL_bound_vanity_title = {
-				if = {
-					limit = {
-						NOT = { exists = holder }
-						has_variable = VNTL_bound_primary_title
-						var:VNTL_bound_primary_title = PREV
-					}
-
-					VNTL_give_vanity_title = {
-						TARGET_CHARACTER = PREV.holder
-						CHANGE_TYPE = created
-					}
-				}
+		holder = {
+			VNTL_on_character_primary_title_changed = {
+				NEW_PRIMARY_TITLE = root
 			}
 		}
 	}

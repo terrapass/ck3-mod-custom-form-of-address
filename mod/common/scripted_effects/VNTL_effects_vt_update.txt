@@ -1,0 +1,58 @@
+﻿# Scope: Title - Title whose state to update
+VNTL_try_update_vanity_title = {
+	# TODO: Implement or delete
+}
+
+# Upholds mod invariants on primary title change.
+# Destroys the VT bound to previously used primary title,
+# re-creates the VT, if there's one already bound to the new primary title.
+#
+# Scope: Character - Character whose primary title has changed
+# NEW_PRIMARY_TITLE: Title - The NEW primary title
+VNTL_on_character_primary_title_changed = {
+	# There should only ever be 1 held VT at a time
+	# but we'll use every_ in case something broke
+	# due to incompatibility with other mods or something.
+	every_held_title = {
+		limit = {
+			tier = tier_duchy
+			VNTL_is_vanity_title = yes
+			exists = var:VNTL_bound_primary_title
+			NOT = { var:VNTL_bound_primary_title = $NEW_PRIMARY_TITLE$ }
+		}
+
+		VNTL_try_destroy_title = yes
+	}
+
+	$NEW_PRIMARY_TITLE$ = {
+		# If there is an already bound and still available destroyed VT, re-create it.
+		# This scenario is possible if, e.g. the player previously set up a VT
+		# for their primary title, then had another title made primary
+		# (at which point its VT got destroyed but remained bound),
+		# and now their primary title is being changed back to the old one.
+		# This logic ensures they get their original FoA back,
+		# as long as their original VT is still available.
+		if = {
+			limit = {
+				has_variable = VNTL_bound_vanity_title
+			}
+
+			var:VNTL_bound_vanity_title = {
+				if = {
+					limit = {
+						NOT = { exists = holder }
+						has_variable = VNTL_bound_primary_title
+						var:VNTL_bound_primary_title = $NEW_PRIMARY_TITLE$
+					}
+
+					VNTL_give_vanity_title = {
+						# FIXME: It would be more robust to address target character via relative scope,
+						#        but PREV.PREV doesn't work for some reason.
+						TARGET_CHARACTER = $NEW_PRIMARY_TITLE$.holder
+						CHANGE_TYPE = created
+					}
+				}
+			}
+		}
+	}
+}
