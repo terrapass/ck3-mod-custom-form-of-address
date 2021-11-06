@@ -37,3 +37,7 @@ template "VNTL_hide_if_vanity_title" {
 template "VNTL_hide_if_not_vanity_title" {
     visible = "[GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)]"
 }
+
+template "VNTL_onclick_handle_primary_title_change" {
+    onclick = "[GetScriptedGui('VNTL_sgui_on_title_made_primary').Execute(GuiScope.SetRoot(Title.MakeScope).End)]"
+}
