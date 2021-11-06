@@ -28,6 +28,14 @@
  game_concept_VNTL_form_of_address_desc:0 "TODO"
 
  #
+ # Triggers
+ #
+ VNTL_trigger_existing_savegame:0 "[VNTL_form_of_address|E] customization is only supported in new savegames."
+ NOT_VNTL_trigger_existing_savegame:0 "$VNTL_trigger_existing_savegame$"
+ VNTL_trigger_at_least_duchy_tier:0 "[CHARACTER.GetFirstNameOrMeNoTooltipRegnal|U] must be at least a [duke|E] to use a custom [VNTL_foa|E]."
+ NOT_VNTL_trigger_at_least_duchy_tier:0 "$VNTL_trigger_at_least_duchy_tier$"
+
+ #
  # Flavors
  #
  # TODO: I guess that'll be "Почетное звание" in Russian

@@ -77,12 +77,17 @@ VNTL_sgui_bind_vanity_title = {
 	}
 
 	is_valid = {
-		# VTs are currently implemented as titular duchies,
-		# therefore we can't allow them to be used by lower tier
-		# characters without unintentionally ranking them up
-		# in the process. So FoA customization is unfortunately
-		# reserved for dukes and higher-ranked characters.
-		tier >= tier_duchy
+		custom_description = {
+			text = VNTL_trigger_at_least_duchy_tier
+			subject = holder
+
+			# VTs are currently implemented as titular duchies,
+			# therefore we can't allow them to be used by lower tier
+			# characters without unintentionally ranking them up
+			# in the process. So FoA customization is unfortunately
+			# reserved for dukes and higher-ranked characters.
+			tier >= tier_duchy
+		}
 	}
 
 	effect = {
@@ -143,8 +148,13 @@ VNTL_sgui_bind_vanity_title_for_character = {
 	}
 
 	is_valid = {
-		# See comment in VNTL_sgui_bind_vanity_title.is_valid
-		highest_held_title_tier >= tier_duchy
+		custom_description = {
+			text = VNTL_trigger_at_least_duchy_tier
+			subject = root
+
+			# See comment in VNTL_sgui_bind_vanity_title.is_valid
+			highest_held_title_tier >= tier_duchy
+		}
 	}
 
 	effect = {
