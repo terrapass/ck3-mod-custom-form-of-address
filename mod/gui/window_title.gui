@@ -266,7 +266,6 @@ window = {
 
 										visible = "[And(EqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID ), Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)))]"
 
-										# FIXME: Assertion failed: A (flow)container (gui/window_title.gui:263) can't have a hbox/vbox (gui/window_title.gui:269) as a direct child.
 										text_multi = {
 											name = "VNTL_title_foa"
 
@@ -275,7 +274,7 @@ window = {
 										}
 
 										VNTL_flowcontainer_edit_title_foa_inline = {
-											margin_bottom = 25
+											margin_top = -5
 										}
 									}
 									# END MOD
