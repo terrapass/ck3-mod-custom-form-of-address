@@ -1,21 +1,21 @@
-﻿template "VNTL_edit_foa_immediate_outer" {
-    datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title')]"
-    visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End ))]"
+﻿template "VNTL_edit_character_foa_immediate_outer" {
+    datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title_for_character')]"
+    visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
 
     # TODO: Generate part of the tooltip
     tooltip = "VNTL_TOOLTIP_BIND_VANITY_TITLE"
 }
 
-template "VNTL_edit_foa_immediate_inner" {
+template "VNTL_edit_character_foa_immediate_inner" {
     button_ignore = none # Necessary for onrightclick to work
 
-    onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+    onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
     onclick = "[GetVariableSystem.Set('VTNL_is_edit_foa_delay_active', 'true')]"
 
-    onrightclick = "[GetScriptedGui('VNTL_sgui_unbind_vanity_title').Execute( GuiScope.SetRoot( Character.GetPrimaryTitle.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+    onrightclick = "[GetScriptedGui('VNTL_sgui_unbind_vanity_title_for_character').Execute( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
 }
 
-template "VNTL_edit_foa_delayed" {
+template "VNTL_edit_character_foa_delayed" {
     visible = "[GetVariableSystem.Exists('VTNL_is_edit_foa_delay_active')]"
 
     state = {
@@ -24,6 +24,38 @@ template "VNTL_edit_foa_delayed" {
 
         on_finish = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
         on_finish = "[OpenTitleRenamePopup(Character.GetPrimaryTitle.MakeScope.Var('VNTL_bound_vanity_title').Title)]"
+        on_finish = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
+
+        on_finish = "[GetVariableSystem.Clear('VTNL_is_edit_foa_delay_active')]"
+    }
+}
+
+template "VNTL_edit_title_foa_immediate_outer" {
+    datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title')]"
+    visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+
+    # TODO: Generate part of the tooltip
+    tooltip = "VNTL_TOOLTIP_BIND_VANITY_TITLE"
+}
+
+template "VNTL_edit_title_foa_immediate_inner" {
+    button_ignore = none # Necessary for onrightclick to work
+
+    onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+    onclick = "[GetVariableSystem.Set('VTNL_is_edit_foa_delay_active', 'true')]"
+
+    onrightclick = "[GetScriptedGui('VNTL_sgui_unbind_vanity_title').Execute( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+}
+
+template "VNTL_edit_title_foa_delayed" {
+    visible = "[GetVariableSystem.Exists('VTNL_is_edit_foa_delay_active')]"
+
+    state = {
+        name = _show
+        duration = 0.1
+
+        on_finish = "[GetVariableSystem.Set('VNTL_must_use_foa_mode_for_title_rename', 'true')]"
+        on_finish = "[OpenTitleRenamePopup(Title.GetHolder.GetPrimaryTitle.MakeScope.Var('VNTL_bound_vanity_title').Title)]"
         on_finish = "[GetVariableSystem.Clear('VNTL_must_use_foa_mode_for_title_rename')]"
 
         on_finish = "[GetVariableSystem.Clear('VTNL_is_edit_foa_delay_active')]"

@@ -3,30 +3,35 @@
     # Fake invisible widget used only as means to delay the call to OpenTitleRenamePopup
     # for 0.1 second, so that it has enough time to recognize the title holder change,
     # which will happen on the first call to VNTL_sgui_bind_vanity_title.
-    type VNTL_flowcontainer_edit_foa_delayed = flowcontainer {
-        using = VNTL_edit_foa_delayed
+    type VNTL_flowcontainer_edit_title_foa_delayed = flowcontainer {
+        using = VNTL_edit_title_foa_delayed
+    }
+
+    # ditto but VNTL_sgui_bind_vanity_title_for_character
+    type VNTL_flowcontainer_edit_character_foa_delayed = flowcontainer {
+        using = VNTL_edit_character_foa_delayed
     }
 
     # "Edit FoA" button-icon to be displayed inline next to text
-    type VNTL_flowcontainer_edit_foa_inline = flowcontainer {
+    type VNTL_flowcontainer_edit_title_foa_inline = flowcontainer {
         button_icon = {
-            using = VNTL_edit_foa_immediate_outer
-            using = VNTL_edit_foa_immediate_inner
+            using = VNTL_edit_title_foa_immediate_outer
+            using = VNTL_edit_title_foa_immediate_inner
 
             texture = "gfx/interface/icons/flat_icons/VNTL_edit_foa.dds"
         }
 
-        VNTL_flowcontainer_edit_foa_delayed = {}
+        VNTL_flowcontainer_edit_title_foa_delayed = {}
     }
 
     # Round "Edit FoA" button
-    type VNTL_flowcontainer_edit_foa = flowcontainer {
+    type VNTL_flowcontainer_edit_character_foa = flowcontainer {
         button_normal = {
             size = { 35 35 }
 
             using = tooltip_es
 
-            using = VNTL_edit_foa_immediate_outer
+            using = VNTL_edit_character_foa_immediate_outer
 
             icon = {
                 texture = "gfx/interface/buttons/button_lifestyles_base.dds"
@@ -34,7 +39,7 @@
             }
 
             button_icon = {
-                using = VNTL_edit_foa_immediate_inner
+                using = VNTL_edit_character_foa_immediate_inner
 
                 size = { 25 25 }
                 parentanchor = center
@@ -49,15 +54,15 @@
             }
         }
 
-        VNTL_flowcontainer_edit_foa_delayed = {}
+        VNTL_flowcontainer_edit_character_foa_delayed = {}
     }
 
     # Round "Edit FoA" button with offset, to be displayed over character portrait in window_character.gui .
-    type VNTL_flowcontainer_edit_foa_offset = flowcontainer {
+    type VNTL_flowcontainer_edit_character_foa_offset = flowcontainer {
         margin_left = 45
         margin_bottom = 5
 
-        VNTL_flowcontainer_edit_foa = {}
+        VNTL_flowcontainer_edit_character_foa = {}
 
         parentanchor = bottom
     }

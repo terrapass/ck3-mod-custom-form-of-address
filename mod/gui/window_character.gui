@@ -681,7 +681,7 @@ window = {
 			}
 
 			# MOD(vanity-titles)
-			VNTL_flowcontainer_edit_foa_offset = {}
+			VNTL_flowcontainer_edit_character_foa_offset = {}
 			# END MOD
 		}
 

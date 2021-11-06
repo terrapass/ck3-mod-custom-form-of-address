@@ -267,14 +267,15 @@ window = {
 										visible = "[And(EqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID ), Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)))]"
 
 										# FIXME: Assertion failed: A (flow)container (gui/window_title.gui:263) can't have a hbox/vbox (gui/window_title.gui:269) as a direct child.
-										vbox = {
+										text_multi = {
+											name = "VNTL_title_foa"
 
-											text_multi = {
-												name = "VNTL_title_foa"
+											autoresize = yes
+											text = "[VNTL_foa|E]: [Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
+										}
 
-												layoutpolicy_horizontal = expanding
-												text = "[VNTL_foa|E]: [Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
-											}
+										VNTL_flowcontainer_edit_title_foa_inline = {
+											margin_bottom = 25
 										}
 									}
 									# END MOD
@@ -616,8 +617,8 @@ window = {
 				vbox = {
 					name = "create_title"
 					# MOD(vanity-titles)
-					#visible = "[And( Not( Title.IsBarony ), Not( TitleViewWindow.GetTitle.HasHolder ) )]"
-					visible = "[And(And( Not( Title.IsBarony ), Not( TitleViewWindow.GetTitle.HasHolder ) ), Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End)))]"
+					visible = "[And( Not( Title.IsBarony ), Not( TitleViewWindow.GetTitle.HasHolder ) )]"
+					#visible = "[And(And( Not( Title.IsBarony ), Not( TitleViewWindow.GetTitle.HasHolder ) ), Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End)))]"
 					# END MOD
 					margin = { 0 20 }
 					spacing = 15
@@ -628,6 +629,10 @@ window = {
 					}
 
 					vbox = {
+						# MOD(vanity-titles)
+						using = VNTL_hide_if_vanity_title
+						# END MOD
+
 						layoutpolicy_horizontal = expanding
 
 						hbox = {
@@ -708,10 +713,16 @@ window = {
 					}
 
 					text_single = {
+						# MOD(vanity-titles)
+						using = VNTL_hide_if_vanity_title
+						# END MOD
 						text = "[TitleViewWindow.GetPrestigeGainText]"
 					}
 
 					button_primary = {
+						# MOD(vanity-titles)
+						using = VNTL_hide_if_vanity_title
+						# END MOD
 						enabled = "[TitleViewWindow.CanTitleBeCreated]"
 						text = "TITLE_VIEW_CREATE_TITLE"
 						onclick = "[TitleViewWindow.CreateTitle]"

@@ -71,13 +71,18 @@ VNTL_sgui_bind_vanity_title = {
 	is_shown = {
 		exists = holder
 		holder = scope:player
-		#NOT = { has_variable = VNTL_bound_vanity_title }
-	}
-
-	is_valid = {
 		scope:player = {
 			primary_title = root
 		}
+	}
+
+	is_valid = {
+		# VTs are currently implemented as titular duchies,
+		# therefore we can't allow them to be used by lower tier
+		# characters without unintentionally ranking them up
+		# in the process. So FoA customization is unfortunately
+		# reserved for dukes and higher-ranked characters.
+		tier >= tier_duchy
 	}
 
 	effect = {
@@ -105,13 +110,13 @@ VNTL_sgui_unbind_vanity_title = {
 	is_shown = {
 		exists = holder
 		holder = scope:player
-		#has_variable = VNTL_bound_vanity_title
-	}
-
-	is_valid = {
 		scope:player = {
 			primary_title = root
 		}
+	}
+
+	is_valid = {
+		has_variable = VNTL_bound_vanity_title
 	}
 
 	effect = {
@@ -119,6 +124,57 @@ VNTL_sgui_unbind_vanity_title = {
 			# Unbind and destroy vanity title, if one is currently bound to this character's primary title.
 			trigger_event = VNTL_events.1002
 		}
+	}
+}
+
+# Partial logic for "Edit FoA" button in window_character.gui .
+#
+# See VNTL_sgui_bind_vanity_title.
+VNTL_sgui_bind_vanity_title_for_character = {
+	scope = character
+
+	saved_scopes = {
+		player
+	}
+
+	is_shown = {
+		is_landed = yes
+		root = scope:player
+	}
+
+	is_valid = {
+		# See comment in VNTL_sgui_bind_vanity_title.is_valid
+		highest_held_title_tier >= tier_duchy
+	}
+
+	effect = {
+		# Find an available vanity title and bind it to this character's primary title.
+		trigger_event = VNTL_events.1001
+	}
+}
+
+# Unbind and destroy the VT currently bound to the given character's primary title, if there is still such a bond.
+#
+# See VNTL_sgui_unbind_vanity_title.
+VNTL_sgui_unbind_vanity_title_for_character = {
+	scope = character
+
+	saved_scopes = {
+		player
+	}
+
+	is_shown = {
+		is_landed = yes
+		root = scope:player
+	}
+
+	is_valid = {
+		VNTL_has_vanity_title = yes
+	}
+
+	effect = {
+		# Unbind and destroy vanity title, if one is currently bound to this character's primary title.
+		trigger_event = VNTL_events.1002
 	}
 }
 
