@@ -1,5 +1,4 @@
-﻿# Mod initialization logic
-on_game_start_after_lobby = {
+﻿on_game_start_after_lobby = {
 	on_actions = { VNTL_on_game_start_after_lobby }
 }
 
@@ -29,4 +28,44 @@ VNTL_on_game_start_after_lobby = {
 	# }
 }
 
-# TODO: on_rank_up, on_rank_down etc.
+# TODO: Extract the following on_actions into a separate file
+
+# root: Character - Character ranking up
+# scope:title: Title - Old primary title
+on_rank_up = {
+	on_actions = { VNTL_on_rank_up }
+}
+
+# root = character ranking up
+# scope:title = old primary title
+VNTL_on_rank_up = {
+	effect = {
+		primary_title = {
+			save_scope_as = VNTL_new_primary_title
+		}
+
+		VNTL_on_character_primary_title_changed = {
+			NEW_PRIMARY_TITLE = scope:VNTL_new_primary_title
+		}
+	}
+}
+
+# root: Character - Character ranking up
+# scope:title: Title - Old primary title
+on_rank_down = {
+	on_actions = { VNTL_on_rank_up }
+}
+
+# root = character ranking up
+# scope:title = old primary title
+VNTL_on_rank_down = {
+	effect = {
+		primary_title = {
+			save_scope_as = VNTL_new_primary_title
+		}
+
+		VNTL_on_character_primary_title_changed = {
+			NEW_PRIMARY_TITLE = scope:VNTL_new_primary_title
+		}
+	}
+}
