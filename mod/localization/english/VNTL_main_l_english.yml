@@ -2,8 +2,17 @@
  #
  # GUI
  #
- VNTL_TOOLTIP_BIND_VANITY_TITLE:0 "#T Customize [VNTL_form_of_address|E]#!\nFor your [primary_title|E] - [GetPlayer.GetPrimaryTitle.GetName]\n\n#I Click to edit FoA\nRight-click to revert to standard FoA#!"
- VNTL_TOOLTIP_UNBIND_VANITY_TITLE:0 "Revert to Standard Form of Address"
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT:0 "#I Click to edit FoA\nRight-click to revert to standard FoA#!"
+
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED:0 "ScriptedGui.IsValid( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED_FOR_CHARACTER:0 "ScriptedGui.IsValid( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT:0 "ScriptedGui.IsValidTooltip( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT_FOR_CHARACTER:0 "ScriptedGui.IsValidTooltip( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT:0 "[Select_CString($VNTL_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED$, '$VNTL_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT$', $VNTL_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT$)]"
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER:0 "[Select_CString($VNTL_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED_FOR_CHARACTER$, '$VNTL_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT$', $VNTL_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT_FOR_CHARACTER$)]"
+
+ VNTL_TOOLTIP_BIND_VANITY_TITLE:0 "#T Customize [VNTL_form_of_address|E]#!\nFor [Title.GetName]\n\n$VNTL_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT$"
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_FOR_CHARACTER:0 "#T Customize [VNTL_form_of_address|E]#!\nFor your [primary_title|E] - [GetPlayer.GetPrimaryTitle.GetName]\n\n$VNTL_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER$"
  VNTL_CURRENT_VANITY_TITLE_TYPE_TEXT:0 "[VNTL_form_of_address|E] for rulers of [Title.MakeScope.Var('VNTL_bound_primary_title').Title.GetName]"
  VNTL_FORMER_VANITY_TITLE_TYPE_TEXT:0 "Former [VNTL_foa|E] for rulers of [Title.MakeScope.Var('VNTL_bound_primary_title').Title.GetName]"
  VNTL_UNUSED_VANITY_TITLE_TYPE_TEXT:0 "Unused [VNTL_form_of_address|E]"

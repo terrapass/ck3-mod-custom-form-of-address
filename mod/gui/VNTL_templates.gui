@@ -1,9 +1,10 @@
 ﻿template "VNTL_edit_character_foa_immediate_outer" {
     datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title_for_character')]"
     visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+    enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
 
     # TODO: Generate part of the tooltip
-    tooltip = "VNTL_TOOLTIP_BIND_VANITY_TITLE"
+    tooltip = "VNTL_TOOLTIP_BIND_VANITY_TITLE_FOR_CHARACTER"
 }
 
 template "VNTL_edit_character_foa_immediate_inner" {
@@ -33,6 +34,7 @@ template "VNTL_edit_character_foa_delayed" {
 template "VNTL_edit_title_foa_immediate_outer" {
     datacontext = "[GetScriptedGui('VNTL_sgui_bind_vanity_title')]"
     visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+    enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
 
     # TODO: Generate part of the tooltip
     tooltip = "VNTL_TOOLTIP_BIND_VANITY_TITLE"
