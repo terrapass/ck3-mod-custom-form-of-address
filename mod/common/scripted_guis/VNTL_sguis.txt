@@ -78,6 +78,12 @@ VNTL_sgui_bind_vanity_title = {
 
 	is_valid = {
 		custom_description = {
+			text = VNTL_trigger_existing_savegame
+
+			VNTL_is_compatible_savegame = yes
+		}
+
+		custom_description = {
 			text = VNTL_trigger_at_least_duchy_tier
 			subject = holder
 
@@ -121,6 +127,8 @@ VNTL_sgui_unbind_vanity_title = {
 	}
 
 	is_valid = {
+		VNTL_is_compatible_savegame = yes
+
 		has_variable = VNTL_bound_vanity_title
 	}
 
@@ -148,6 +156,12 @@ VNTL_sgui_bind_vanity_title_for_character = {
 	}
 
 	is_valid = {
+		custom_description = {
+			text = VNTL_trigger_existing_savegame
+
+			VNTL_is_compatible_savegame = yes
+		}
+
 		custom_description = {
 			text = VNTL_trigger_at_least_duchy_tier
 			subject = root
@@ -179,6 +193,8 @@ VNTL_sgui_unbind_vanity_title_for_character = {
 	}
 
 	is_valid = {
+		VNTL_is_compatible_savegame = yes
+
 		VNTL_has_vanity_title = yes
 	}
 
@@ -197,6 +213,10 @@ VNTL_sgui_unbind_vanity_title_for_character = {
 #             (if there is a previously bound VT available).
 VNTL_sgui_on_title_made_primary = {
 	scope = title # The NEW primary title
+
+	is_valid = {
+		VNTL_is_compatible_savegame = yes
+	}
 
 	effect = {
 		assert_if = {

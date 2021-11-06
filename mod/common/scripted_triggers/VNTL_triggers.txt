@@ -1,4 +1,10 @@
-﻿# Scope: Title
+﻿# Scope: Any
+VNTL_is_compatible_savegame = {
+	exists = title:d_VNTL_vanity_0
+	has_global_variable_list = VNTL_vanity_titles
+}
+
+# Scope: Title
 VNTL_is_vanity_title = {
 	is_target_in_global_variable_list = {
 		name = VNTL_vanity_titles
