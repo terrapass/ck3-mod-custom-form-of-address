@@ -72,6 +72,34 @@ template "VNTL_hide_if_not_vanity_title" {
     visible = "[GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)]"
 }
 
+template "VNTL_hide_if_has_vanity_title" {
+    visible = "[Not(GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End))]"
+}
+
+template "VNTL_hide_if_has_no_vanity_title" {
+    visible = "[GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
 template "VNTL_onclick_handle_primary_title_change" {
     onclick = "[GetScriptedGui('VNTL_sgui_on_title_made_primary').Execute(GuiScope.SetRoot(Title.MakeScope).End)]"
+}
+
+template "VNTL_on_start_try_update_held_non_vanity_titles_list" {
+    on_start = "[GetScriptedGui('VNTL_sgui_try_update_held_non_vanity_titles_list').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template "VNTL_on_finish_try_update_held_non_vanity_titles_list" {
+    on_finish = "[GetScriptedGui('VNTL_sgui_try_update_held_non_vanity_titles_list').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template "VNTL_character_window_show_state_actions" {
+    using = VNTL_on_start_try_update_held_non_vanity_titles_list
+}
+
+template "VNTL_character_window_refresh_state" {
+    state = {
+        name = character_window_refresh
+
+        using = VNTL_on_finish_try_update_held_non_vanity_titles_list
+    }
 }

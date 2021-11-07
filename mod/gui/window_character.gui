@@ -19,6 +19,9 @@ window = {
 		position_x = 0
 
 		on_start = "[GetVariableSystem.Set( 'hide_bottom_left_HUD', 'true' )]"
+		# MOD(vanity-titles)
+		using = VNTL_character_window_show_state_actions
+		# END MOD
 	}
 
 	state = {
@@ -29,6 +32,10 @@ window = {
 
 		on_start = "[GetVariableSystem.Clear( 'hide_bottom_left_HUD' )]"
 	}
+
+	# MOD(vanity-titles)
+	using = VNTL_character_window_refresh_state
+	# END MOD
 
 	vbox = {
 		name = "main_content"

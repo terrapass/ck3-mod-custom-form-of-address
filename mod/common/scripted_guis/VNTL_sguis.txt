@@ -110,7 +110,7 @@ VNTL_sgui_bind_vanity_title = {
 # (this is so this same VT would be chosen first, should another attempt to bind a VT be made).
 #
 # IsValid() - enabled only for player's primary title.
-# Execute() - unbind the VT (if currently bound) from the given primary title
+# Execute() - unbind the VT (if currently bound) from the given primary title.
 VNTL_sgui_unbind_vanity_title = {
 	scope = title
 
@@ -230,5 +230,43 @@ VNTL_sgui_on_title_made_primary = {
 				NEW_PRIMARY_TITLE = root
 			}
 		}
+	}
+}
+
+# Repopulates VNTL_held_non_vanity_titles variable list used as datamodel
+# for modded titles lists in window_character.gui .
+# Only affects characters who actually hold a VT, since characters without one
+# are supposed to use vanilla titles lists.
+#
+# IsValid() - enabled only for characters who actually hold a VT.
+# Execute() - update VNTL_held_non_vanity_titles variable list stored on this character.
+VNTL_sgui_try_update_held_non_vanity_titles_list = {
+	scope = character
+
+	is_valid = {
+		VNTL_has_vanity_title = yes
+	}
+
+	effect = {
+		# TODO: Extract into a scripted effect, we might need this later
+
+		clear_variable_list = VNTL_held_non_vanity_titles
+
+		every_held_title = {
+			limit = {
+				VNTL_is_vanity_title = no
+			}
+
+			save_temporary_scope_as = VNTL_non_vanity_title
+
+			holder = {
+				add_to_variable_list = {
+					name = VNTL_held_non_vanity_titles
+					target = scope:VNTL_non_vanity_title
+				}
+			}
+		}
+
+		clear_saved_scope = VNTL_non_vanity_title
 	}
 }
