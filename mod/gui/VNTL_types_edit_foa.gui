@@ -1,4 +1,4 @@
-﻿types VNTL_types
+﻿types VNTL_types_edit_foa
 {
     # Fake invisible widget used only as means to delay the call to OpenTitleRenamePopup
     # for 0.1 second, so that it has enough time to recognize the title holder change,
@@ -87,48 +87,5 @@
             visible = "[GetScriptedGui('VNTL_sgui_is_unbound_vanity_title').IsValid(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End))]"
             text = "VNTL_UNUSED_VANITY_TITLE_TYPE_TEXT"
         }
-    }
-
-    type VNTL_icon_title_status_foa = icon {
-        using = VNTL_hide_if_not_vanity_title
-
-        parentanchor = bottom|right
-        size = { 42 42 }
-        position = { 0 0 }
-
-        texture = "gfx/interface/icons/title_status/VNTL_icon_foa.dds"
-    }
-
-    #
-    # Vanilla overrides
-    # TODO: Move to a separate file?
-
-    type coa_title_tiny_crown = coa_title_tiny {
-        blockoverride "crown" {}
-
-        VNTL_icon_title_status_foa = {
-            size = { 25 25 }
-            position = { 5 0 }
-        }
-    }
-
-    type coa_title_small_crown = coa_title_small {
-        blockoverride "crown" {}
-
-        VNTL_icon_title_status_foa = {
-            position = { 10 5 }
-        }
-    }
-
-    type coa_title_medium_crown = coa_title_medium {
-        blockoverride "crown" {}
-
-        VNTL_icon_title_status_foa = {}
-    }
-
-    type coa_title_big_crown = coa_title_big {
-        blockoverride "crown" {}
-
-        VNTL_icon_title_status_foa = {}
     }
 }
