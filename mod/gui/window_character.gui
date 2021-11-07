@@ -718,10 +718,6 @@ window = {
 							margin = { 3 0 }
 							margin_top = 1
 
-							# MOD(vanity-titles)
-							#VNTL_flowcontainer_edit_foa_inline = {}
-							# END MOD
-
 							text_single = {
 								name = "character_name"
 								text = "[Character.GetUINameNotMeNoTooltip], "
@@ -3331,17 +3327,11 @@ window = {
 					hbox = {
 						layoutpolicy_horizontal = expanding
 
-						# MOD(vanity-titles): Changing to dynamicgridbox to make use of ignoreinvisible
-						dynamicgridbox = {
-						#fixedgridbox = {
-						# END MOD
+						fixedgridbox = {
 							datamodel = "[CharacterWindow.GetTitles]"
 							flipdirection = yes
-							# MOD(vanity-titles)
-							#addrow = 60
-							#addcolumn = 38
-							ignoreinvisible = yes
-							# END MOD
+							addrow = 60
+							addcolumn = 38
 							maxverticalslots = 1
 
 							block "titles_max_slots" {
@@ -3349,17 +3339,10 @@ window = {
 							}
 
 							item = {
-
 								coa_title_tiny_crown = {
 									datacontext = "[TitleItem.GetTitle]"
-									# MOD(vanity-titles)
-									visible = "[Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TitleItem.GetTitle.MakeScope).End))]"
-									# END MOD
+									#	visible = "[GreaterThan_int32( Title.GetTierFrame, '(int32)3' )]"
 									using = tooltip_ne
-
-									# FIXME: Test
-									onrightclick = "[CharacterWindow.SetTab('vassals')]" # TODO: This works! Why then doesn't it bloody work for button_icon?
-									# END FIMXE
 
 									icon = {
 										name = "has_laws"
@@ -3369,17 +3352,6 @@ window = {
 										position = { 5 0 }
 										texture = "gfx/interface/icons/title_status/icon_title_law.dds"
 									}
-
-									# MOD(vanity-titles)
-									icon = {
-										name = "VTNL_is_vanity_title"
-										visible = "[GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid( GuiScope.SetRoot(TitleItem.GetTitle.MakeScope).End )]"
-										parentanchor = bottom|right
-										size = { 25 25 }
-										position = { 5 0 }
-										texture = "gfx/interface/icons/title_status/VNTL_icon_vanity_title.dds"
-									}
-									# END MOD
 								}
 							}
 						}
