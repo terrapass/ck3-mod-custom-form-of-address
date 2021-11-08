@@ -3285,7 +3285,20 @@ window = {
 			expand = {}
 		}
 
+		# MOD(vanity-titles)
+		type VNTL_vbox_vanilla_titles_claims_wrapper = vbox {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			using = VNTL_hide_if_has_vanity_title
+		}
+		# END MOD
+
 		type vbox_titles_claims_box = vbox {
+
+			# MOD(vanity-titles)
+			VNTL_vbox_vanilla_titles_claims_wrapper = { # Note no closing brace here - this block is closed later
+			# END MOD
 
 			## Titles
 			vbox = {
@@ -3475,6 +3488,9 @@ window = {
 			}
 
 			expand = {}
+			# MOD(vanity-titles)
+			} # This closes VNTL_vbox_vanilla_titles_claims_wrapper
+			# END MOD
 		}
 
 		type vbox_diplomacy_box = vbox {
