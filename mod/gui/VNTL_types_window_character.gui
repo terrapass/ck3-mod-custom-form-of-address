@@ -1,4 +1,362 @@
 ﻿types VNTL_types_window_character
 {
-    # TODO
+    # FIXME: Don't forget CV_TITLES!
+
+    # Based on vanilla vbox_titles_claims_box and replaces it for VT-holder characters.
+    # The only major difference is that on-character VNTL_held_non_vanity_titles
+    # list is used as title list datamodel, instead of the built-in CharacterWindow.GetTitles.
+    type VNTL_vbox_titles_claims_box_base = vbox {
+
+        ## Titles
+        vbox = {
+            name = "titles"
+            visible = "[And( GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), Not( IsDataModelEmpty( CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles') ) ) )]"
+            layoutpolicy_horizontal = expanding
+
+            button_standard_hover = {
+                layoutpolicy_horizontal = expanding
+                size = { 0 25 }
+                onclick = "[CharacterWindow.ToggleExpandedTitles]"
+                down = "[CharacterWindow.AreTitlesExpanded]"
+                tooltip = "[SelectLocalization( CharacterWindow.AreTitlesExpanded, 'CV_TITLES_HIDE_TT', 'CV_TITLES_SHOW_TT' )]"
+
+                hbox = {
+                    margin = { 5 0 }
+                    margin_bottom = 3
+                    margin_right = 10
+
+                    text_label_left = {
+                        visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)1' )]"
+                        text = "CV_TITLES"
+                    }
+
+                    text_label_left = {
+                        visible = "[Not(GreaterThan_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)1' ))]"
+                        text = "CV_TITLES_SINGULAR"
+                    }
+
+                    expand = {}
+
+                    text_single = {
+                        block "titles_extra_items"
+                        {
+                            visible = "[GreaterThan_int32(GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)8' )]"
+                            text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)8' )|=]"
+                        }
+                        default_format = "#weak"
+                    }
+                }
+            }
+
+            hbox = {
+                layoutpolicy_horizontal = expanding
+
+                hbox = {
+                    layoutpolicy_horizontal = expanding
+
+                    fixedgridbox = {
+                        datamodel = "[CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')]"
+                        flipdirection = yes
+                        addrow = 60
+                        addcolumn = 38
+                        maxverticalslots = 1
+
+                        block "titles_max_slots" {
+                            datamodel_wrap = 2
+                        }
+
+                        item = {
+                            coa_title_tiny_crown = {
+                                datacontext = "[Scope.Title]"
+                                #	visible = "[GreaterThan_int32( Title.GetTierFrame, '(int32)3' )]"
+                                using = tooltip_ne
+
+                                icon = {
+                                    name = "has_laws"
+                                    visible = "[Title.HasLaws]"
+                                    parentanchor = bottom|right
+                                    size = { 25 25 }
+                                    position = { 5 0 }
+                                    texture = "gfx/interface/icons/title_status/icon_title_law.dds"
+                                }
+                            }
+                        }
+                    }
+
+                    expand = {}
+                }
+            }
+        }
+
+        ## Claims
+        vbox = {
+            name = "claims"
+            visible = "[Not(IsDataModelEmpty(CharacterWindow.GetClaims))]"
+            layoutpolicy_horizontal = expanding
+
+            vbox = {
+                layoutpolicy_horizontal = expanding
+
+                button_standard_hover = {
+                    layoutpolicy_horizontal = expanding
+                    margin_left = 5
+                    size = { 0 25 }
+                    onclick = "[CharacterWindow.ToggleExpandedClaims]"
+                    down = "[CharacterWindow.AreClaimsExpanded]"
+                    tooltip = "[SelectLocalization( CharacterWindow.AreClaimsExpanded, 'CV_CLAIMS_HIDE_TT', 'CV_CLAIMS_SHOW_TT' )]"
+
+                    hbox = {
+                        margin = { 5 0 }
+                        margin_bottom = 3
+                        margin_right = 10
+
+                        text_label_left = {
+                            visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetClaims), '(int32)1' )]"
+                            text = "CV_CLAIMS"
+                        }
+
+                        text_label_left = {
+                            visible = "[Not(GreaterThan_int32( GetDataModelSize(CharacterWindow.GetClaims), '(int32)1' ))]"
+                            text = "CV_CLAIMS_SINGULAR"
+                        }
+
+                        expand = {}
+
+                        text_single = {
+                            block "claims_extra_items"
+                            {
+                                visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetClaims), '(int32)10' )]"
+                                text = "[GetNumberAbove_int32(GetDataModelSize(CharacterWindow.GetClaims), '(int32)10' )|=]"
+                            }
+                            default_format = "#weak"
+                        }
+                    }
+                }
+
+                expand = {}
+            }
+
+            hbox = {
+                layoutpolicy_horizontal = expanding
+
+                fixedgridbox = {
+                    name = "claims_box"
+                    datamodel = "[CharacterWindow.GetClaims]"
+                    flipdirection = yes
+                    addrow = 60
+                    addcolumn = 38
+                    maxverticalslots = 1
+
+                    block "claims_max_slots" {
+                        datamodel_wrap = 8
+                    }
+
+                    item = {
+                        container = {
+                            datacontext = "[Claim.GetTitle]"
+                            using = tooltip_ne
+                            tooltip = "CHARACTER_WINDOW_CLAIM_TOOLTIP"
+
+                            coa_title_tiny_crown = {
+                                name = "claim"
+                                tooltip_enabled = no
+
+
+                                highlight_icon = {
+                                    name = "pressed_claim"
+                                    visible = "[And(Claim.IsPressed, Not(Claim.IsImplicit))]"
+                                    texture = "gfx/interface/icons/title_status/icon_claim_pressed.dds"
+                                    size = { 24 24 }
+                                    parentanchor = bottom|right
+                                }
+
+                                highlight_icon = {
+                                    name = "unpressed_claim"
+                                    visible = "[And(Not(Claim.IsPressed), Not(Claim.IsImplicit))]"
+                                    texture = "gfx/interface/icons/title_status/icon_claim_unpressed.dds"
+                                    size = { 24 24 }
+                                    parentanchor = bottom|right
+                                }
+
+                                highlight_icon = {
+                                    name = "implicit_claim"
+                                    visible = "[Claim.IsImplicit]"
+                                    texture = "gfx/interface/icons/title_status/icon_claim_implicit.dds"
+                                    size = { 24 24 }
+                                    parentanchor = bottom|right
+                                }
+                            }
+                        }
+                    }
+                }
+
+                expand = {}
+            }
+        }
+
+        expand = {}
+    }
+
+    #
+    # Below are 5 overrides of VTNL_vbox_titles_claims_box_base, one per each usage
+    # of the vanilla vbox_titles_claims_box in window_character.gui .
+    #
+    # The changes, compared to vanilla usages are:
+    # 1) CharacterWindow.GetTitles -> CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')
+    # 2) And( GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), <vanilla condition> )
+    #
+    # Why oh why would PDX write the layout for this window in such a convoluted way?
+    #
+
+    type VNTL_vbox_titles_claims_box_1 = VNTL_vbox_titles_claims_box_base {
+        visible = "[And( GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), Not( Or( Character.GetPrimaryTitle.HasFaction, DataModelHasItems( CharacterWindow.GetDiplomacyItems ))))]"
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+        margin_right = 3
+
+        using = Animation_Character_Window_Refresh
+
+        blockoverride "titles_extra_items"
+        {
+            visible = "[GreaterThan_int32(GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)13' )]"
+            text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)13' )|=]"
+        }
+
+        blockoverride "titles_max_slots"
+        {
+            datamodel_wrap = 13
+        }
+
+        blockoverride "claims_extra_items"
+        {
+            visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetClaims), '(int32)13' )]"
+            text = "[GetNumberAbove_int32(GetDataModelSize(CharacterWindow.GetClaims), '(int32)13' )|=]"
+        }
+
+        blockoverride "claims_max_slots"
+        {
+            datamodel_wrap = 13
+        }
+    }
+
+    type VNTL_vbox_titles_claims_box_2 = VNTL_vbox_titles_claims_box_base {
+        visible = "[And( GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), And( Not( Character.GetPrimaryTitle.HasFaction ), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)4')))]"
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+
+        using = Animation_Character_Window_Refresh
+
+        blockoverride "titles_extra_items"
+        {
+            visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)10' )]"
+            text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)10' )|=]"
+        }
+
+        blockoverride "titles_max_slots"
+        {
+            datamodel_wrap = 10
+        }
+
+        blockoverride "claims_extra_items"
+        {
+            visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetClaims), '(int32)10' )]"
+            text = "[GetNumberAbove_int32(GetDataModelSize(CharacterWindow.GetClaims), '(int32)10' )|=]"
+        }
+
+
+        blockoverride "claims_max_slots"
+        {
+            datamodel_wrap = 10
+        }
+    }
+
+    type VNTL_vbox_titles_claims_box_3 = VNTL_vbox_titles_claims_box_base {
+        visible = "[And( GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), And( Not( Character.GetPrimaryTitle.HasFaction ), And(GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)4'), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)6'))))]"
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+
+        using = Animation_Character_Window_Refresh
+
+        blockoverride "titles_extra_items"
+        {
+            visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)9' )]"
+            text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)9' )|=]"
+        }
+
+        blockoverride "titles_max_slots"
+        {
+            datamodel_wrap = 9
+        }
+
+        blockoverride "claims_extra_items"
+        {
+            visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetClaims), '(int32)9' )]"
+            text = "[GetNumberAbove_int32(GetDataModelSize(CharacterWindow.GetClaims), '(int32)9' )|=]"
+        }
+
+        blockoverride "claims_max_slots"
+        {
+            datamodel_wrap = 9
+        }
+    }
+
+    type VNTL_vbox_titles_claims_box_4 = VNTL_vbox_titles_claims_box_base {
+        visible = "[And( GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), And( Not( Character.GetPrimaryTitle.HasFaction ), And(GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)6'), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8'))))]"
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+
+        using = Animation_Character_Window_Refresh
+
+        blockoverride "titles_extra_items"
+        {
+            visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)8' )]"
+            text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)8' )|=]"
+        }
+
+        blockoverride "titles_max_slots"
+        {
+            datamodel_wrap = 8
+        }
+
+        blockoverride "claims_extra_items"
+        {
+            visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetClaims), '(int32)8' )]"
+            text = "[GetNumberAbove_int32(GetDataModelSize(CharacterWindow.GetClaims), '(int32)8' )|=]"
+        }
+
+        blockoverride "claims_max_slots"
+        {
+            datamodel_wrap = 8
+        }
+    }
+
+    type VNTL_vbox_titles_claims_box_5 = VNTL_vbox_titles_claims_box_base {
+        visible = "[And( GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), And( Not( Character.GetPrimaryTitle.HasFaction ), GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8')))]"
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+
+        using = Animation_Character_Window_Refresh
+
+        blockoverride "titles_extra_items"
+        {
+            visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)7' )]"
+            text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)7' )|=]"
+        }
+
+        blockoverride "titles_max_slots"
+        {
+            datamodel_wrap = 7
+        }
+
+        blockoverride "claims_extra_items"
+        {
+            visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetClaims), '(int32)7' )]"
+            text = "[GetNumberAbove_int32(GetDataModelSize(CharacterWindow.GetClaims), '(int32)7' )|=]"
+        }
+
+        blockoverride "claims_max_slots"
+        {
+            datamodel_wrap = 7
+        }
+    }
 }

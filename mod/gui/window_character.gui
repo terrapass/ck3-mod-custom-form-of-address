@@ -1682,6 +1682,9 @@ window = {
 								datamodel_wrap = 13
 							}
 						}
+						# MOD(vanity-titles)
+						VNTL_vbox_titles_claims_box_1 = {}
+						# END MOD
 
 						hbox = {
 							visible = "[DataModelHasItems( CharacterWindow.GetDiplomacyItems )]"
@@ -1719,6 +1722,9 @@ window = {
 									datamodel_wrap = 10
 								}
 							}
+							# MOD(vanity-titles)
+							VNTL_vbox_titles_claims_box_2 = {}
+							# END MOD
 
 							vbox_titles_claims_box = {
 								visible = "[And( Not( Character.GetPrimaryTitle.HasFaction ), And(GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)4'), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)6')))]"
@@ -1749,6 +1755,9 @@ window = {
 									datamodel_wrap = 9
 								}
 							}
+							# MOD(vanity-title)
+							VNTL_vbox_titles_claims_box_3 = {}
+							# END MOD
 
 							vbox_titles_claims_box = {
 								visible = "[And( Not( Character.GetPrimaryTitle.HasFaction ), And(GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)6'), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8')))]"
@@ -1779,6 +1788,9 @@ window = {
 									datamodel_wrap = 8
 								}
 							}
+							# MOD(vanity-titles)
+							VNTL_vbox_titles_claims_box_4 = {}
+							# END MOD
 
 							vbox_titles_claims_box = {
 								visible = "[And( Not( Character.GetPrimaryTitle.HasFaction ), GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8'))]"
@@ -1809,6 +1821,9 @@ window = {
 									datamodel_wrap = 7
 								}
 							}
+							# MOD(vanity-titles)
+							VNTL_vbox_titles_claims_box_5 = {}
+							# END MOD
 
 							expand = {
 								layoutpolicy_horizontal = expanding
