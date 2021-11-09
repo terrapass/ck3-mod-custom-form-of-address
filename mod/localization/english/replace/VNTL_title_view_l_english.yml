@@ -10,6 +10,7 @@ l_english:
  VNTL_FOA_RENAME_TITLE_ACCEPT:0 "Save"
  VNTL_FOA_TITLE_NAME_FIELD:0 "Male Form"
  VNTL_FOA_TITLE_ADJECTIVE_FIELD:0 "Female Form"
+ #VNTL_FOA_RENAME_TOOLTIP:0 "Concatenate('#T Save#!\n', GameDialog.GetCanAcceptBlocker)"
 
  #
  # Original vanilla strings
@@ -19,6 +20,7 @@ l_english:
  VNTL_VANILLA_RENAME_TITLE_ACCEPT:0 "Rename"
  VNTL_VANILLA_TITLE_NAME_FIELD:0 "Name"
  VNTL_VANILLA_TITLE_ADJECTIVE_FIELD:0 "Adjective"
+ #VNTL_VANILLA_RENAME_TOOLTIP:0 "Concatenate('#T Rename#!\n', GameDialog.GetCanAcceptBlocker)"
 
  #
  # Overriden vanilla strings, which dynamically select between FoA and original vanilla labels
@@ -28,7 +30,10 @@ l_english:
  RENAME_TITLE_ACCEPT:0 "[SelectLocalization(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), 'VNTL_FOA_RENAME_TITLE_ACCEPT', 'VNTL_VANILLA_RENAME_TITLE_ACCEPT')]"
  TITLE_NAME_FIELD:0 "[SelectLocalization(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), 'VNTL_FOA_TITLE_NAME_FIELD', 'VNTL_VANILLA_TITLE_NAME_FIELD')]"
  TITLE_ADJECTIVE_FIELD:0 "[SelectLocalization(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), 'VNTL_FOA_TITLE_ADJECTIVE_FIELD', 'VNTL_VANILLA_TITLE_ADJECTIVE_FIELD')]"
- # FIXME: Also dynamically change "Rename" tooltip to "Save"?
+ # TODO: Select between "Rename" and "Save" dynamically. Commented out method doesn't work, since the variable is already reset at the point tooltip is generated.
+ #       Will have to always say "Save" for the time being, at least it fits both situations.
+ #RENAME_TOOLTIP:0 "[Select_CString(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), $VNTL_FOA_RENAME_TOOLTIP$, $VNTL_VANILLA_RENAME_TOOLTIP$)]"
+ RENAME_TOOLTIP:0 "#T $SAVE$#!\n[GameDialog.GetCanAcceptBlocker]"
 
  # TODO: Override properly with Select_CString and maybe just rely on this instead of the entire VNTL_vbox_title_type_text type in window_title.gui?
  #TV_TIER_INFO:1 "[Title.GetRankConcept] [title|E]"
