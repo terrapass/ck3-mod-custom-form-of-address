@@ -255,20 +255,31 @@ VNTL_sgui_try_update_held_non_vanity_titles_list = {
 		ordered_held_title = {
 			limit = {
 				VNTL_is_vanity_title = no
-				is_capital_barony = no
-				is_leased_out = no
+				# These conditions are commented-out and checked in a separate if below,
+				# since otherwise the order of the list changes for some unexplained reason.
+				# Weird, but okay.
+				#is_capital_barony = no
+				#is_leased_out = no
 			}
 
 			order_by = tier
 			max = 999
 			check_range_bounds = no
 
-			save_temporary_scope_as = VNTL_non_vanity_title
+			# Also see limit above
+			if = {
+				limit = {
+					is_capital_barony = no
+					is_leased_out = no
+				}
 
-			holder = {
-				add_to_variable_list = {
-					name = VNTL_held_non_vanity_titles
-					target = scope:VNTL_non_vanity_title
+				save_temporary_scope_as = VNTL_non_vanity_title
+
+				holder = {
+					add_to_variable_list = {
+						name = VNTL_held_non_vanity_titles
+						target = scope:VNTL_non_vanity_title
+					}
 				}
 			}
 		}
