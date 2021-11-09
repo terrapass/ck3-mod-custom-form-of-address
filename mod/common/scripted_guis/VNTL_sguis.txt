@@ -252,10 +252,16 @@ VNTL_sgui_try_update_held_non_vanity_titles_list = {
 
 		clear_variable_list = VNTL_held_non_vanity_titles
 
-		every_held_title = {
+		ordered_held_title = {
 			limit = {
 				VNTL_is_vanity_title = no
+				is_capital_barony = no
+				is_leased_out = no
 			}
+
+			order_by = tier
+			max = 999
+			check_range_bounds = no
 
 			save_temporary_scope_as = VNTL_non_vanity_title
 
