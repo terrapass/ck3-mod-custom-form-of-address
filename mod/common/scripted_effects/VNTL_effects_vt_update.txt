@@ -60,3 +60,44 @@ VNTL_on_character_primary_title_changed = {
 
 	clear_saved_scope = VNTL_temp_holder
 }
+
+# Repopulates VNTL_held_non_vanity_titles variable list for the given character.
+#
+# Scope: Character - Character to analyze and store VNTL_held_non_vanity_titles on.
+VNTL_update_held_non_vanity_titles_list = {
+	clear_variable_list = VNTL_held_non_vanity_titles
+
+	ordered_held_title = {
+		limit = {
+			VNTL_is_vanity_title = no
+			# These conditions are commented-out and checked in a separate if below,
+			# since otherwise the order of the list changes for some unexplained reason.
+			# Weird, but okay.
+			#is_capital_barony = no
+			#is_leased_out = no
+		}
+
+		order_by = tier
+		max = 999
+		check_range_bounds = no
+
+		# Also see limit above
+		if = {
+			limit = {
+				is_capital_barony = no
+				is_leased_out = no
+			}
+
+			save_temporary_scope_as = VNTL_non_vanity_title
+
+			holder = {
+				add_to_variable_list = {
+					name = VNTL_held_non_vanity_titles
+					target = scope:VNTL_non_vanity_title
+				}
+			}
+		}
+	}
+
+	clear_saved_scope = VNTL_non_vanity_title
+}
