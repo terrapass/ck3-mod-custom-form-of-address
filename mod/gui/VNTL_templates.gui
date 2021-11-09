@@ -92,8 +92,13 @@ template "VNTL_on_finish_try_update_held_non_vanity_titles_list" {
     on_finish = "[GetScriptedGui('VNTL_sgui_try_update_held_non_vanity_titles_list').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
 }
 
+template "VNTL_on_start_maintain_vt_definite_form_for_character" {
+    on_start = "[GetScriptedGui('VNTL_sgui_maintain_vt_definite_form_for_character').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
 template "VNTL_character_window_show_state_actions" {
     using = VNTL_on_start_try_update_held_non_vanity_titles_list
+    using = VNTL_on_start_maintain_vt_definite_form_for_character
 }
 
 template "VNTL_character_window_refresh_state" {
@@ -101,5 +106,14 @@ template "VNTL_character_window_refresh_state" {
         name = character_window_refresh
 
         using = VNTL_on_finish_try_update_held_non_vanity_titles_list
+        using = VNTL_on_start_maintain_vt_definite_form_for_character
+    }
+}
+
+template "VNTL_character_window_mouse_hierarchy_enter_state" {
+    state = {
+        name = _mouse_hierarchy_enter
+
+        using = VNTL_on_start_maintain_vt_definite_form_for_character
     }
 }

@@ -251,3 +251,43 @@ VNTL_sgui_try_update_held_non_vanity_titles_list = {
 		VNTL_update_held_non_vanity_titles_list = yes
 	}
 }
+
+# Forces definite (or "definitive" - PDX make up your mind!) form for the given title.
+# I.e. drops tier prefixes such as "Kingdom of" and the like.
+#
+# IsValid() - enabled only for vanity titles.
+# Execute() - force definite form thus dropping tier prefix for this VT.
+VNTL_sgui_maintain_vt_definite_form = {
+	scope = title
+
+	is_valid = {
+		VNTL_is_vanity_title = yes
+	}
+
+	effect = {
+		set_definitive_form = yes
+	}
+}
+
+# Same as VNTL_sgui_maintain_vt_definite_form but for characters,
+# applies to the given character's VT.
+#
+# IsValid() - enabled only for characters who actually hold a VT.
+# Execute() - force definite form thus dropping tier prefix for character's VT.
+VNTL_sgui_maintain_vt_definite_form_for_character = {
+	scope = character
+
+	is_valid = {
+		VNTL_has_vanity_title = yes
+	}
+
+	effect = {
+		every_held_title = {
+			limit = {
+				VNTL_is_vanity_title = yes
+			}
+
+			set_definitive_form = yes
+		}
+	}
+}

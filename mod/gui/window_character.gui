@@ -35,6 +35,7 @@ window = {
 
 	# MOD(vanity-titles)
 	using = VNTL_character_window_refresh_state
+	using = VNTL_character_window_mouse_hierarchy_enter_state
 	# END MOD
 
 	vbox = {
