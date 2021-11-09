@@ -202,6 +202,8 @@
     # The changes, compared to vanilla usages are:
     # 1) CharacterWindow.GetTitles -> CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')
     # 2) And( GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), <vanilla condition> )
+    # 3) Negative margin_right values (except for the first override), to account for hidden vanilla vboxes,
+    #    which still take some horizontal space.
     #
     # Why oh why would PDX write the layout for this window in such a convoluted way?
     #
@@ -242,6 +244,8 @@
         layoutpolicy_horizontal = expanding
         layoutpolicy_vertical = expanding
 
+        margin_left = -37
+
         using = Animation_Character_Window_Refresh
 
         blockoverride "titles_extra_items"
@@ -273,6 +277,8 @@
         layoutpolicy_horizontal = expanding
         layoutpolicy_vertical = expanding
 
+        margin_left = -25
+
         using = Animation_Character_Window_Refresh
 
         blockoverride "titles_extra_items"
@@ -303,6 +309,8 @@
         layoutpolicy_horizontal = expanding
         layoutpolicy_vertical = expanding
 
+        margin_left = -14
+
         using = Animation_Character_Window_Refresh
 
         blockoverride "titles_extra_items"
@@ -332,6 +340,8 @@
         visible = "[And( GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End), And( Not( Character.GetPrimaryTitle.HasFaction ), GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8')))]"
         layoutpolicy_horizontal = expanding
         layoutpolicy_vertical = expanding
+
+        margin_left = -2
 
         using = Animation_Character_Window_Refresh
 
