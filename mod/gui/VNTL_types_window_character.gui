@@ -1,7 +1,5 @@
 ﻿types VNTL_types_window_character
 {
-    # FIXME: Don't forget CV_TITLES!
-
     # Based on vanilla vbox_titles_claims_box and replaces it for VT-holder characters.
     # The only major difference is that on-character VNTL_held_non_vanity_titles
     # list is used as title list datamodel, instead of the built-in CharacterWindow.GetTitles.
@@ -27,12 +25,12 @@
 
                     text_label_left = {
                         visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)1' )]"
-                        text = "CV_TITLES"
+                        text = "VNTL_CV_TITLES"
                     }
 
                     text_label_left = {
                         visible = "[Not(GreaterThan_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('VNTL_held_non_vanity_titles')), '(int32)1' ))]"
-                        text = "CV_TITLES_SINGULAR"
+                        text = "VNTL_CV_TITLES_SINGULAR"
                     }
 
                     expand = {}
