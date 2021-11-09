@@ -615,10 +615,7 @@ window = {
 
 				vbox = {
 					name = "create_title"
-					# MOD(vanity-titles)
 					visible = "[And( Not( Title.IsBarony ), Not( TitleViewWindow.GetTitle.HasHolder ) )]"
-					#visible = "[And(And( Not( Title.IsBarony ), Not( TitleViewWindow.GetTitle.HasHolder ) ), Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End)))]"
-					# END MOD
 					margin = { 0 20 }
 					spacing = 15
 
@@ -756,10 +753,7 @@ window = {
 				#### PORTRAITS ###
 				vbox = {
 					name = "succession_info"
-					# MOD(vanity-titles)
 					visible = "[TitleViewWindow.GetTitle.HasHolder]"
-					#visible = "[And(TitleViewWindow.GetTitle.HasHolder, Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)))]"
-					# END MOD
 					layoutpolicy_vertical = preferred
 					layoutpolicy_horizontal = expanding
 					ignoreinvisible = yes
