@@ -15,12 +15,6 @@ VNTL_on_game_start_after_lobby = {
 		set_global_variable = { name = VNTL_vanity_title_0 value = title:d_VNTL_vanity_0 }
 		set_global_variable = { name = VNTL_vanity_title_1 value = title:d_VNTL_vanity_1 }
 		# TODO: etc.
-
-		# FIXME: Testing
-		random_player = {
-			destroy_title = title:e_hre
-		}
-		# END FIXME
 	}
 
 	# events = {
@@ -28,7 +22,7 @@ VNTL_on_game_start_after_lobby = {
 	# }
 }
 
-# TODO: Extract the following on_actions into a separate file
+# TODO: Extract the following on_actions into separate files
 
 # root: Character - Character ranking up
 # scope:title: Title - Old primary title
