@@ -40,6 +40,11 @@ l_english:
  TitleRelationToMe_Your_Title:0 "Your $VNTL_TitleRelationToMe_CONCEPT_SELECTOR$\n"
  TitleRelationToMe_Title:0 "[second.GetHolder.GetRelationToString( ROOT.Char )]'s $VNTL_TitleRelationToMe_CONCEPT_SELECTOR$\n"
 
+ # Tooltip text for uncreated/destroyed titles
+ VNTL_VANILLA_COA_TOOLTIP_NO_HOLDER:0 "Not created\n"
+ VNTL_FOA_COA_TOOLTIP_NO_HOLDER:0 "Unused [VNTL_form_of_address|E]\n"
+ COA_TOOLTIP_NO_HOLDER:0 "[SelectLocalization(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), 'VNTL_FOA_COA_TOOLTIP_NO_HOLDER', 'VNTL_VANILLA_COA_TOOLTIP_NO_HOLDER')]"
+
  # TODO: Move this to a separate loc file in replace/
  # This hides vanity titles from "Heir to:" list in character tooltip # Eyyy... this worked
  CHARACTER_LINE_OF_SUCCESSION_ENTRY:0 "[Select_CString(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), '', Concatenate(TITLE.GetName, '\n'))]"
