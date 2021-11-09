@@ -30,6 +30,16 @@ l_english:
  TITLE_ADJECTIVE_FIELD:0 "[SelectLocalization(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), 'VNTL_FOA_TITLE_ADJECTIVE_FIELD', 'VNTL_VANILLA_TITLE_ADJECTIVE_FIELD')]"
  # FIXME: Also dynamically change "Rename" tooltip to "Save"?
 
+ # TODO: Override properly with Select_CString and maybe just rely on this instead of the entire VNTL_vbox_title_type_text type in window_title.gui?
+ #TV_TIER_INFO:1 "[Title.GetRankConcept] [title|E]"
+
+ # This replaces the "Title" with "Form of Address" in VT CoA tooltips
+ VNTL_TitleRelationToMe_TITLE_CONCEPT:0 "[title|E]"
+ VNTL_TitleRelationToMe_FOA_CONCEPT:0 "[VNTL_form_of_address|E]"
+ VNTL_TitleRelationToMe_CONCEPT_SELECTOR:0 "[SelectLocalization(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(second.MakeScope).End), 'VNTL_TitleRelationToMe_FOA_CONCEPT', 'VNTL_TitleRelationToMe_TITLE_CONCEPT')]"
+ TitleRelationToMe_Your_Title:0 "Your $VNTL_TitleRelationToMe_CONCEPT_SELECTOR$\n"
+ TitleRelationToMe_Title:0 "[second.GetHolder.GetRelationToString( ROOT.Char )]'s $VNTL_TitleRelationToMe_CONCEPT_SELECTOR$\n"
+
  # TODO: Move this to a separate loc file in replace/
  # This hides vanity titles from "Heir to:" list in character tooltip # Eyyy... this worked
  CHARACTER_LINE_OF_SUCCESSION_ENTRY:0 "[Select_CString(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), '', Concatenate(TITLE.GetName, '\n'))]"
