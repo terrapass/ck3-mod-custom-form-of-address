@@ -1,0 +1,100 @@
+﻿#
+# on_title_destroyed
+#
+
+# root: Character - The holder before destruction
+# scope:landed_title: Title - The title that is being destroyed
+on_title_destroyed = {
+	on_actions = { VNTL_on_title_destroyed }
+}
+
+VNTL_on_title_destroyed = {
+	effect = {
+		VNTL_handle_character_title_change = {
+			CHANGED_TITLE = scope:landed_title
+		}
+	}
+}
+
+#
+# on_title_gained
+#
+
+# root: Character - The new holder
+# scope:title: Title - The title that changes hands
+# scope:previous_holder: Character - Previous holder; might be dead
+on_title_gain = {
+	on_actions = { VNTL_on_title_gain }
+}
+
+VNTL_on_title_gain = {
+	effect = {
+		VNTL_handle_character_title_change = {
+			CHANGED_TITLE = scope:title
+		}
+	}
+}
+
+#
+# on_title_lost
+#
+
+# root: Character - The old holder
+# scope:title: Title - The title that changes hands
+# scope:new_holder: Character - New holder
+on_title_lost = { # NOTE: This does NOT actually get called when title is destroyed.
+	on_actions = { VNTL_on_title_lost }
+}
+
+VNTL_on_title_lost = {
+	effect = {
+		VNTL_handle_character_title_change = {
+			CHANGED_TITLE = scope:title
+		}
+	}
+}
+
+#
+# on_rank_up
+#
+
+# root: Character - Character ranking up
+# scope:title: Title - Old primary title
+on_rank_up = {
+	on_actions = { VNTL_on_rank_up }
+}
+
+VNTL_on_rank_up = {
+	effect = {
+		primary_title = {
+			save_scope_as = VNTL_new_primary_title
+		}
+
+		VNTL_on_character_primary_title_changed = {
+			NEW_PRIMARY_TITLE = scope:VNTL_new_primary_title
+		}
+	}
+}
+
+
+#
+# on_rank_down
+#
+
+# root: Character - Character ranking down
+# scope:title: Title - Old primary title
+on_rank_down = {
+	on_actions = { VNTL_on_rank_up }
+}
+
+VNTL_on_rank_down = {
+	effect = {
+		primary_title = {
+			save_scope_as = VNTL_new_primary_title
+		}
+
+		VNTL_on_character_primary_title_changed = {
+			NEW_PRIMARY_TITLE = scope:VNTL_new_primary_title
+		}
+	}
+}

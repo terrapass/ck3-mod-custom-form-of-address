@@ -1,0 +1,17 @@
+﻿on_game_start_after_lobby = {
+	on_actions = { VNTL_on_game_start_after_lobby }
+}
+
+VNTL_on_game_start_after_lobby = {
+	effect = {
+		# TODO: Pre-generate offline
+		add_to_global_variable_list = { name = VNTL_vanity_titles target = title:d_VNTL_vanity_0 }
+		add_to_global_variable_list = { name = VNTL_vanity_titles target = title:d_VNTL_vanity_1 }
+		# TODO: etc.
+
+		# TODO: Pre-generate offline
+		set_global_variable = { name = VNTL_vanity_title_0 value = title:d_VNTL_vanity_0 }
+		set_global_variable = { name = VNTL_vanity_title_1 value = title:d_VNTL_vanity_1 }
+		# TODO: etc.
+	}
+}

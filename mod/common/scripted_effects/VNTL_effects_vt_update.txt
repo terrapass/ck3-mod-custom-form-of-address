@@ -61,6 +61,39 @@ VNTL_on_character_primary_title_changed = {
 	clear_saved_scope = VNTL_temp_holder
 }
 
+# Maintains correct VT for given character's current primary title.
+# This scripted effect is essentially used as a workaround for there being
+# no on_primary_title_changed on_action in the game.
+# It should be run periodically, in case primary title changed via an event
+# or otherwise in any way other than by player deliberately clicking "Make Primary" button
+# (or indeed if due to mod incompatibility "Make Primary" did not invoke
+# VNTL_on_character_primary_title_changed as it should have).
+#
+# See VNTL_on_character_primary_title_changed.
+#
+# Scope: Character - Character whose primary title might have changed
+VNTL_update_character_vanity_title = {
+	assert_if = {
+		limit = { NOT = { exists = primary_title } }
+
+		text = "character must have a primary title"
+	}
+
+	primary_title = {
+		save_temporary_scope_as = VNTL_temp_primary_title
+	}
+
+	# TODO: It would be cleaner if both this effect and VNTL_on_character_primary_title_changed
+	#       invoked the same private effect. This will do for now, might clean this up later.
+	VNTL_on_character_primary_title_changed = {
+		# Most of the time this will be a lie, since primary title rarely changes without player input,
+		# so... yeah, totally "new".
+		NEW_PRIMARY_TITLE = scope:VNTL_temp_primary_title
+	}
+
+	clear_saved_scope = VNTL_temp_primary_title
+}
+
 # Repopulates VNTL_held_non_vanity_titles variable list for the given character.
 #
 # Scope: Character - Character to analyze and store VNTL_held_non_vanity_titles on.
@@ -100,4 +133,27 @@ VNTL_update_held_non_vanity_titles_list = {
 	}
 
 	clear_saved_scope = VNTL_non_vanity_title
+}
+
+# Maintains correct mod data state for the character given as scope
+# in case their set of held title changes for whatever reason.
+# Intended to be used in response to various title change related on_actions.
+#
+# Scope: Character - Character whose set of held titles has changed
+# CHANGED_TITLE: Title - Title whose state has changed
+VNTL_handle_character_title_change = {
+	if = {
+		limit = {
+			VNTL_has_vanity_title = yes
+			$CHANGED_TITLE$ = {
+				# We're only interested in actual real titles.
+				# Responding to VT changes would cause bugs
+				# due to unintented feedback loops.
+				VNTL_is_vanity_title = no
+			}
+		}
+
+		VNTL_update_character_vanity_title = yes
+		VNTL_update_held_non_vanity_titles_list = yes
+	}
 }
