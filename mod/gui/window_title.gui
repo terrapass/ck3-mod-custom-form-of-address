@@ -267,23 +267,7 @@ window = {
 									}
 
 									# MOD(vanity-titles)
-									flowcontainer = {
-										layoutpolicy_horizontal = expanding
-										layoutpolicy_vertical = expanding
-
-										visible = "[And(EqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID ), Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)))]"
-
-										text_multi = {
-											name = "VNTL_title_foa"
-
-											autoresize = yes
-											text = "[VNTL_foa|E]: [Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
-										}
-
-										VNTL_flowcontainer_edit_title_foa_inline = {
-											margin_top = -5
-										}
-									}
+									VNTL_flowcontainer_title_foa = {}
 									# END MOD
 								}
 

@@ -1,0 +1,28 @@
+﻿types VNTL_types_window_title
+{
+    type VNTL_flowcontainer_title_foa = flowcontainer {
+        layoutpolicy_horizontal = expanding
+        layoutpolicy_vertical = expanding
+        ignoreinvisible = yes
+
+        visible = "[And(EqualTo_uint32( Title.GetHolder.GetID, GetPlayer.GetID ), Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)))]"
+
+        text_multi = {
+            visible = "[ObjectsEqual( Title.GetHolder.GetPrimaryTitle, Title.Self )]"
+
+            autoresize = yes
+            text = "VNTL_TITLE_FOA_PRIMARY"
+        }
+
+        text_multi = {
+            visible = "[Not( ObjectsEqual( Title.GetHolder.GetPrimaryTitle, Title.Self ) )]"
+
+            autoresize = yes
+            text = "VNTL_TITLE_FOA_NON_PRIMARY"
+        }
+
+        VNTL_flowcontainer_edit_title_foa_inline = {
+            margin_top = -5
+        }
+    }
+}

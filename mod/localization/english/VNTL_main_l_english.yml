@@ -21,6 +21,9 @@
  VNTL_FORMER_VANITY_TITLE_TYPE_TEXT:0 "Former [VNTL_foa|E] for rulers of [Title.MakeScope.Var('VNTL_bound_primary_title').Title.GetName]"
  VNTL_UNUSED_VANITY_TITLE_TYPE_TEXT:0 "Unused [VNTL_form_of_address|E]"
 
+ VNTL_TITLE_FOA_PRIMARY:0 "[VNTL_form_of_address|E]: [Title.GetHolder.GetTitleAsNameNoTooltip]"
+ VNTL_TITLE_FOA_NON_PRIMARY:0 "[VNTL_foa|E]: [Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
+
  #
  # Concepts
  #
