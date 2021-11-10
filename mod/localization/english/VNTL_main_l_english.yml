@@ -31,8 +31,9 @@
  game_concept_VNTL_vanity_titles:0 "Vanity Titles"
  game_concept_VNTL_vanity_title_desc:0 "A $game_concept_VNTL_vanity_title$ is a special [title|E], which carries no land, bonuses or obligations, and exists only to allow the player to manually enter their preferred [VNTL_form_of_address|E] instead of using the standard one (\"Duke\", \"Queen\" etc.) based on their [primary_title|E].\nA [ruler|E] cannot hold more than one $game_concept_VNTL_vanity_title$ at the same time and must be at least a [duke|E] to be able to create one.\n\nThe $game_concept_VNTL_vanity_title$ is tied to its [holder_possessive|El] [primary_title|E] and will be automatically destroyed if this title ceases to be primary for any reason; in such a case the player will be able to create a new $game_concept_VNTL_vanity_title$ for their new [primary_title|E]."
  game_concept_VNTL_form_of_address:0 "Form of Address"
+ game_concept_VNTL_forms_of_address:0 "Forms of Address"
  game_concept_VNTL_foa:0 "FoA"
- game_concept_VNTL_form_of_address_desc:0 "TODO"
+ game_concept_VNTL_form_of_address_desc:0 "Be it \"Duke\", \"High Queen\" or \"Kaiser\", a $game_concept_VNTL_form_of_address$ is the term used to address or refer to a [ruler|E] based on the most significant [title|E] they hold, usually their [primary_title|E].\n\nA player can customize $game_concept_VNTL_form_of_address$ for their [primary_title|E], as long as it's at least of a [duchy|E] [title_tier|E].\nCustom $game_concept_VNTL_forms_of_address$ are tied to the [primary_title|E] they were set for and will be inherited along with it. Should this title cease to be primary, its [holder|E] will stop using the corresponding custom $game_concept_VNTL_form_of_address$ and will switch to the appropriate $game_concept_VNTL_foa$ for their new primary title."
 
  #
  # Triggers
