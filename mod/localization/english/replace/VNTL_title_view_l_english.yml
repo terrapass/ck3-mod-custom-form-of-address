@@ -5,7 +5,7 @@ l_english:
  #
  # Mod strings for FoA
  #
- VNTL_FOA_RENAME_TITLE_TITLE:0 "Customize Form of Address"
+ VNTL_FOA_RENAME_TITLE_TITLE:0 "Edit Form of Address"
  VNTL_FOA_RENAME_TITLE_DESC:0 "Concatenate('Enter form of address for rulers of ', TITLE.MakeScope.Var('VNTL_bound_primary_title').Title.GetName)"
  VNTL_FOA_RENAME_TITLE_ACCEPT:0 "Save"
  VNTL_FOA_TITLE_NAME_FIELD:0 "Male Form"
