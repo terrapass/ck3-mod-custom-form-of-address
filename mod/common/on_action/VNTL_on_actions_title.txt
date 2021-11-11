@@ -13,6 +13,14 @@ VNTL_on_title_destroyed = {
 		VNTL_handle_character_title_change = {
 			CHANGED_TITLE = scope:landed_title
 		}
+
+		if = {
+			limit = {
+				scope:landed_title = { VNTL_is_vanity_title = yes }
+			}
+
+			remove_character_modifier = VNTL_held_vanity_title_modifier
+		}
 	}
 }
 
@@ -66,12 +74,22 @@ on_rank_up = {
 
 VNTL_on_rank_up = {
 	effect = {
-		primary_title = {
-			save_scope_as = VNTL_new_primary_title
-		}
+		if = {
+			limit = {
+				# Not interested in previously unlanded characters
+				exists = scope:title
+				# ...and also characters who no longer have a primary title, apparently
+				# (not sure why on_rank_up would fire for them but it does)
+				exists = primary_title
+			}
 
-		VNTL_on_character_primary_title_changed = {
-			NEW_PRIMARY_TITLE = scope:VNTL_new_primary_title
+			primary_title = {
+				save_scope_as = VNTL_new_primary_title
+			}
+
+			VNTL_on_character_primary_title_changed = {
+				NEW_PRIMARY_TITLE = scope:VNTL_new_primary_title
+			}
 		}
 	}
 }

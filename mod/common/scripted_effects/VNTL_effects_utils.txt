@@ -28,5 +28,15 @@ VNTL_give_vanity_title = {
 
 	resolve_title_and_vassal_change = scope:change
 
+	$TARGET_CHARACTER$ = {
+		assert_if = {
+			limit = { has_character_modifier = VNTL_held_vanity_title_modifier }
+
+			text = "did not expect character to already have VNTL_held_vanity_title_modifier"
+		}
+
+		add_character_modifier = VNTL_held_vanity_title_modifier
+	}
+
 	# TODO: Re-generate CoA, set name/adjective to male/female suggestions based on title tier?
 }
