@@ -13,29 +13,37 @@
     type coa_title_tiny_crown = coa_title_tiny {
         blockoverride "crown" {}
 
+        # MOD(vanity-titles)
         VNTL_icon_title_status_foa = {
             size = { 25 25 }
             position = { 5 0 }
         }
+        # END MOD
     }
 
     type coa_title_small_crown = coa_title_small {
         blockoverride "crown" {}
 
+        # MOD(vanity-titles)
         VNTL_icon_title_status_foa = {
             position = { 10 5 }
         }
+        # END MOD
     }
 
     type coa_title_medium_crown = coa_title_medium {
         blockoverride "crown" {}
 
+        # MOD(vanity-titles)
         VNTL_icon_title_status_foa = {}
+        # END MOD
     }
 
     type coa_title_big_crown = coa_title_big {
         blockoverride "crown" {}
 
+        # MOD(vanity-titles)
         VNTL_icon_title_status_foa = {}
+        # END MOD
     }
 }
