@@ -14,12 +14,6 @@
  VNTL_held_vanity_title_modifier_desc:0 "This character's [primary_title|E] grants them a distinctive [VNTL_foa|E]"
 
  #
- # Flavors
- #
- # TODO: I guess that'll be "Почетное звание" in Russian
- VNTL_flavor_vanity_title_tier:0 "[TitleViewWindow.GetTitle.GetBaseName]"
-
- #
  # Titles
  #
  VNTL_default_vanity_title_name_male:0 "Supreme Lord"

@@ -1,13 +1,5 @@
 ﻿l_english:
  #
- # Vanity Title
- #
-
- game_concept_VNTL_vanity_title:0 "Vanity Title"
- game_concept_VNTL_vanity_titles:0 "Vanity Titles"
- game_concept_VNTL_vanity_title_desc:0 "A $game_concept_VNTL_vanity_title$ is a special [title|E], which carries no land, bonuses or obligations, and exists only to allow the player to manually enter their preferred [VNTL_form_of_address|E] instead of using the standard one (\"Duke\", \"Queen\" etc.) based on their [primary_title|E].\nA [ruler|E] cannot hold more than one $game_concept_VNTL_vanity_title$ at the same time and must be at least a [duke|E] to be able to create one.\n\nThe $game_concept_VNTL_vanity_title$ is tied to its [holder_possessive|El] [primary_title|E] and will be automatically destroyed if this title ceases to be primary for any reason; in such a case the player will be able to create a new $game_concept_VNTL_vanity_title$ for their new [primary_title|E]."
-
- #
  # Form of Address
  #
 
