@@ -133,3 +133,7 @@ template "VNTL_title_window_mouse_hierarchy_enter_state" {
         using = VNTL_on_start_maintain_vt_definite_form
     }
 }
+
+template "VNTL_hide_held_vanity_title_modifier" {
+    visible = "[Not(EqualTo_string(ValueBreakdown.GetName, GetModifier('VNTL_held_vanity_title_modifier').GetName))]"
+}
