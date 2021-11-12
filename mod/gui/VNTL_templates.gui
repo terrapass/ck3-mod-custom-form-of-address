@@ -137,3 +137,7 @@ template "VNTL_title_window_mouse_hierarchy_enter_state" {
 template "VNTL_hide_held_vanity_title_modifier" {
     visible = "[Not(EqualTo_string(ValueBreakdown.GetName, GetModifier('VNTL_held_vanity_title_modifier').GetName))]"
 }
+
+template "VNTL_hide_held_duchy_modifier" {
+    visible = "[Not(EqualTo_string(ValueBreakdown.GetName, GetModifier('held_duchy_modifier').GetName))]"
+}

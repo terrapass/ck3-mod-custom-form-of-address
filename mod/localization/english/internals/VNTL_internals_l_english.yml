@@ -26,3 +26,12 @@ l_english:
  VNTL_TitleRelationToMe_TITLE_CONCEPT:0 "[title|E]"
  VNTL_TitleRelationToMe_FOA_CONCEPT:0 "[VNTL_form_of_address|E]"
  VNTL_TitleRelationToMe_CONCEPT_SELECTOR:0 "[SelectLocalization(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(second.MakeScope).End), 'VNTL_TitleRelationToMe_FOA_CONCEPT', 'VNTL_TitleRelationToMe_TITLE_CONCEPT')]"
+
+ #
+ # Internals for "Held Duchies" value in prestige gain breakdown tooltip
+ #
+
+ VNTL_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DEDUCTION:0 "'(CFixedPoint)0.2'"
+ VNTL_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_MUST_SUBTRACT:0 "GetScriptedGui('VNTL_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)"
+ VNTL_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DELTA:0 "Select_CFixedPoint($VNTL_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_MUST_SUBTRACT$, $VNTL_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DEDUCTION$, '(CFixedPoint)0.0')"
+ VNTL_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER:0 "@prestige_icon! [Subtract_CFixedPoint(ValueBreakdown.GetFixedPointValue, $VNTL_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DELTA$)|+=]"

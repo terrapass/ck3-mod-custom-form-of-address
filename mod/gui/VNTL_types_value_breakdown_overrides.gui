@@ -1,4 +1,4 @@
-﻿types VNTL_types_coa_title_overrides
+﻿types VNTL_types_value_breakdown_overrides
 {
     type widget_value_breakdown_tooltip = widget {
         name = "values_grid"
@@ -26,6 +26,7 @@
                     layoutpolicy_horizontal = expanding
 
                     # MOD(vanity-titles)
+                    ignoreinvisible = yes
                     using = VNTL_hide_held_vanity_title_modifier
                     # END MOD
 
@@ -55,6 +56,16 @@
                         }
                     }
 
+                    # MOD(vanity-titles)
+                    VNTL_text_single_held_duchy_modifier_value = {}
+                    # END MOD
+
+                    # MOD(vanity-titles)
+                    vbox = {
+                        layoutpolicy_horizontal = expanding
+                        using = VNTL_hide_held_duchy_modifier
+                        # Note no closing brace here - this block is closed later
+                    # END MOD
                     text_single = {
                         visible = "[And( Not(ValueBreakdown.HasTooltip), ValueBreakdown.ShouldShowValue )]"
                         name = "value_with_no_tooltip"
@@ -62,6 +73,9 @@
                         align = right
                         fonttintcolor = "[TooltipInfo.GetTintColor]"
                     }
+                    # MOD(vanity-titles)
+                    } # This closes vbox
+                    # END MOD
                 }
             }
         }

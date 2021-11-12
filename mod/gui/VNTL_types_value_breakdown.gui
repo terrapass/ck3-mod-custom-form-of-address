@@ -1,0 +1,14 @@
+types VNTL_types_value_breakdown
+{
+    type VNTL_text_single_held_duchy_modifier_value = text_single {
+        visible = "[And( EqualTo_string(ValueBreakdown.GetName, GetModifier('held_duchy_modifier').GetName), And( Not(ValueBreakdown.HasTooltip), ValueBreakdown.ShouldShowValue ) )]"
+        name = "VNTL_value_with_no_tooltip"
+
+        text = "VNTL_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER"
+
+        align = right
+        fonttintcolor = "[TooltipInfo.GetTintColor]"
+
+        margin_right = 14
+    }
+}
