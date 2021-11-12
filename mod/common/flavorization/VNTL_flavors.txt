@@ -1,13 +1,5 @@
 ﻿# TODO: Pre-generate offline
 
-# FIXME: Affects ALL duchy-tier titles of the character, not only VTs :(
-VNTL_flavor_vanity_title_tier = {
-	type = title
-	tier = duchy
-	titles = { d_VNTL_vanity_0 d_VNTL_vanity_1 } # TODO: etc.
-	priority = 0
-}
-
 VNTL_flavor_vanity_title_holder_male_0 = {
 	type = character
 	gender = male
