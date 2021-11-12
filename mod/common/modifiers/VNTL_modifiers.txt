@@ -3,7 +3,7 @@
 # }
 
 VNTL_held_vanity_title_modifier = {
-	icon = prestige_positive
+	icon = VNTL_custom_foa_positive
 
 	# Deduction to compensate held_duchy_modifier bonus from VT,
 	# since it's technically a duchy.

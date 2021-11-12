@@ -46,7 +46,8 @@
  #
  # Modifiers
  #
- VNTL_held_vanity_title_modifier:0 "Custom [VNTL_foa|E]"
+ VNTL_held_vanity_title_modifier:0 "Using a Custom $game_concept_VNTL_form_of_address$"
+ VNTL_held_vanity_title_modifier_desc:0 "This character's [primary_title|E] grants them a distinctive [VNTL_foa|E]"
 
  #
  # Flavors
