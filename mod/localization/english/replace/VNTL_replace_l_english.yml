@@ -1,30 +1,17 @@
-﻿# Edit FoA window is actually just the vanilla Rename Title window
-# (constructed from rename_popup_two in vanilla dialogs.gui),
-# only the labels are changed to refer to FoA instead of title name.
+﻿# This file does NOT need to be translated for other localizations.
+#
+# Its contents can be reused as is, it's enough to simply change the next line
+# to contain the actual language-appropriate marker instead of l_english.
 l_english:
  #
- # Mod strings for FoA
+ # Overridden vanilla strings for "Rename Title" dialog labels
+ # (see vanilla localization\english\gui\title_view_l_english.yml)
  #
- VNTL_FOA_RENAME_TITLE_TITLE:0 "Edit Form of Address"
- VNTL_FOA_RENAME_TITLE_DESC:0 "Concatenate('Enter form of address for rulers of ', TITLE.MakeScope.Var('VNTL_bound_primary_title').Title.GetName)"
- VNTL_FOA_RENAME_TITLE_ACCEPT:0 "Save"
- VNTL_FOA_TITLE_NAME_FIELD:0 "Male Form"
- VNTL_FOA_TITLE_ADJECTIVE_FIELD:0 "Female Form"
- #VNTL_FOA_RENAME_TOOLTIP:0 "Concatenate('#T Save#!\n', GameDialog.GetCanAcceptBlocker)"
 
- #
- # Original vanilla strings
- #
- VNTL_VANILLA_RENAME_TITLE_TITLE:0 "Concatenate('Rename ', TITLE.GetName)"
- VNTL_VANILLA_RENAME_TITLE_DESC:0 "Concatenate('Change the name and adjective of ', TITLE.GetName)"
- VNTL_VANILLA_RENAME_TITLE_ACCEPT:0 "Rename"
- VNTL_VANILLA_TITLE_NAME_FIELD:0 "Name"
- VNTL_VANILLA_TITLE_ADJECTIVE_FIELD:0 "Adjective"
- #VNTL_VANILLA_RENAME_TOOLTIP:0 "Concatenate('#T Rename#!\n', GameDialog.GetCanAcceptBlocker)"
+ # Edit FoA window is actually just the vanilla Rename Title window
+ # (constructed from rename_popup_two in vanilla dialogs.gui).
+ # The labels are changed dynamically to refer to FoA instead of title name.
 
- #
- # Overriden vanilla strings, which dynamically select between FoA and original vanilla labels
- #
  RENAME_TITLE_TITLE:0 "[Select_CString(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), '$VNTL_FOA_RENAME_TITLE_TITLE$', $VNTL_VANILLA_RENAME_TITLE_TITLE$)]"
  RENAME_TITLE_DESC:0 "[Select_CString(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), $VNTL_FOA_RENAME_TITLE_DESC$, $VNTL_VANILLA_RENAME_TITLE_DESC$)]"
  RENAME_TITLE_ACCEPT:0 "[SelectLocalization(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), 'VNTL_FOA_RENAME_TITLE_ACCEPT', 'VNTL_VANILLA_RENAME_TITLE_ACCEPT')]"
@@ -35,24 +22,37 @@ l_english:
  #RENAME_TOOLTIP:0 "[Select_CString(GetVariableSystem.Exists('VNTL_must_use_foa_mode_for_title_rename'), $VNTL_FOA_RENAME_TOOLTIP$, $VNTL_VANILLA_RENAME_TOOLTIP$)]"
  RENAME_TOOLTIP:0 "#T $SAVE$#!\n[GameDialog.GetCanAcceptBlocker]"
 
+ #
+ # Title tier text for VTs
+ #
+
  # TODO: Override properly with Select_CString and maybe just rely on this instead of the entire VNTL_vbox_title_type_text type in window_title.gui?
  #TV_TIER_INFO:1 "[Title.GetRankConcept] [title|E]"
 
- # This replaces the "Title" with "Form of Address" in VT CoA tooltips
- VNTL_TitleRelationToMe_TITLE_CONCEPT:0 "[title|E]"
- VNTL_TitleRelationToMe_FOA_CONCEPT:0 "[VNTL_form_of_address|E]"
- VNTL_TitleRelationToMe_CONCEPT_SELECTOR:0 "[SelectLocalization(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(second.MakeScope).End), 'VNTL_TitleRelationToMe_FOA_CONCEPT', 'VNTL_TitleRelationToMe_TITLE_CONCEPT')]"
+ #
+ # CoA tooltip text
+ #
+
+ # These replace "Title" with "Form of Address" in VT CoA tooltips
+ # (see vanilla localization\english\custom_localization\title_custom_loc_l_english.yml)
+
  TitleRelationToMe_Your_Title:0 "Your $VNTL_TitleRelationToMe_CONCEPT_SELECTOR$\n"
  TitleRelationToMe_Title:0 "[second.GetHolder.GetRelationToString( ROOT.Char )]'s $VNTL_TitleRelationToMe_CONCEPT_SELECTOR$\n"
 
  # Tooltip text for uncreated/destroyed titles
- VNTL_VANILLA_COA_TOOLTIP_NO_HOLDER:0 "Not created\n"
- VNTL_FOA_COA_TOOLTIP_NO_HOLDER:0 "Unused [VNTL_form_of_address|E]\n"
+ # (see vanilla localization\english\gui\common_l_english.yml)
  COA_TOOLTIP_NO_HOLDER:0 "[SelectLocalization(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), 'VNTL_FOA_COA_TOOLTIP_NO_HOLDER', 'VNTL_VANILLA_COA_TOOLTIP_NO_HOLDER')]"
 
- # TODO: Move this to a separate loc file in replace/
- # This hides vanity titles from "Heir to:" list in character tooltip # Eyyy... this worked
- CHARACTER_LINE_OF_SUCCESSION_ENTRY:0 "[Select_CString(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), '', Concatenate(TITLE.GetName, '\n'))]"
- #CHARACTER_LINE_OF_SUCCESSION_MORE:0 "And $COUNT|V$ more [titles|E]" # Somehow this works without modification?
+ #
+ # "Heir to:" list in character tooltip
+ #
 
- MY_VALUE_LABEL:0 "sdsds[PlayerValueItem.GetConcept]: [PlayerValueItem.GetValue]"
+ # This hides vanity titles from "Heir to:" list in character tooltip
+ CHARACTER_LINE_OF_SUCCESSION_ENTRY:0 "[Select_CString(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), '', Concatenate(TITLE.GetName, '\n'))]"
+ #CHARACTER_LINE_OF_SUCCESSION_MORE:0 "And $COUNT|V$ more [titles|E]"
+
+ #
+ # Value breakdown label (including prestige gain)
+ #
+
+ MY_VALUE_LABEL:0 "ststs[PlayerValueItem.GetConcept]: [PlayerValueItem.GetValue]"

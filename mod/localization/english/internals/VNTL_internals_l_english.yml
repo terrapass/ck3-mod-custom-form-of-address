@@ -1,0 +1,28 @@
+﻿# This file does NOT need to be translated for other localizations.
+#
+# Its contents can be reused as is, it's enough to simply change the next line
+# to contain the actual language-appropriate marker instead of l_english.
+l_english:
+ #
+ # Internals for "Customize Form of Address" buttton tooltip text
+ #
+
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED:0 "ScriptedGui.IsValid( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED_FOR_CHARACTER:0 "ScriptedGui.IsValid( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT:0 "ScriptedGui.IsValidTooltip( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT_FOR_CHARACTER:0 "ScriptedGui.IsValidTooltip( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT:0 "[Select_CString($VNTL_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED$, '$VNTL_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT$', $VNTL_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT$)]"
+
+ VNTL_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER:0 "[Select_CString($VNTL_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED_FOR_CHARACTER$, '$VNTL_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT$', $VNTL_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT_FOR_CHARACTER$)]"
+
+ #
+ # Internals for CoA tooltip for "Not created" titles
+ #
+
+ VNTL_TitleRelationToMe_TITLE_CONCEPT:0 "[title|E]"
+ VNTL_TitleRelationToMe_FOA_CONCEPT:0 "[VNTL_form_of_address|E]"
+ VNTL_TitleRelationToMe_CONCEPT_SELECTOR:0 "[SelectLocalization(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(second.MakeScope).End), 'VNTL_TitleRelationToMe_FOA_CONCEPT', 'VNTL_TitleRelationToMe_TITLE_CONCEPT')]"
