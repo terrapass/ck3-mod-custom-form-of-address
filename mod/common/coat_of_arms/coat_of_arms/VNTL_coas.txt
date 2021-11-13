@@ -1,4 +1,6 @@
-﻿d_VNTL_vanity_0 = {
+﻿# TODO: Pre-generate offline
+
+d_VNTL_vanity_0 = {
 	pattern = "pattern_solid.dds"
 	color1 = "white"
 
@@ -9,6 +11,146 @@
 }
 
 d_VNTL_vanity_1 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_2 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_3 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_4 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_5 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_6 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_7 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_8 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_9 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_10 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_11 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_12 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_13 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_14 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_laurels.dds"
+		color1 = "yellow"
+	}
+}
+
+d_VNTL_vanity_15 = {
 	pattern = "pattern_solid.dds"
 	color1 = "white"
 
