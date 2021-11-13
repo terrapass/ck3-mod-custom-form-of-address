@@ -140,18 +140,24 @@ window = {
 										using = Font_Size_Big
 									}
 
+									# MOD(vanity-titles)
+									hbox = {
+										using = VNTL_hide_if_vanity_title
+										# Note no closing brace here - this block is closed later
+									# END MOD
 									button_edit_text = {
 										visible = "[TitleViewWindow.GetTitle.CanPlayerRenameTitle]"
 										onclick = "[OpenTitleRenamePopup(TitleViewWindow.GetTitle)]"
 										tooltip = "EDIT_TITLE_NAME"
 									}
+									# MOD(vanity-titles)
+									} # This closes hbox
+									# END MOD
 
 									# MOD(vanity-titles)
 									hbox = {
-										# TODO: Should be encapsulated in remove_title_prefix_toggle itself?
-										visible = "[Not(GetScriptedGui('VNTL_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End))]"
-
-										using = remove_title_prefix_toggle
+										using = remove_title_prefix_toggle # Compatibility hook for "Remove Title Tier Prefix (Toggle Short Name)"
+										using = VNTL_hide_if_vanity_title
 									}
 									# END MOD
 
@@ -201,10 +207,10 @@ window = {
 								}
 
 								# MOD(vanity-titles)
-								hbox = { using = rcoa_window_title }
+								hbox = { using = rcoa_window_title } # Compatibility hook for "Randomized CoA" by Degreeno
 
+								# Compatibility hooks for "Title Manager" by Xman7373
 								flowcontainer = { using = title_manager_button_1 }
-
 								flowcontainer = { using = title_manager_button_2 }
 								# END MOD
 
