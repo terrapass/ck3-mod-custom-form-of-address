@@ -4,5 +4,5 @@ tags={
 	"Fixes"
 	"Utilities"
 }
-name="Vanity Titles"
+name="Custom Title Form of Address"
 supported_version="1.4.4"
