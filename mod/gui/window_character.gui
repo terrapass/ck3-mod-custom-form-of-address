@@ -2909,6 +2909,10 @@ window = {
 						text = "CV_TITLES_NOCOUNT"
 					}
 
+					# MOD(vanity-titles)
+					VNTL_fixedgridbox_titles_box_bishop = {}
+					# END MOD
+
 					fixedgridbox = {
 						name = "titles_box_bishop"
 						datacontext = "[CharacterWindow.GetCharacter]"
@@ -2916,6 +2920,10 @@ window = {
 						addrow = 90
 						addcolumn = 270
 						datamodel_wrap = 2
+
+						# MOD(vanity-titles)
+						using = VNTL_hide_if_has_vanity_title
+						# END MOD
 
 						datamodel = "[CharacterWindow.GetTitles]"
 
