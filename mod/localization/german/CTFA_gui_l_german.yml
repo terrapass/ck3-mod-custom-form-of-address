@@ -1,0 +1,60 @@
+﻿l_german:
+ #
+ # "Edit FoA" (aka hijacked "Rename Title") dialog labels
+ #
+
+ CTFA_FOA_RENAME_TITLE_TITLE:0 "Edit Form of Address"
+ CTFA_FOA_RENAME_TITLE_DESC:0 "Concatenate('Enter form of address for rulers of ', TITLE.MakeScope.Var('CTFA_bound_primary_title').Title.GetName)"
+ CTFA_FOA_RENAME_TITLE_ACCEPT:0 "Save"
+ CTFA_FOA_TITLE_NAME_FIELD:0 "Male Form"
+ CTFA_FOA_TITLE_ADJECTIVE_FIELD:0 "Female Form"
+ #CTFA_FOA_RENAME_TOOLTIP:0 "Concatenate('#T Save#!\n', GameDialog.GetCanAcceptBlocker)"
+
+ #
+ # Vanilla "Rename Title" dialog labels
+ # (see vanilla localization\english\gui\title_view_l_english.yml)
+ #
+
+ CTFA_VANILLA_RENAME_TITLE_TITLE:0 "Concatenate(TITLE.GetName, ' umbenennen')"
+ CTFA_VANILLA_RENAME_TITLE_DESC:0 "Concatenate('Ändert den Namen und das Adjektiv von ', TITLE.GetName)"
+ CTFA_VANILLA_RENAME_TITLE_ACCEPT:0 "Umbenennen"
+ CTFA_VANILLA_TITLE_NAME_FIELD:0 "Name"
+ CTFA_VANILLA_TITLE_ADJECTIVE_FIELD:0 "Adjektiv"
+ #CTFA_VANILLA_RENAME_TOOLTIP:0 "Concatenate('#T Rename#!\n', GameDialog.GetCanAcceptBlocker)"
+
+ #
+ # "Edit FoA" buttton tooltip text
+ #
+
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT:0 "#I Click to edit FoA\nRight-click to revert to standard FoA#!"
+ CTFA_TOOLTIP_BIND_VANITY_TITLE:0 "#T Customize [CTFA_form_of_address|E]#!\nFor [Title.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT$"
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_FOR_CHARACTER:0 "#T Customize [CTFA_form_of_address|E]#!\nFor your [primary_title|E] - [GetPlayer.GetPrimaryTitle.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER$"
+
+ #
+ # Titles count label in character window
+ #
+
+ CTFA_CV_TITLES:0 "[GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('CTFA_held_non_vanity_titles'))|V] [titles|E]"
+ CTFA_CV_TITLES_SINGULAR:0 "[GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('CTFA_held_non_vanity_titles'))|V] [title|E]"
+
+ #
+ # Title tier text for VTs
+ #
+
+ CTFA_CURRENT_VANITY_TITLE_TYPE_TEXT:0 "[CTFA_form_of_address|E] for rulers of [Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetName]"
+ CTFA_FORMER_VANITY_TITLE_TYPE_TEXT:0 "Former [CTFA_foa|E] for rulers of [Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetName]"
+ CTFA_UNUSED_VANITY_TITLE_TYPE_TEXT:0 "Unused [CTFA_form_of_address|E]"
+
+ #
+ # FoA text for regular titles
+ #
+
+ CTFA_TITLE_FOA_PRIMARY:0 "[CTFA_form_of_address|E]: [Title.GetHolder.GetTitleAsNameNoTooltip]"
+ CTFA_TITLE_FOA_NON_PRIMARY:0 "[CTFA_foa|E]: [Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
+
+ #
+ # CoA tooltip text
+ #
+
+ CTFA_VANILLA_COA_TOOLTIP_NO_HOLDER:0 "Not created\n"
+ CTFA_FOA_COA_TOOLTIP_NO_HOLDER:0 "Unused [CTFA_form_of_address|E]\n"

@@ -1,0 +1,52 @@
+﻿# This file does NOT need to be translated for other localizations.
+#
+# Its contents can be reused as is, it's enough to simply change the next line
+# to contain the actual language-appropriate marker instead of l_english.
+l_german:
+ #
+ # Overridden vanilla strings for "Rename Title" dialog labels
+ # (see vanilla localization\english\gui\title_view_l_english.yml)
+ #
+
+ # Edit FoA window is actually just the vanilla Rename Title window
+ # (constructed from rename_popup_two in vanilla dialogs.gui).
+ # The labels are changed dynamically to refer to FoA instead of title name.
+
+ RENAME_TITLE_TITLE:0 "[Select_CString(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), '$CTFA_FOA_RENAME_TITLE_TITLE$', $CTFA_VANILLA_RENAME_TITLE_TITLE$)]"
+ RENAME_TITLE_DESC:0 "[Select_CString(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), $CTFA_FOA_RENAME_TITLE_DESC$, $CTFA_VANILLA_RENAME_TITLE_DESC$)]"
+ RENAME_TITLE_ACCEPT:0 "[SelectLocalization(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), 'CTFA_FOA_RENAME_TITLE_ACCEPT', 'CTFA_VANILLA_RENAME_TITLE_ACCEPT')]"
+ TITLE_NAME_FIELD:0 "[SelectLocalization(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), 'CTFA_FOA_TITLE_NAME_FIELD', 'CTFA_VANILLA_TITLE_NAME_FIELD')]"
+ TITLE_ADJECTIVE_FIELD:0 "[SelectLocalization(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), 'CTFA_FOA_TITLE_ADJECTIVE_FIELD', 'CTFA_VANILLA_TITLE_ADJECTIVE_FIELD')]"
+ # TODO: Select between "Rename" and "Save" dynamically. Commented out method doesn't work, since the variable is already reset at the point tooltip is generated.
+ #       Will have to always say "Save" for the time being, at least it fits both situations.
+ #RENAME_TOOLTIP:0 "[Select_CString(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), $CTFA_FOA_RENAME_TOOLTIP$, $CTFA_VANILLA_RENAME_TOOLTIP$)]"
+ RENAME_TOOLTIP:0 "#T $SAVE$#!\n[GameDialog.GetCanAcceptBlocker]"
+
+ #
+ # Title tier text for VTs
+ #
+
+ # TODO: Override properly with Select_CString and maybe just rely on this instead of the entire CTFA_vbox_title_type_text type in window_title.gui?
+ #TV_TIER_INFO:1 "[Title.GetRankConcept] [title|E]"
+
+ #
+ # CoA tooltip text
+ #
+
+ # These replace "Title" with "Form of Address" in VT CoA tooltips
+ # (see vanilla localization\english\custom_localization\title_custom_loc_l_english.yml)
+
+ TitleRelationToMe_Your_Title:0 "Your $CTFA_TitleRelationToMe_CONCEPT_SELECTOR$\n"
+ TitleRelationToMe_Title:0 "[second.GetHolder.GetRelationToString( ROOT.Char )]'s $CTFA_TitleRelationToMe_CONCEPT_SELECTOR$\n"
+
+ # Tooltip text for uncreated/destroyed titles
+ # (see vanilla localization\english\gui\common_l_english.yml)
+ COA_TOOLTIP_NO_HOLDER:0 "[SelectLocalization(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), 'CTFA_FOA_COA_TOOLTIP_NO_HOLDER', 'CTFA_VANILLA_COA_TOOLTIP_NO_HOLDER')]"
+
+ #
+ # "Heir to:" list in character tooltip
+ #
+
+ # This hides vanity titles from "Heir to:" list in character tooltip
+ CHARACTER_LINE_OF_SUCCESSION_ENTRY:0 "[Select_CString(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), '', Concatenate(TITLE.GetName, '\n'))]"
+ #CHARACTER_LINE_OF_SUCCESSION_MORE:0 "And $COUNT|V$ more [titles|E]"
