@@ -1,0 +1,5 @@
+﻿CTFA_effect_test = {
+	first = CTFA_effect_test
+	third = CTFA_effect_test
+	global = CTFA_effect_test
+}

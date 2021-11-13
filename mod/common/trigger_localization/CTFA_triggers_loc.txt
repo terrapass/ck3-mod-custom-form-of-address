@@ -1,0 +1,11 @@
+﻿CTFA_trigger_existing_savegame = {
+	global = CTFA_trigger_existing_savegame
+	first = CTFA_trigger_existing_savegame
+	third = CTFA_trigger_existing_savegame
+}
+
+CTFA_trigger_at_least_duchy_tier = {
+	global = CTFA_trigger_at_least_duchy_tier
+	first = CTFA_trigger_at_least_duchy_tier
+	third = CTFA_trigger_at_least_duchy_tier
+}

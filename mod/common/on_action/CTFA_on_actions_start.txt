@@ -1,0 +1,43 @@
+﻿on_game_start_after_lobby = {
+	on_actions = { CTFA_on_game_start_after_lobby }
+}
+
+CTFA_on_game_start_after_lobby = {
+	effect = {
+		# TODO: Pre-generate offline
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_0 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_1 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_2 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_3 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_4 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_5 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_6 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_7 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_8 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_9 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_10 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_11 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_12 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_13 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_14 }
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_15 }
+
+		# TODO: Pre-generate offline
+		set_global_variable = { name = CTFA_vanity_title_0 value = title:d_CTFA_vanity_0 }
+		set_global_variable = { name = CTFA_vanity_title_1 value = title:d_CTFA_vanity_1 }
+		set_global_variable = { name = CTFA_vanity_title_2 value = title:d_CTFA_vanity_2 }
+		set_global_variable = { name = CTFA_vanity_title_3 value = title:d_CTFA_vanity_3 }
+		set_global_variable = { name = CTFA_vanity_title_4 value = title:d_CTFA_vanity_4 }
+		set_global_variable = { name = CTFA_vanity_title_5 value = title:d_CTFA_vanity_5 }
+		set_global_variable = { name = CTFA_vanity_title_6 value = title:d_CTFA_vanity_6 }
+		set_global_variable = { name = CTFA_vanity_title_7 value = title:d_CTFA_vanity_7 }
+		set_global_variable = { name = CTFA_vanity_title_8 value = title:d_CTFA_vanity_8 }
+		set_global_variable = { name = CTFA_vanity_title_9 value = title:d_CTFA_vanity_9 }
+		set_global_variable = { name = CTFA_vanity_title_10 value = title:d_CTFA_vanity_10 }
+		set_global_variable = { name = CTFA_vanity_title_11 value = title:d_CTFA_vanity_11 }
+		set_global_variable = { name = CTFA_vanity_title_12 value = title:d_CTFA_vanity_12 }
+		set_global_variable = { name = CTFA_vanity_title_13 value = title:d_CTFA_vanity_13 }
+		set_global_variable = { name = CTFA_vanity_title_14 value = title:d_CTFA_vanity_14 }
+		set_global_variable = { name = CTFA_vanity_title_15 value = title:d_CTFA_vanity_15 }
+	}
+}

@@ -1,0 +1,195 @@
+﻿# Scope: Title - Title whose state to update
+CTFA_try_update_vanity_title = {
+	# TODO: Implement or delete
+}
+
+# Upholds mod invariants on primary title change.
+# Destroys the VT bound to previously used primary title,
+# re-creates the VT, if there's one already bound to the new primary title.
+#
+# Scope: Character - Character whose primary title has changed
+# NEW_PRIMARY_TITLE: Title - The NEW primary title
+CTFA_on_character_primary_title_changed = {
+	# Workaround for PREV.PREV
+	save_temporary_scope_as = CTFA_temp_holder
+
+	# There should only ever be 1 held VT at a time
+	# but we'll use every_ in case something broke
+	# due to incompatibility with other mods or something.
+	every_held_title = {
+		limit = {
+			tier = tier_duchy
+			CTFA_is_vanity_title = yes
+			exists = var:CTFA_bound_primary_title
+			NOT = { var:CTFA_bound_primary_title = $NEW_PRIMARY_TITLE$ }
+		}
+
+		CTFA_try_destroy_title = yes
+	}
+
+	$NEW_PRIMARY_TITLE$ = {
+		# If there is an already bound and still available destroyed VT, re-create it.
+		# This scenario is possible if, e.g. the player previously set up a VT
+		# for their primary title, then had another title made primary
+		# (at which point its VT got destroyed but remained bound),
+		# and now their primary title is being changed back to the old one.
+		# This logic ensures they get their original FoA back,
+		# as long as their original VT is still available.
+		if = {
+			limit = {
+				has_variable = CTFA_bound_vanity_title
+			}
+
+			var:CTFA_bound_vanity_title = {
+				if = {
+					limit = {
+						NOT = { exists = holder }
+						has_variable = CTFA_bound_primary_title
+						var:CTFA_bound_primary_title = $NEW_PRIMARY_TITLE$
+					}
+
+					CTFA_give_vanity_title = {
+						# Can't use PREV.PREV here, as it simply means PREV in CK3. :(
+						TARGET_CHARACTER = scope:CTFA_temp_holder
+						CHANGE_TYPE = created
+					}
+				}
+			}
+		}
+	}
+
+	clear_saved_scope = CTFA_temp_holder
+}
+
+# Maintains correct VT for given character's current primary title.
+# This scripted effect is essentially used as a workaround for there being
+# no on_primary_title_changed on_action in the game.
+# It should be run periodically, in case primary title changed via an event
+# or otherwise in any way other than by player deliberately clicking "Make Primary" button
+# (or indeed if due to mod incompatibility "Make Primary" did not invoke
+# CTFA_on_character_primary_title_changed as it should have).
+#
+# See CTFA_on_character_primary_title_changed.
+#
+# Scope: Character - Character whose primary title might have changed
+CTFA_update_character_vanity_title = {
+	assert_if = {
+		limit = { NOT = { exists = primary_title } }
+
+		text = "character must have a primary title"
+	}
+
+	primary_title = {
+		save_temporary_scope_as = CTFA_temp_primary_title
+	}
+
+	# TODO: It would be cleaner if both this effect and CTFA_on_character_primary_title_changed
+	#       invoked the same private effect. This will do for now, might clean this up later.
+	CTFA_on_character_primary_title_changed = {
+		# Most of the time this will be a lie, since primary title rarely changes without player input,
+		# so... yeah, totally "new".
+		NEW_PRIMARY_TITLE = scope:CTFA_temp_primary_title
+	}
+
+	clear_saved_scope = CTFA_temp_primary_title
+}
+
+# Repopulates CTFA_held_non_vanity_titles variable list for the given character.
+#
+# Scope: Character - Character to analyze and store CTFA_held_non_vanity_titles on.
+CTFA_update_held_non_vanity_titles_list = {
+	clear_variable_list = CTFA_held_non_vanity_titles
+
+	ordered_held_title = {
+		limit = {
+			CTFA_is_vanity_title = no
+			# These conditions are commented-out and checked in a separate if below,
+			# since otherwise the order of the list changes for some unexplained reason.
+			# Weird, but okay.
+			#is_capital_barony = no
+			#is_leased_out = no
+		}
+
+		order_by = tier
+		max = 999
+		check_range_bounds = no
+
+		# Also see limit above
+		if = {
+			limit = {
+				is_capital_barony = no
+				is_leased_out = no
+			}
+
+			save_temporary_scope_as = CTFA_non_vanity_title
+
+			holder = {
+				add_to_variable_list = {
+					name = CTFA_held_non_vanity_titles
+					target = scope:CTFA_non_vanity_title
+				}
+			}
+		}
+	}
+
+	clear_saved_scope = CTFA_non_vanity_title
+}
+
+# Maintains correct mod data state for the character given as scope
+# in case their set of held title changes for whatever reason.
+# Intended to be used in response to various title change related on_actions.
+#
+# Scope: Character - Character whose set of held titles has changed
+# CHANGED_TITLE: Title - Title whose state has changed
+CTFA_handle_character_title_change = {
+	if = {
+		limit = {
+			CTFA_has_vanity_title = yes
+			$CHANGED_TITLE$ = {
+				# We're only interested in actual real titles.
+				# Responding to VT changes would cause bugs
+				# due to unintented feedback loops.
+				CTFA_is_vanity_title = no
+			}
+		}
+
+		CTFA_update_character_vanity_title = yes
+		CTFA_update_held_non_vanity_titles_list = yes
+	}
+}
+
+# Maintains correct state for the character given as scope
+# in case they inherit a title.
+#
+# See CTFA_on_character_vanity_title_inherited.
+#
+# Scope: Character - Character who's just inherited a title
+# INHERITED_TITLE: Title - Title that's been inherited
+CTFA_handle_character_title_inheritance = {
+	if = {
+		limit = {
+			$INHERITED_TITLE$ = {
+				CTFA_is_vanity_title = yes
+			}
+		}
+
+		CTFA_on_character_vanity_title_inherited = yes
+	}
+}
+
+# Ensures that the character who's just inherited a VT
+# gets a corresponding character modifier.
+#
+# Scope: Character - Character who's just inherited a VT
+CTFA_on_character_vanity_title_inherited = {
+	CTFA_update_character_vanity_title = yes
+	CTFA_update_held_non_vanity_titles_list = yes
+
+	if = {
+		limit = {
+			NOT = { has_character_modifier = CTFA_held_vanity_title_modifier }
+		}
+
+		add_character_modifier = CTFA_held_vanity_title_modifier
+	}
+}

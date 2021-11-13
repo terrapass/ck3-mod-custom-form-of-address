@@ -1,0 +1,293 @@
+﻿# IsValid() - whether title given as root is one of the vanity titles.
+CTFA_sgui_is_vanity_title = {
+	scope = title
+
+	is_valid = {
+		CTFA_is_vanity_title = yes
+	}
+}
+
+# IsValid() - whether title given as root is a current (held) bound title
+CTFA_sgui_is_current_bound_vanity_title = {
+	scope = title
+
+	is_valid = {
+		CTFA_is_vanity_title = yes
+		CTFA_is_vt_bound_current = yes
+	}
+}
+
+# IsValid() - whether title given as root is a former (not held) bound title
+CTFA_sgui_is_former_bound_vanity_title = {
+	scope = title
+
+	is_valid = {
+		CTFA_is_vanity_title = yes
+		CTFA_is_vt_bound_former = yes
+	}
+}
+
+# IsValid() - whether title given as root is an unbound vanity title
+CTFA_sgui_is_unbound_vanity_title = {
+	scope = title
+
+	is_valid = {
+		CTFA_is_vanity_title = yes
+		CTFA_is_vt_unbound = yes
+	}
+}
+
+# IsValid() - whether character given as root holds a vanity title
+CTFA_sgui_has_vanity_title = {
+	scope = character
+
+	is_valid = {
+		CTFA_has_vanity_title = yes
+	}
+}
+
+# Partial logic for "Edit FoA" button in window_title.gui .
+# If necessary, this prepares vanity title and binds it to the primary title given as root.
+# I.e. it selects available VT and makes the player its holder,
+# sets CTFA_bound_vanity_title variable on the given primary title
+# and sets CTFA_bound_primary_title variable on the VT.
+# Actual opening of "Edit FoA" window (which is simply the rename window
+# for bound vanity title with labels changed) is achieved
+# via subsequent call to OpenTitleRenamePopup() in onclick action.
+#
+# IsShown() - visible for any player-held title.
+# IsValid() - enabled only for player's primary title.
+# Execute() - bind an available[1] vanity title to the given primary title.
+#
+# [1] For VT selection logic see CTFA_select_best_available_vanity_title_for_primary_title
+# scripted effect, which this sgui's effect uses internally.
+CTFA_sgui_bind_vanity_title = {
+	scope = title
+
+	saved_scopes = {
+		player
+	}
+
+	is_shown = {
+		exists = holder
+		holder = scope:player
+		scope:player = {
+			primary_title = root
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = CTFA_trigger_existing_savegame
+
+			CTFA_is_compatible_savegame = yes
+		}
+
+		custom_description = {
+			text = CTFA_trigger_at_least_duchy_tier
+			subject = holder
+
+			# VTs are currently implemented as titular duchies,
+			# therefore we can't allow them to be used by lower tier
+			# characters without unintentionally ranking them up
+			# in the process. So FoA customization is unfortunately
+			# reserved for dukes and higher-ranked characters.
+			tier >= tier_duchy
+		}
+	}
+
+	effect = {
+		holder = {
+			# Find an available vanity title and bind it to this character's primary title.
+			trigger_event = CTFA_events.1001
+		}
+	}
+}
+
+# Unbind and destroy the VT currently bound to the given primary title, if there is still such a bond.
+# I.e. it clears CTFA_bound_vanity_title and destroys the VT it was pointing to.
+# Note the reciprocal CTFA_bound_primary_title on the VT remains unchanged
+# (this is so this same VT would be chosen first, should another attempt to bind a VT be made).
+#
+# IsValid() - enabled only for player's primary title.
+# Execute() - unbind the VT (if currently bound) from the given primary title.
+CTFA_sgui_unbind_vanity_title = {
+	scope = title
+
+	saved_scopes = {
+		player
+	}
+
+	is_shown = {
+		exists = holder
+		holder = scope:player
+		scope:player = {
+			primary_title = root
+		}
+	}
+
+	is_valid = {
+		CTFA_is_compatible_savegame = yes
+
+		has_variable = CTFA_bound_vanity_title
+	}
+
+	effect = {
+		holder = {
+			# Unbind and destroy vanity title, if one is currently bound to this character's primary title.
+			trigger_event = CTFA_events.1002
+		}
+	}
+}
+
+# Partial logic for "Edit FoA" button in window_character.gui .
+#
+# See CTFA_sgui_bind_vanity_title.
+CTFA_sgui_bind_vanity_title_for_character = {
+	scope = character
+
+	saved_scopes = {
+		player
+	}
+
+	is_shown = {
+		is_landed = yes
+		root = scope:player
+	}
+
+	is_valid = {
+		custom_description = {
+			text = CTFA_trigger_existing_savegame
+
+			CTFA_is_compatible_savegame = yes
+		}
+
+		custom_description = {
+			text = CTFA_trigger_at_least_duchy_tier
+			subject = root
+
+			# See comment in CTFA_sgui_bind_vanity_title.is_valid
+			highest_held_title_tier >= tier_duchy
+		}
+	}
+
+	effect = {
+		# Find an available vanity title and bind it to this character's primary title.
+		trigger_event = CTFA_events.1001
+	}
+}
+
+# Unbind and destroy the VT currently bound to the given character's primary title, if there is still such a bond.
+#
+# See CTFA_sgui_unbind_vanity_title.
+CTFA_sgui_unbind_vanity_title_for_character = {
+	scope = character
+
+	saved_scopes = {
+		player
+	}
+
+	is_shown = {
+		is_landed = yes
+		root = scope:player
+	}
+
+	is_valid = {
+		CTFA_is_compatible_savegame = yes
+
+		CTFA_has_vanity_title = yes
+	}
+
+	effect = {
+		# Unbind and destroy vanity title, if one is currently bound to this character's primary title.
+		trigger_event = CTFA_events.1002
+	}
+}
+
+# Upholds mod invariants on primary title change.
+# Destroys the VT bound to previously used primary title,
+# re-creates the VT, if there's one already bound to the new primary title.
+#
+# Execute() - destroy any VTs which are bound to no-longer-primary titles,
+#             re-create the VT bound to new primary title
+#             (if there is a previously bound VT available).
+CTFA_sgui_on_title_made_primary = {
+	scope = title # The NEW primary title
+
+	is_valid = {
+		CTFA_is_compatible_savegame = yes
+	}
+
+	effect = {
+		assert_if = {
+			limit = { NOT = { exists = holder } }
+
+			text = "title passed as root to CTFA_sgui_on_title_made_primary must have a holder"
+		}
+
+		holder = {
+			CTFA_on_character_primary_title_changed = {
+				NEW_PRIMARY_TITLE = root
+			}
+		}
+	}
+}
+
+# Repopulates CTFA_held_non_vanity_titles variable list used as datamodel
+# for modded titles lists in window_character.gui .
+# Only affects characters who actually hold a VT, since characters without one
+# are supposed to use vanilla titles lists.
+#
+# IsValid() - enabled only for characters who actually hold a VT.
+# Execute() - update CTFA_held_non_vanity_titles variable list stored on this character.
+CTFA_sgui_try_update_held_non_vanity_titles_list = {
+	scope = character
+
+	is_valid = {
+		CTFA_has_vanity_title = yes
+	}
+
+	effect = {
+		CTFA_update_held_non_vanity_titles_list = yes
+	}
+}
+
+# Forces definite (or "definitive" - PDX make up your mind!) form for the given title.
+# I.e. drops tier prefixes such as "Kingdom of" and the like.
+#
+# IsValid() - enabled only for vanity titles.
+# Execute() - force definite form thus dropping tier prefix for this VT.
+CTFA_sgui_maintain_vt_definite_form = {
+	scope = title
+
+	is_valid = {
+		CTFA_is_vanity_title = yes
+	}
+
+	effect = {
+		set_definitive_form = yes
+	}
+}
+
+# Same as CTFA_sgui_maintain_vt_definite_form but for characters,
+# applies to the given character's VT.
+#
+# IsValid() - enabled only for characters who actually hold a VT.
+# Execute() - force definite form thus dropping tier prefix for character's VT.
+CTFA_sgui_maintain_vt_definite_form_for_character = {
+	scope = character
+
+	is_valid = {
+		CTFA_has_vanity_title = yes
+	}
+
+	effect = {
+		every_held_title = {
+			limit = {
+				CTFA_is_vanity_title = yes
+			}
+
+			set_definitive_form = yes
+		}
+	}
+}

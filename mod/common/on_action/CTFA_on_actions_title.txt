@@ -1,0 +1,137 @@
+﻿#
+# on_title_destroyed
+#
+
+# root: Character - The holder before destruction
+# scope:landed_title: Title - The title that is being destroyed
+on_title_destroyed = {
+	on_actions = { CTFA_on_title_destroyed }
+}
+
+CTFA_on_title_destroyed = {
+	effect = {
+		CTFA_handle_character_title_change = {
+			CHANGED_TITLE = scope:landed_title
+		}
+
+		if = {
+			limit = {
+				scope:landed_title = { CTFA_is_vanity_title = yes }
+			}
+
+			remove_character_modifier = CTFA_held_vanity_title_modifier
+		}
+	}
+}
+
+#
+# on_title_gain
+#
+
+# root: Character - The new holder
+# scope:title: Title - The title that changes hands
+# scope:previous_holder: Character - Previous holder; might be dead
+on_title_gain = {
+	on_actions = { CTFA_on_title_gain }
+}
+
+CTFA_on_title_gain = {
+	effect = {
+		CTFA_handle_character_title_change = {
+			CHANGED_TITLE = scope:title
+		}
+	}
+}
+
+#
+# on_title_gain_inheritance
+#
+
+# root: Character - The new holder
+# scope:title: Title - The title that changes hands
+# scope:previous_holder: Character - Previous holder; should be dead
+on_title_gain_inheritance = {
+	on_actions = { CTFA_on_title_gain_inheritance }
+}
+
+CTFA_on_title_gain_inheritance = {
+	effect = {
+		CTFA_handle_character_title_inheritance = {
+			INHERITED_TITLE = scope:title
+		}
+	}
+}
+
+#
+# on_title_lost
+#
+
+# root: Character - The old holder
+# scope:title: Title - The title that changes hands
+# scope:new_holder: Character - New holder
+on_title_lost = { # NOTE: This does NOT actually get called when title is destroyed.
+	on_actions = { CTFA_on_title_lost }
+}
+
+CTFA_on_title_lost = {
+	effect = {
+		CTFA_handle_character_title_change = {
+			CHANGED_TITLE = scope:title
+		}
+	}
+}
+
+#
+# on_rank_up
+#
+
+# root: Character - Character ranking up
+# scope:title: Title - Old primary title
+on_rank_up = {
+	on_actions = { CTFA_on_rank_up }
+}
+
+CTFA_on_rank_up = {
+	effect = {
+		if = {
+			limit = {
+				# Not interested in previously unlanded characters
+				exists = scope:title
+				# ...and also characters who no longer have a primary title, apparently
+				# (not sure why on_rank_up would fire for them but it does)
+				exists = primary_title
+			}
+
+			primary_title = {
+				save_scope_as = CTFA_new_primary_title
+			}
+
+			CTFA_on_character_primary_title_changed = {
+				NEW_PRIMARY_TITLE = scope:CTFA_new_primary_title
+			}
+		}
+	}
+}
+
+
+#
+# on_rank_down
+#
+
+# root: Character - Character ranking down
+# scope:title: Title - Old primary title
+on_rank_down = {
+	on_actions = { CTFA_on_rank_up }
+}
+
+CTFA_on_rank_down = {
+	effect = {
+		primary_title = {
+			save_scope_as = CTFA_new_primary_title
+		}
+
+		CTFA_on_character_primary_title_changed = {
+			NEW_PRIMARY_TITLE = scope:CTFA_new_primary_title
+		}
+	}
+}

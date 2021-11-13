@@ -1,0 +1,91 @@
+﻿types CTFA_types_edit_foa
+{
+    # Fake invisible widget used only as means to delay the call to OpenTitleRenamePopup
+    # for 0.1 second, so that it has enough time to recognize the title holder change,
+    # which will happen on the first call to CTFA_sgui_bind_vanity_title.
+    type CTFA_flowcontainer_edit_title_foa_delayed = flowcontainer {
+        using = CTFA_edit_title_foa_delayed
+    }
+
+    # ditto but CTFA_sgui_bind_vanity_title_for_character
+    type CTFA_flowcontainer_edit_character_foa_delayed = flowcontainer {
+        using = CTFA_edit_character_foa_delayed
+    }
+
+    # "Edit FoA" button-icon to be displayed inline next to text
+    type CTFA_flowcontainer_edit_title_foa_inline = flowcontainer {
+        button_icon = {
+            using = CTFA_edit_title_foa_immediate_outer
+            using = CTFA_edit_title_foa_immediate_inner
+
+            texture = "gfx/interface/icons/flat_icons/CTFA_edit_foa.dds"
+        }
+
+        CTFA_flowcontainer_edit_title_foa_delayed = {}
+    }
+
+    # Round "Edit FoA" button
+    type CTFA_flowcontainer_edit_character_foa = flowcontainer {
+        button_normal = {
+            size = { 35 35 }
+
+            using = tooltip_es
+
+            using = CTFA_edit_character_foa_immediate_outer
+
+            icon = {
+                texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+                size = { 100% 100% }
+            }
+
+            button_icon = {
+                using = CTFA_edit_character_foa_immediate_inner
+
+                size = { 25 25 }
+                parentanchor = center
+
+                texture = "gfx/interface/icons/flat_icons/CTFA_edit_foa.dds"
+
+                # Commented-out, since the icon is too big and gets cut off if masked.
+                # modify_texture = {
+                # 	texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
+                # 	blend_mode = alphamultiply
+                # }
+            }
+        }
+
+        CTFA_flowcontainer_edit_character_foa_delayed = {}
+    }
+
+    # Round "Edit FoA" button with offset, to be displayed over character portrait in window_character.gui .
+    type CTFA_flowcontainer_edit_character_foa_offset = flowcontainer {
+        margin_left = 45
+        margin_bottom = 5
+
+        CTFA_flowcontainer_edit_character_foa = {}
+
+        parentanchor = bottom
+    }
+
+    type CTFA_vbox_title_type_text = vbox {
+        using = CTFA_hide_if_not_vanity_title
+
+        text_single = {
+            layoutpolicy_horizontal = expanding
+            visible = "[GetScriptedGui('CTFA_sgui_is_current_bound_vanity_title').IsValid(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End))]"
+            text = "CTFA_CURRENT_VANITY_TITLE_TYPE_TEXT"
+        }
+
+        text_single = {
+            layoutpolicy_horizontal = expanding
+            visible = "[GetScriptedGui('CTFA_sgui_is_former_bound_vanity_title').IsValid(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End))]"
+            text = "CTFA_FORMER_VANITY_TITLE_TYPE_TEXT"
+        }
+
+        text_single = {
+            layoutpolicy_horizontal = expanding
+            visible = "[GetScriptedGui('CTFA_sgui_is_unbound_vanity_title').IsValid(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End))]"
+            text = "CTFA_UNUSED_VANITY_TITLE_TYPE_TEXT"
+        }
+    }
+}

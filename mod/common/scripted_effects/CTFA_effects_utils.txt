@@ -1,0 +1,40 @@
+﻿# Scope: Title - Title to destroy, if it currently has a holder
+CTFA_try_destroy_title = {
+	if = {
+		limit = {
+			exists = holder
+		}
+
+		holder = {
+			destroy_title = PREV
+		}
+	}
+}
+
+# Scope: Title - Vanity Title to give to TARGET_CHARACTER
+# TARGET_CHARACTER: Character - VT recipient
+# CHANGE_TYPE: type for create_title_and_vassal_change
+CTFA_give_vanity_title = {
+	create_title_and_vassal_change = {
+		type = $CHANGE_TYPE$
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+
+	change_title_holder = {
+		holder = $TARGET_CHARACTER$
+		change = scope:change
+	}
+
+	resolve_title_and_vassal_change = scope:change
+
+	$TARGET_CHARACTER$ = {
+		assert_if = {
+			limit = { has_character_modifier = CTFA_held_vanity_title_modifier }
+
+			text = "did not expect character to already have CTFA_held_vanity_title_modifier"
+		}
+
+		add_character_modifier = CTFA_held_vanity_title_modifier
+	}
+}

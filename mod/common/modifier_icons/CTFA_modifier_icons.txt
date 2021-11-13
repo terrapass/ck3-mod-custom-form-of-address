@@ -1,0 +1,3 @@
+﻿CTFA_custom_foa = {
+	positive = "gfx/interface/icons/modifiers/CTFA_custom_foa_positive.dds"
+}

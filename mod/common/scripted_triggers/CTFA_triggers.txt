@@ -1,0 +1,59 @@
+﻿# Scope: Any
+CTFA_is_compatible_savegame = {
+	exists = title:d_CTFA_vanity_0
+	has_global_variable_list = CTFA_vanity_titles
+}
+
+# Scope: Title
+CTFA_is_vanity_title = {
+	is_target_in_global_variable_list = {
+		name = CTFA_vanity_titles
+		target = THIS
+	}
+}
+
+# Scope: Character
+CTFA_has_vanity_title = {
+	any_held_title = {
+		CTFA_is_vanity_title = yes
+	}
+}
+
+# Scope: Title
+CTFA_has_current_bound_vt = {
+	AND = {
+		has_variable = CTFA_bound_vanity_title
+		holder = var:CTFA_bound_vanity_title.holder
+	}
+}
+
+# Scope:        Title - Vanity Title
+# TARGET_TITLE: Title - Title to check binding with (should generally be someone's primary)
+CTFA_is_vt_bound_to_title = {
+	AND = {
+		has_variable = CTFA_bound_primary_title
+		var:CTFA_bound_primary_title = $TARGET_TITLE$
+	}
+}
+
+# Scope: Title - Vanity Title
+CTFA_is_vt_bound = {
+	has_variable = CTFA_bound_primary_title
+}
+
+# Scope: Title - Vanity Title
+CTFA_is_vt_bound_current = {
+	CTFA_is_vt_bound = yes
+	exists = holder
+}
+
+# Scope: Title - Vanity Title
+CTFA_is_vt_bound_former = {
+	CTFA_is_vt_bound = yes
+	CTFA_is_vt_bound_current = no
+}
+
+# Scope: Title - Vanity Title
+CTFA_is_vt_unbound = {
+	NOT = { CTFA_is_vt_bound = yes }
+}

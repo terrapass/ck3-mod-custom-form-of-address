@@ -1,0 +1,143 @@
+﻿template "CTFA_edit_character_foa_immediate_outer" {
+    datacontext = "[GetScriptedGui('CTFA_sgui_bind_vanity_title_for_character')]"
+    visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+    enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+
+    tooltip = "CTFA_TOOLTIP_BIND_VANITY_TITLE_FOR_CHARACTER"
+}
+
+template "CTFA_edit_character_foa_immediate_inner" {
+    button_ignore = none # Necessary for onrightclick to work
+
+    onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+    onclick = "[GetScriptedGui('CTFA_sgui_try_update_held_non_vanity_titles_list').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+    onclick = "[GetVariableSystem.Set('VTNL_is_edit_foa_delay_active', 'true')]"
+
+    onrightclick = "[GetScriptedGui('CTFA_sgui_unbind_vanity_title_for_character').Execute( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+}
+
+template "CTFA_edit_character_foa_delayed" {
+    visible = "[GetVariableSystem.Exists('VTNL_is_edit_foa_delay_active')]"
+
+    state = {
+        name = _show
+        duration = 0.1
+
+        on_finish = "[GetVariableSystem.Set('CTFA_must_use_foa_mode_for_title_rename', 'true')]"
+        on_finish = "[OpenTitleRenamePopup(Character.GetPrimaryTitle.MakeScope.Var('CTFA_bound_vanity_title').Title)]"
+        on_finish = "[GetVariableSystem.Clear('CTFA_must_use_foa_mode_for_title_rename')]"
+
+        on_finish = "[GetVariableSystem.Clear('VTNL_is_edit_foa_delay_active')]"
+    }
+}
+
+template "CTFA_edit_title_foa_immediate_outer" {
+    datacontext = "[GetScriptedGui('CTFA_sgui_bind_vanity_title')]"
+    visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+    enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+
+    # TODO: Generate part of the tooltip
+    tooltip = "CTFA_TOOLTIP_BIND_VANITY_TITLE"
+}
+
+template "CTFA_edit_title_foa_immediate_inner" {
+    button_ignore = none # Necessary for onrightclick to work
+
+    onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+    onclick = "[GetVariableSystem.Set('VTNL_is_edit_foa_delay_active', 'true')]"
+
+    onrightclick = "[GetScriptedGui('CTFA_sgui_unbind_vanity_title').Execute( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )]"
+}
+
+template "CTFA_edit_title_foa_delayed" {
+    visible = "[GetVariableSystem.Exists('VTNL_is_edit_foa_delay_active')]"
+
+    state = {
+        name = _show
+        duration = 0.1
+
+        on_finish = "[GetVariableSystem.Set('CTFA_must_use_foa_mode_for_title_rename', 'true')]"
+        on_finish = "[OpenTitleRenamePopup(Title.GetHolder.GetPrimaryTitle.MakeScope.Var('CTFA_bound_vanity_title').Title)]"
+        on_finish = "[GetVariableSystem.Clear('CTFA_must_use_foa_mode_for_title_rename')]"
+
+        on_finish = "[GetVariableSystem.Clear('VTNL_is_edit_foa_delay_active')]"
+    }
+}
+
+template "CTFA_hide_if_vanity_title" {
+    visible = "[Not(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End))]"
+}
+
+template "CTFA_hide_if_not_vanity_title" {
+    visible = "[GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)]"
+}
+
+template "CTFA_hide_if_has_vanity_title" {
+    visible = "[Not(GetScriptedGui('CTFA_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End))]"
+}
+
+template "CTFA_hide_if_has_no_vanity_title" {
+    visible = "[GetScriptedGui('CTFA_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template "CTFA_onclick_handle_primary_title_change" {
+    onclick = "[GetScriptedGui('CTFA_sgui_on_title_made_primary').Execute(GuiScope.SetRoot(Title.MakeScope).End)]"
+}
+
+template "CTFA_on_start_try_update_held_non_vanity_titles_list" {
+    on_start = "[GetScriptedGui('CTFA_sgui_try_update_held_non_vanity_titles_list').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template "CTFA_on_finish_try_update_held_non_vanity_titles_list" {
+    on_finish = "[GetScriptedGui('CTFA_sgui_try_update_held_non_vanity_titles_list').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template "CTFA_on_start_maintain_vt_definite_form_for_character" {
+    on_start = "[GetScriptedGui('CTFA_sgui_maintain_vt_definite_form_for_character').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template "CTFA_on_start_maintain_vt_definite_form" {
+    on_start = "[GetScriptedGui('CTFA_sgui_maintain_vt_definite_form').Execute(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End)]"
+}
+
+template "CTFA_character_window_show_state_actions" {
+    using = CTFA_on_start_try_update_held_non_vanity_titles_list
+    using = CTFA_on_start_maintain_vt_definite_form_for_character
+}
+
+template "CTFA_character_window_refresh_state" {
+    state = {
+        name = character_window_refresh
+
+        using = CTFA_on_finish_try_update_held_non_vanity_titles_list
+        using = CTFA_on_start_maintain_vt_definite_form_for_character
+    }
+}
+
+template "CTFA_character_window_mouse_hierarchy_enter_state" {
+    state = {
+        name = _mouse_hierarchy_enter
+
+        using = CTFA_on_start_maintain_vt_definite_form_for_character
+    }
+}
+
+template "CTFA_title_window_show_state_actions" {
+    using = CTFA_on_start_maintain_vt_definite_form
+}
+
+template "CTFA_title_window_mouse_hierarchy_enter_state" {
+    state = {
+        name = _mouse_hierarchy_enter
+
+        using = CTFA_on_start_maintain_vt_definite_form
+    }
+}
+
+template "CTFA_hide_held_vanity_title_modifier" {
+    visible = "[Not(EqualTo_string(ValueBreakdown.GetName, GetModifier('CTFA_held_vanity_title_modifier').GetName))]"
+}
+
+template "CTFA_hide_held_duchy_modifier" {
+    visible = "[Not(EqualTo_string(ValueBreakdown.GetName, GetModifier('held_duchy_modifier').GetName))]"
+}

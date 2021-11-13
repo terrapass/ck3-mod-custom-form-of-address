@@ -1,0 +1,10 @@
+﻿# Vanity title selection costs used by
+# CTFA_select_best_available_vanity_title_for_primary_title
+# scripted effect.
+CTFA_vt_cost_own_bound_current = 0
+CTFA_vt_cost_own_bound_former = 1
+CTFA_vt_cost_unbound = 2
+CTFA_vt_cost_other_bound_former = 3
+CTFA_vt_cost_any = 4
+
+CTFA_vt_cost_infinite = 999 # Shut up.

@@ -1,0 +1,44 @@
+﻿# This file does NOT need to be translated for other localizations.
+#
+# Its contents can be reused as is, it's enough to simply change the next line
+# to contain the actual language-appropriate marker instead of l_english.
+l_english:
+ #
+ # Name for unused VTs (ZWSP)
+ #
+
+ CTFA_vanity_title_name_unused:0 "​"
+ CTFA_vanity_title_name_unused_adj:0 "​"
+
+ #
+ # Internals for "Customize Form of Address" buttton tooltip text
+ #
+
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED:0 "ScriptedGui.IsValid( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED_FOR_CHARACTER:0 "ScriptedGui.IsValid( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT:0 "ScriptedGui.IsValidTooltip( GuiScope.SetRoot( Title.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT_FOR_CHARACTER:0 "ScriptedGui.IsValidTooltip( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End )"
+
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT:0 "[Select_CString($CTFA_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED$, '$CTFA_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT$', $CTFA_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT$)]"
+
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER:0 "[Select_CString($CTFA_TOOLTIP_BIND_VANITY_TITLE_IS_ENABLED_FOR_CHARACTER$, '$CTFA_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT$', $CTFA_TOOLTIP_BIND_VANITY_TITLE_DISABLED_TEXT_FOR_CHARACTER$)]"
+
+ #
+ # Internals for CoA tooltip text
+ #
+
+ CTFA_TitleRelationToMe_TITLE_CONCEPT:0 "[title|E]"
+ CTFA_TitleRelationToMe_FOA_CONCEPT:0 "[CTFA_form_of_address|E]"
+ CTFA_TitleRelationToMe_CONCEPT_SELECTOR:0 "[SelectLocalization(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(second.MakeScope).End), 'CTFA_TitleRelationToMe_FOA_CONCEPT', 'CTFA_TitleRelationToMe_TITLE_CONCEPT')]"
+
+ #
+ # Internals for "Held Duchies" value in prestige gain breakdown tooltip
+ #
+
+ CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DEDUCTION:0 "'(CFixedPoint)0.2'"
+ CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_MUST_SUBTRACT:0 "GetScriptedGui('CTFA_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)"
+ CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DELTA:0 "Select_CFixedPoint($CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_MUST_SUBTRACT$, $CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DEDUCTION$, '(CFixedPoint)0.0')"
+ CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER:0 "@prestige_icon! [Subtract_CFixedPoint(ValueBreakdown.GetFixedPointValue, $CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DELTA$)|+=]"
