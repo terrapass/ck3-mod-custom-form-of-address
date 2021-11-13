@@ -25,7 +25,7 @@ VNTL_on_title_destroyed = {
 }
 
 #
-# on_title_gained
+# on_title_gain
 #
 
 # root: Character - The new holder
@@ -39,6 +39,25 @@ VNTL_on_title_gain = {
 	effect = {
 		VNTL_handle_character_title_change = {
 			CHANGED_TITLE = scope:title
+		}
+	}
+}
+
+#
+# on_title_gain_inheritance
+#
+
+# root: Character - The new holder
+# scope:title: Title - The title that changes hands
+# scope:previous_holder: Character - Previous holder; should be dead
+on_title_gain_inheritance = {
+	on_actions = { VNTL_on_title_gain_inheritance }
+}
+
+VNTL_on_title_gain_inheritance = {
+	effect = {
+		VNTL_handle_character_title_inheritance = {
+			INHERITED_TITLE = scope:title
 		}
 	}
 }

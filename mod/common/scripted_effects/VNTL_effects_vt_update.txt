@@ -157,3 +157,39 @@ VNTL_handle_character_title_change = {
 		VNTL_update_held_non_vanity_titles_list = yes
 	}
 }
+
+# Maintains correct state for the character given as scope
+# in case they inherit a title.
+#
+# See VNTL_on_character_vanity_title_inherited.
+#
+# Scope: Character - Character who's just inherited a title
+# INHERITED_TITLE: Title - Title that's been inherited
+VNTL_handle_character_title_inheritance = {
+	if = {
+		limit = {
+			$INHERITED_TITLE$ = {
+				VNTL_is_vanity_title = yes
+			}
+		}
+
+		VNTL_on_character_vanity_title_inherited = yes
+	}
+}
+
+# Ensures that the character who's just inherited a VT
+# gets a corresponding character modifier.
+#
+# Scope: Character - Character who's just inherited a VT
+VNTL_on_character_vanity_title_inherited = {
+	VNTL_update_character_vanity_title = yes
+	VNTL_update_held_non_vanity_titles_list = yes
+
+	if = {
+		limit = {
+			NOT = { has_modifier = VNTL_held_vanity_title_modifier }
+		}
+
+		add_character_modifier = VNTL_held_vanity_title_modifier
+	}
+}
