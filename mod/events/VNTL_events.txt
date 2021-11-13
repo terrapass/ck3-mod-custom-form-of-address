@@ -22,6 +22,7 @@ VNTL_events.1001 = {
 				}
 
 				# This sets scope:selected_vanity_title
+				# ...and local_var:selected_vanity_title_cost, at least for now
 				VNTL_select_best_available_vanity_title = yes
 
 				assert_if = {
@@ -34,10 +35,21 @@ VNTL_events.1001 = {
 					VANITY_TITLE = scope:selected_vanity_title
 				}
 
-				# TODO: Also reinit VT (reset FoA to default suggestions, maybe reset CoA)
-				# scope:selected_vanity_title = {
-				# 	VNTL_reinit_vanity_title = yes
-				# }
+
+				# Replace VT name with a FoA suggestion, unless we've managed to select our own VT again
+				if = {
+					limit = {
+						local_var:selected_vanity_title_cost >= VNTL_vt_cost_unbound
+					}
+
+					scope:selected_vanity_title = {
+						# FIXME: For some reason this only works once per VT.
+						#        And reset_title doesn't help either. :(
+						set_title_name = VNTL_vanity_title_name_suggest_default
+					}
+				}
+
+				remove_local_variable = selected_vanity_title_cost
 			}
 		}
 	}

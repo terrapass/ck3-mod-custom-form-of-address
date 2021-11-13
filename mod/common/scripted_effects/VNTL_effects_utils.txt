@@ -37,6 +37,4 @@ VNTL_give_vanity_title = {
 
 		add_character_modifier = VNTL_held_vanity_title_modifier
 	}
-
-	# TODO: Re-generate CoA, set name/adjective to male/female suggestions based on title tier?
 }

@@ -154,7 +154,10 @@ VNTL_select_best_available_vanity_title = {
 	# END DEBUG
 
 	remove_local_variable = current_vanity_title_cost
-	remove_local_variable = selected_vanity_title_cost
+	# TODO: After smart FoA suggestions are implemented, also clear selected_vanity_title_cost.
+	#       For now we have to keep this variable, since current implementation of
+	#       this scripted_effect's client, VNTL_events.1001, needs to examine it.
+	#remove_local_variable = selected_vanity_title_cost
 
 	assert_if = {
 		limit = { NOT = { exists = scope:selected_vanity_title } }
