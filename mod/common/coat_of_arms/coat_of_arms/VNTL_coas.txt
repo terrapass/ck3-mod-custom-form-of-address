@@ -1,8 +1,6 @@
-﻿# TODO: Pre-generate offline
-
-d_VNTL_vanity_0 = {
+﻿d_VNTL_vanity_0 = {
 	pattern = "pattern_solid.dds"
-	color1 = "black"
+	color1 = "white"
 
 	colored_emblem = {
 		texture = "ce_laurels.dds"
@@ -16,8 +14,6 @@ d_VNTL_vanity_1 = {
 
 	colored_emblem = {
 		texture = "ce_laurels.dds"
-		color1 = "black"
+		color1 = "yellow"
 	}
 }
-
-# TODO: etc.
