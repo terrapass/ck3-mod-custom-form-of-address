@@ -1,10 +1,4 @@
-﻿CTFA_vanity_title = {
-	texture = "gfx/interface/icons/message_feed/CTFA_vanity_title.dds"
-	parent = title
-	alias = { CTFA_vanity_titles }
-}
-
-CTFA_form_of_address = {
+﻿CTFA_form_of_address = {
 	texture = "gfx/interface/icons/message_feed/CTFA_foa.dds"
 	#parent = title
 	alias = { CTFA_forms_of_address CTFA_foa }
