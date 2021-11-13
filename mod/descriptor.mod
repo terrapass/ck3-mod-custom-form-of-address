@@ -3,7 +3,6 @@ tags={
 	"Culture"
 	"Fixes"
 	"Utilities"
-	"Character Interactions"
 }
 name="Vanity Titles"
 supported_version="1.4.4"
