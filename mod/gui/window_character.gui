@@ -3287,7 +3287,10 @@ window = {
 						}
 
 						item = {
-							portrait_head_small = {
+							# MOD(custom-form-of-address)
+							#portrait_head_small = {
+							portrait_head_small_cached = { # Performance fix for "Ethnicities & Portraits Expanded" by Celticus et al
+							# END MOD
 								blockoverride "portrait_button"
 								{
 									using = tooltip_ne
