@@ -1,8 +1,4 @@
-﻿# This file does NOT need to be translated for other localizations.
-#
-# Its contents can be reused as is, it's enough to simply change the next line
-# to contain the actual language-appropriate marker instead of l_english.
-l_english:
+﻿l_english:
  #
  # Overridden vanilla strings for "Rename Title" dialog labels
  # (see vanilla localization\english\gui\title_view_l_english.yml)
