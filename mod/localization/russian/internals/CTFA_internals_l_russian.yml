@@ -30,8 +30,8 @@ l_russian:
  # Internals for CoA tooltip text
  #
 
- CTFA_TitleRelationToMe_TITLE_CONCEPT:0 "[title|E]"
- CTFA_TitleRelationToMe_FOA_CONCEPT:0 "[CTFA_form_of_address|E]"
+ CTFA_TitleRelationToMe_TITLE_CONCEPT:0 "[title|El]"
+ CTFA_TitleRelationToMe_FOA_CONCEPT:0 "[CTFA_form_of_address|El]"
  CTFA_TitleRelationToMe_CONCEPT_SELECTOR:0 "[SelectLocalization(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(second.MakeScope).End), 'CTFA_TitleRelationToMe_FOA_CONCEPT', 'CTFA_TitleRelationToMe_TITLE_CONCEPT')]"
 
  #

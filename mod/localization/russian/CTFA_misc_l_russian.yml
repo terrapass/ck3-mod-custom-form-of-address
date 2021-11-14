@@ -2,22 +2,30 @@
  #
  # Triggers
  #
- CTFA_trigger_existing_savegame:0 "[CTFA_form_of_address|E] customization is only supported in new savegames."
+ CTFA_trigger_existing_savegame:0 "Настройка [Concept('CTFA_form_of_address', 'формы обращения')|El] возможна только в новых играх."
  NOT_CTFA_trigger_existing_savegame:0 "$CTFA_trigger_existing_savegame$"
- CTFA_trigger_at_least_duchy_tier:0 "[CHARACTER.GetFirstNameOrMeNoTooltipRegnal|U] must be at least a $CTFA_GENDER_APPROPRIATE_DUKE_CONCEPT$ to use a custom [CTFA_foa|E]."
+ CTFA_trigger_at_least_duchy_tier:0 "[CHARACTER.GetFirstNameNoTooltipRegnal|U] $CTFA_GENDER_APPROPRIATE_MUST_TRANSLATION$ быть как минимум $CTFA_GENDER_APPROPRIATE_DUKE_CONCEPT$, чтобы использовать собственную [CTFA_foa|El]."
  NOT_CTFA_trigger_at_least_duchy_tier:0 "$CTFA_trigger_at_least_duchy_tier$"
 
- CTFA_GENDER_APPROPRIATE_DUKE_CONCEPT:0 "[Concept('duke', SelectLocalization(CHARACTER.IsFemale, 'duke_female', 'duke'))|E]"
+ CTFA_GENDER_APPROPRIATE_DUKE_CONCEPT:0 "[Concept('duke', SelectLocalization(CHARACTER.IsFemale, 'герцогиней', 'герцогом'))|E]"
+ CTFA_GENDER_APPROPRIATE_MUST_TRANSLATION:0 "[SelectLocalization(CHARACTER.IsFemale, 'должна', 'должен')]"
 
  #
  # Modifiers
  #
- CTFA_held_vanity_title_modifier:0 "Using a Custom $game_concept_CTFA_form_of_address$"
- CTFA_held_vanity_title_modifier_desc:0 "This character's [primary_title|E] grants them a distinctive [CTFA_foa|E]"
+ CTFA_held_vanity_title_modifier:0 "Собственная форма обращения"
+ CTFA_held_vanity_title_modifier_desc:0 "[primary_title|E] данного персонажа предполагает особую [Concept('CTFA_form_of_address', 'форму обращения')|El]"
 
  #
  # FoA suggestions
  #
 
- CTFA_vanity_title_name_suggest_default:0 "Supreme Lord"
- CTFA_vanity_title_name_suggest_default_adj:0 "Supreme Lady"
+ CTFA_vanity_title_name_suggest_default:0 "Верховный лорд"
+ CTFA_vanity_title_name_suggest_default_adj:0 "Верховная леди"
+
+ #
+ # Helper strings for Russian translation
+ #
+
+ # "Форма обращения" женского рода, "титул" - мужского
+ CTFA_TitleRelationToMe_YOUR_PRONOUN_SELECTOR:0 "[SelectLocalization(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(second.MakeScope).End), 'Ваша', 'Ваш')]" 

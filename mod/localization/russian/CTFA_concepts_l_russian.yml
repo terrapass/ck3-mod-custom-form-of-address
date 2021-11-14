@@ -3,7 +3,7 @@
  # Form of Address
  #
 
- game_concept_CTFA_form_of_address:0 "Form of Address"
- game_concept_CTFA_forms_of_address:0 "Forms of Address"
- game_concept_CTFA_foa:0 "FoA"
- game_concept_CTFA_form_of_address_desc:0 "Be it \"Duke\", \"High Queen\", \"Kaiser\" or some other term, $game_concept_CTFA_form_of_address$ is the way a [ruler|E] is addressed or referred to based on the most significant [title|E] they hold, usually their [primary_title|E].\n\nA player can customize $game_concept_CTFA_form_of_address$ for their [primary_title|E], as long as it's at least of a [duchy|E] [title_tier|E].\nCustom $game_concept_CTFA_form_of_address$ is tied to the [primary_title|E] it was set for and will be inherited along with it. Should this title cease to be primary, its [holder|E] will stop using the corresponding custom $game_concept_CTFA_form_of_address$ and will switch to the appropriate $game_concept_CTFA_foa$ for their new primary title."
+ game_concept_CTFA_form_of_address:0 "Форма обращения"
+ game_concept_CTFA_forms_of_address:0 "Формы обращения"
+ game_concept_CTFA_foa:0 "Ф.о."
+ game_concept_CTFA_form_of_address_desc:0 "\"Герцог\", \"Верховная королева\", \"Кайзер\" и прочие формы обращения - это термины, которые используются вместе с именами [Concept('rulers', 'правителей')|E] и основываются на наиболее значимом из принадлежащих правителю [Concept('titles', 'титулов')], как правило - на [Concept('primary_title', 'первом титуле')|E].\n\nИгрок может настроить произвольную форму обращения для своего [Concept('primary_title', 'первого титула')|El], если таковой имеет [title_tier|El] не ниже [Concept('duchy', 'герцогства')|E].\n$game_concept_CTFA_form_of_address$ привязана к [Concept('primary_title', 'первому титулу')|E], для которого она была настроена, и наследуется вместе с ним. В случае если данный титул перестаёт быть первым, его [holder|El] перестаёт использовать соответствующую ему форму обращения и начинает использовать ф.о. своего нового первого титула."

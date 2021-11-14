@@ -32,7 +32,7 @@
  # These replace "Title" with "Form of Address" in VT CoA tooltips
  # (see vanilla localization\english\custom_localization\title_custom_loc_l_english.yml)
 
- TitleRelationToMe_Your_Title:0 "Ваш $CTFA_TitleRelationToMe_CONCEPT_SELECTOR$\n"
+ TitleRelationToMe_Your_Title:0 "$CTFA_TitleRelationToMe_YOUR_PRONOUN_SELECTOR$ $CTFA_TitleRelationToMe_CONCEPT_SELECTOR$\n"
  TitleRelationToMe_Title:0 "$CTFA_TitleRelationToMe_CONCEPT_SELECTOR$ [second.GetHolder.GetRelationToString( ROOT.Char )]\n"
 
  # Tooltip text for uncreated/destroyed titles
