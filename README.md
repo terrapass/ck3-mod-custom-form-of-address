@@ -29,3 +29,4 @@ Included localizations
 ----------------------
 * English
 * Russian
+* Simplified Chinese by [kennyS1997](https://github.com/kennyS1997)
