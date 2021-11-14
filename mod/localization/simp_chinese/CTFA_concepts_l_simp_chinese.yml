@@ -1,9 +1,5 @@
 ﻿l_simp_chinese:
- #
- # Form of Address
- #
-
- game_concept_CTFA_form_of_address:0 "Form of Address"
- game_concept_CTFA_forms_of_address:0 "Forms of Address"
- game_concept_CTFA_foa:0 "FoA"
- game_concept_CTFA_form_of_address_desc:0 "Be it \"Duke\", \"High Queen\", \"Kaiser\" or some other term, $game_concept_CTFA_form_of_address$ is the way a [ruler|E] is addressed or referred to based on the most significant [title|E] they hold, usually their [primary_title|E].\n\nA player can customize $game_concept_CTFA_form_of_address$ for their [primary_title|E], as long as it's at least of a [duchy|E] [title_tier|E].\nCustom $game_concept_CTFA_form_of_address$ is tied to the [primary_title|E] it was set for and will be inherited along with it. Should this title cease to be primary, its [holder|E] will stop using the corresponding custom $game_concept_CTFA_form_of_address$ and will switch to the appropriate $game_concept_CTFA_foa$ for their new primary title."
+ game_concept_CTFA_form_of_address:0 "称呼"
+ game_concept_CTFA_forms_of_address:0 "称呼"
+ game_concept_CTFA_foa:0 "称呼"
+ game_concept_CTFA_form_of_address_desc:0 "不管是“公爵”，“至高女王”，“凯撒”或者其他称呼，$game_concept_CTFA_form_of_address$主要基于[ruler|E]持有的最重要[title|E]，通常是[primary_title|E]。\n\n玩家可以自定义自己[primary_title|E]的$game_concept_CTFA_form_of_address$，前提是至少拥有一个[duchy|E][title_tier|E]。\n自定义$game_concept_CTFA_form_of_address$将与[primary_title|E]绑定并一起继承。如果这个头衔不再是主头衔，它的[holder|E]将会停止使用相对应的自定义$game_concept_CTFA_form_of_address$，并为他们新主头衔切换到适当的$game_concept_CTFA_foa$。"
