@@ -1,0 +1,11 @@
+﻿l_simp_chinese:
+ RENAME_TITLE_TITLE:0 "[Select_CString(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), '$CTFA_FOA_RENAME_TITLE_TITLE$', $CTFA_VANILLA_RENAME_TITLE_TITLE$)]"
+ RENAME_TITLE_DESC:0 "[Select_CString(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), $CTFA_FOA_RENAME_TITLE_DESC$, $CTFA_VANILLA_RENAME_TITLE_DESC$)]"
+ RENAME_TITLE_ACCEPT:0 "[SelectLocalization(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), 'CTFA_FOA_RENAME_TITLE_ACCEPT', 'CTFA_VANILLA_RENAME_TITLE_ACCEPT')]"
+ TITLE_NAME_FIELD:0 "[SelectLocalization(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), 'CTFA_FOA_TITLE_NAME_FIELD', 'CTFA_VANILLA_TITLE_NAME_FIELD')]"
+ TITLE_ADJECTIVE_FIELD:0 "[SelectLocalization(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'), 'CTFA_FOA_TITLE_ADJECTIVE_FIELD', 'CTFA_VANILLA_TITLE_ADJECTIVE_FIELD')]"
+ RENAME_TOOLTIP:0 "#T $SAVE$#!\n[GameDialog.GetCanAcceptBlocker]"
+ TitleRelationToMe_Your_Title:0 "你的$CTFA_TitleRelationToMe_CONCEPT_SELECTOR$\n"
+ TitleRelationToMe_Title:0 "[second.GetHolder.GetRelationToString( ROOT.Char )]的$CTFA_TitleRelationToMe_CONCEPT_SELECTOR$\n"
+ COA_TOOLTIP_NO_HOLDER:0 "[SelectLocalization(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), 'CTFA_FOA_COA_TOOLTIP_NO_HOLDER', 'CTFA_VANILLA_COA_TOOLTIP_NO_HOLDER')]"
+ CHARACTER_LINE_OF_SUCCESSION_ENTRY:0 "[Select_CString(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(TITLE.MakeScope).End), '', Concatenate(TITLE.GetName, '\n'))]"
