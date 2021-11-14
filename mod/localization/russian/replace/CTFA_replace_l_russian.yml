@@ -1,8 +1,4 @@
-﻿# This file does NOT need to be translated for other localizations.
-#
-# Its contents can be reused as is, it's enough to simply change the next line
-# to contain the actual language-appropriate marker instead of l_english.
-l_russian:
+﻿l_russian:
  #
  # Overridden vanilla strings for "Rename Title" dialog labels
  # (see vanilla localization\english\gui\title_view_l_english.yml)
@@ -36,8 +32,8 @@ l_russian:
  # These replace "Title" with "Form of Address" in VT CoA tooltips
  # (see vanilla localization\english\custom_localization\title_custom_loc_l_english.yml)
 
- TitleRelationToMe_Your_Title:0 "Your $CTFA_TitleRelationToMe_CONCEPT_SELECTOR$\n"
- TitleRelationToMe_Title:0 "[second.GetHolder.GetRelationToString( ROOT.Char )]'s $CTFA_TitleRelationToMe_CONCEPT_SELECTOR$\n"
+ TitleRelationToMe_Your_Title:0 "Ваш $CTFA_TitleRelationToMe_CONCEPT_SELECTOR$\n"
+ TitleRelationToMe_Title:0 "$CTFA_TitleRelationToMe_CONCEPT_SELECTOR$ [second.GetHolder.GetRelationToString( ROOT.Char )]\n"
 
  # Tooltip text for uncreated/destroyed titles
  # (see vanilla localization\english\gui\common_l_english.yml)
