@@ -1,0 +1,10 @@
+﻿l_simp_chinese:
+ CTFA_trigger_existing_savegame:0 "[CTFA_form_of_address|E]自定义仅限在新存档中受支持。"
+ NOT_CTFA_trigger_existing_savegame:0 "$CTFA_trigger_existing_savegame$"
+ CTFA_trigger_at_least_duchy_tier:0 "[CHARACTER.GetFirstNameOrMeNoTooltipRegnal|U]必须至少是$CTFA_GENDER_APPROPRIATE_DUKE_CONCEPT$才能使用自定义[CTFA_foa|E]。"
+ NOT_CTFA_trigger_at_least_duchy_tier:0 "$CTFA_trigger_at_least_duchy_tier$"
+ CTFA_GENDER_APPROPRIATE_DUKE_CONCEPT:0 "[Concept('duke', SelectLocalization(CHARACTER.IsFemale, 'duke_female', 'duke'))|E]"
+ CTFA_held_vanity_title_modifier:0 "使用自定义$game_concept_CTFA_form_of_address$"
+ CTFA_held_vanity_title_modifier_desc:0 "这个角色的[primary_title|E]赋予他们独特的[CTFA_foa|E]"
+ CTFA_vanity_title_name_suggest_default:0 "至高领主"
+ CTFA_vanity_title_name_suggest_default_adj:0 "至高女领主"

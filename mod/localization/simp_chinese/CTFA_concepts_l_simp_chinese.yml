@@ -1,0 +1,5 @@
+﻿l_simp_chinese:
+ game_concept_CTFA_form_of_address:0 "称呼"
+ game_concept_CTFA_forms_of_address:0 "称呼"
+ game_concept_CTFA_foa:0 "称呼"
+ game_concept_CTFA_form_of_address_desc:0 "不管是“公爵”，“至高女王”，“凯撒”或者其他称呼，$game_concept_CTFA_form_of_address$主要基于[ruler|E]持有的最重要[title|E]，通常是[primary_title|E]。\n\n玩家可以自定义自己[primary_title|E]的$game_concept_CTFA_form_of_address$，前提是至少拥有一个[duchy|E][title_tier|E]。\n自定义$game_concept_CTFA_form_of_address$将与[primary_title|E]绑定并一起继承。如果这个头衔不再是主头衔，它的[holder|E]将会停止使用相对应的自定义$game_concept_CTFA_form_of_address$，并为他们新主头衔切换到适当的$game_concept_CTFA_foa$。"
