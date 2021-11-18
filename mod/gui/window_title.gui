@@ -154,10 +154,9 @@ window = {
 									} # This closes hbox
 									# END MOD
 
-									# MOD(custom-form-of-address)
+									# MOD(remove-title-tier-prefix)
 									hbox = {
-										using = remove_title_prefix_toggle # Compatibility hook for "Remove Title Tier Prefix (Toggle Short Name)"
-										using = CTFA_hide_if_vanity_title
+										using = remove_title_prefix_toggle
 									}
 									# END MOD
 
