@@ -56,5 +56,5 @@
  # CoA tooltip text
  #
 
- CTFA_VANILLA_COA_TOOLTIP_NO_HOLDER:0 "Not created\n"
+ CTFA_VANILLA_COA_TOOLTIP_NO_HOLDER:0 "생성되지 않음\n"
  CTFA_FOA_COA_TOOLTIP_NO_HOLDER:0 "Unused [CTFA_form_of_address|E]\n"
