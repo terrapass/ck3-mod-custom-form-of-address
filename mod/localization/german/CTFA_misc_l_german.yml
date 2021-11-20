@@ -15,7 +15,7 @@
  # Modifiers
  #
  CTFA_held_vanity_title_modifier:0 "Benutzt eine benutzerdefinierte $game_concept_CTFA_form_of_address$"
- CTFA_held_vanity_title_modifier_desc:0 "Der [primary_title|E] dieses Charakters gibt ihm eine benutzerdefinierte [CTFA_foa|E]"
+ CTFA_held_vanity_title_modifier_desc:0 "Der [primary_title|E] dieses Charakters gibt ihm eine benutzerdefinierte [CTFA_foa|E]."
 
  #
  # FoA suggestions
