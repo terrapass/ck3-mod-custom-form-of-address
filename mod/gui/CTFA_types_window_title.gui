@@ -11,6 +11,7 @@
             visible = "[ObjectsEqual( Title.GetHolder.GetPrimaryTitle, Title.Self )]"
 
             autoresize = yes
+            max_width = 300
             text = "CTFA_TITLE_FOA_PRIMARY"
         }
 
@@ -18,6 +19,7 @@
             visible = "[Not( ObjectsEqual( Title.GetHolder.GetPrimaryTitle, Title.Self ) )]"
 
             autoresize = yes
+            max_width = 300
             text = "CTFA_TITLE_FOA_NON_PRIMARY"
         }
 

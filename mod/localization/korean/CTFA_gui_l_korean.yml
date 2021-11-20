@@ -50,7 +50,7 @@
  #
 
  CTFA_TITLE_FOA_PRIMARY:0 "[CTFA_form_of_address|E]: [Title.GetHolder.GetTitleAsNameNoTooltip]"
- CTFA_TITLE_FOA_NON_PRIMARY:0 "[CTFA_foa|E]: [Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
+ CTFA_TITLE_FOA_NON_PRIMARY:0 "[CTFA_foa|E]: [Title.GetHolder.GetTitleAsNameNoTooltip] #weak (from [Title.GetHolder.GetPrimaryTitle.GetName])#!"
 
  #
  # CoA tooltip text
