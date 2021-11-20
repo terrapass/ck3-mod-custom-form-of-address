@@ -5,7 +5,7 @@
 
  CTFA_FOA_RENAME_TITLE_TITLE:0 "Edit Form of Address"
  CTFA_FOA_RENAME_TITLE_DESC:0 "Concatenate('Enter form of address for rulers of ', TITLE.MakeScope.Var('CTFA_bound_primary_title').Title.GetName)"
- CTFA_FOA_RENAME_TITLE_ACCEPT:0 "Save"
+ CTFA_FOA_RENAME_TITLE_ACCEPT:0 "$SAVE$"
  CTFA_FOA_TITLE_NAME_FIELD:0 "Male Form"
  CTFA_FOA_TITLE_ADJECTIVE_FIELD:0 "Female Form"
  #CTFA_FOA_RENAME_TOOLTIP:0 "Concatenate('#T Save#!\n', GameDialog.GetCanAcceptBlocker)"
