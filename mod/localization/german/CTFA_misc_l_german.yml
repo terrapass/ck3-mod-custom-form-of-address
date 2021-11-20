@@ -2,22 +2,24 @@
  #
  # Triggers
  #
- CTFA_trigger_existing_savegame:0 "[CTFA_form_of_address|E] customization is only supported in new savegames."
+ CTFA_trigger_existing_savegame:0 "Die Personalisierung der [CTFA_form_of_address|E] ist nur in neuen Spielständen möglich."
  NOT_CTFA_trigger_existing_savegame:0 "$CTFA_trigger_existing_savegame$"
- CTFA_trigger_at_least_duchy_tier:0 "[CHARACTER.GetFirstNameOrMeNoTooltipRegnal|U] must be at least a $CTFA_GENDER_APPROPRIATE_DUKE_CONCEPT$ to use a custom [CTFA_foa|E]."
  NOT_CTFA_trigger_at_least_duchy_tier:0 "$CTFA_trigger_at_least_duchy_tier$"
+ CTFA_trigger_at_least_duchy_tier:0 "[CHARACTER.GetFirstNameOrMeNoTooltipRegnal|U] $CTFA_PERSON_APPROPRIATE_MUST_TRANSLATION$ mindestens $CTFA_GENDER_APPROPRIATE_INDEFINITE_ARTICLE$ $CTFA_GENDER_APPROPRIATE_DUKE_CONCEPT$ sein, um eine benutzerdefinierte [CTFA_foa|E] zu benutzen."
 
  CTFA_GENDER_APPROPRIATE_DUKE_CONCEPT:0 "[Concept('duke', SelectLocalization(CHARACTER.IsFemale, 'duke_female', 'duke'))|E]"
+ CTFA_GENDER_APPROPRIATE_INDEFINITE_ARTICLE:0 "[Select_CString(CHARACTER.IsFemale, 'eine', 'ein')]"
+ CTFA_PERSON_APPROPRIATE_MUST_TRANSLATION:0 "[Select_CString(CHARACTER.IsLocalPlayer, 'müsst', 'muss')]"
 
  #
  # Modifiers
  #
- CTFA_held_vanity_title_modifier:0 "Using a Custom $game_concept_CTFA_form_of_address$"
- CTFA_held_vanity_title_modifier_desc:0 "This character's [primary_title|E] grants them a distinctive [CTFA_foa|E]"
+ CTFA_held_vanity_title_modifier:0 "Benutzt eine benutzerdefinierte $game_concept_CTFA_form_of_address$"
+ CTFA_held_vanity_title_modifier_desc:0 "Der [primary_title|E] dieses Charakters gibt ihm eine benutzerdefinierte [CTFA_foa|E]"
 
  #
  # FoA suggestions
  #
 
- CTFA_vanity_title_name_suggest_default:0 "Supreme Lord"
- CTFA_vanity_title_name_suggest_default_adj:0 "Supreme Lady"
+ CTFA_vanity_title_name_suggest_default:0 "Oberster Herrscher"
+ CTFA_vanity_title_name_suggest_default_adj:0 "Oberste Herrscherin"
