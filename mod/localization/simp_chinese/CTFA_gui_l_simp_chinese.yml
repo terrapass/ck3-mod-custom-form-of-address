@@ -18,6 +18,6 @@
  CTFA_FORMER_VANITY_TITLE_TYPE_TEXT:0 "[Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetName]统治者的之前[CTFA_foa|E]"
  CTFA_UNUSED_VANITY_TITLE_TYPE_TEXT:0 "未使用[CTFA_form_of_address|E]"
  CTFA_TITLE_FOA_PRIMARY:0 "[CTFA_form_of_address|E]：[Title.GetHolder.GetTitleAsNameNoTooltip]"
- CTFA_TITLE_FOA_NON_PRIMARY:0 "[CTFA_foa|E]：[Title.GetHolder.GetTitleAsNameNoTooltip]#weak （来自[Title.GetHolder.GetPrimaryTitle.GetName]）#!"
+ CTFA_TITLE_FOA_NON_PRIMARY:0 "[CTFA_foa|E]:[Title.GetHolder.GetTitleAsNameNoTooltip]#weak (来自[Title.GetHolder.GetPrimaryTitle.GetName])#!"
  CTFA_VANILLA_COA_TOOLTIP_NO_HOLDER:0 "不可创建\n"
  CTFA_FOA_COA_TOOLTIP_NO_HOLDER:0 "未使用[CTFA_form_of_address|E]\n"
