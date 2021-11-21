@@ -28,7 +28,9 @@
 
  CTFA_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT:0 "#I Щелкните, чтобы отредактировать ф.о.\nЩелкните ПКМ, чтобы вернуть стандартную ф.о.#!"
  CTFA_TOOLTIP_BIND_VANITY_TITLE:0 "#T Настроить [Concept('CTFA_form_of_address', 'форму обращения')|El]#!\nДля титула [Title.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT$"
- CTFA_TOOLTIP_BIND_VANITY_TITLE_FOR_CHARACTER:0 "#T Настроить [Concept('CTFA_form_of_address', 'форму обращения')|El]#!\nДля вашего [Concept('primary_title', 'первого титула')|El] - [GetPlayer.GetPrimaryTitle.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER$"
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_FOR_CHARACTER:0 "#T Настроить [Concept('CTFA_form_of_address', 'форму обращения')|El]#!\nДля $CTFA_PERSON_APPROPRIATE_OWNED_PRIMARY_TITLE$ - [Character.GetPrimaryTitle.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER$"
+
+ CTFA_PERSON_APPROPRIATE_OWNED_PRIMARY_TITLE:0 "[Select_CString(Character.IsLocalPlayer, 'вашего ', '')][Concept('primary_title', 'первого титула')|El][Select_CString(Character.IsLocalPlayer, '', Concatenate(', которым владеет ', Character.GetFirstNamePossessiveOrMyNoTooltip))]"
 
  #
  # Titles count label in character window

@@ -55,8 +55,8 @@ CTFA_sgui_has_vanity_title = {
 # for bound vanity title with labels changed) is achieved
 # via subsequent call to OpenTitleRenamePopup() in onclick action.
 #
-# IsShown() - visible for any player-held title.
-# IsValid() - enabled only for player's primary title.
+# IsShown() - visible for a primary title belonging to the player or a vassal in their realm.
+# IsValid() - enabled only for compatible (new) savegames and only for duchy-tier or higher titles.
 # Execute() - bind an available[1] vanity title to the given primary title.
 #
 # [1] For VT selection logic see CTFA_select_best_available_vanity_title_for_primary_title
@@ -70,9 +70,11 @@ CTFA_sgui_bind_vanity_title = {
 
 	is_shown = {
 		exists = holder
-		holder = scope:player
-		scope:player = {
+		holder = {
 			primary_title = root
+			CTFA_is_same_or_vassal_inside_realm_of = {
+				TARGET_CHARACTER = scope:player
+			}
 		}
 	}
 
@@ -109,7 +111,8 @@ CTFA_sgui_bind_vanity_title = {
 # Note the reciprocal CTFA_bound_primary_title on the VT remains unchanged
 # (this is so this same VT would be chosen first, should another attempt to bind a VT be made).
 #
-# IsValid() - enabled only for player's primary title.
+# IsShown() - visible for a primary title belonging to the player or a vassal in their realm.
+# IsValid() - enabled only for compatible (new) savegames and only for titles that actually have a bound VT.
 # Execute() - unbind the VT (if currently bound) from the given primary title.
 CTFA_sgui_unbind_vanity_title = {
 	scope = title
@@ -120,9 +123,11 @@ CTFA_sgui_unbind_vanity_title = {
 
 	is_shown = {
 		exists = holder
-		holder = scope:player
-		scope:player = {
+		holder = {
 			primary_title = root
+			CTFA_is_same_or_vassal_inside_realm_of = {
+				TARGET_CHARACTER = scope:player
+			}
 		}
 	}
 
@@ -152,7 +157,9 @@ CTFA_sgui_bind_vanity_title_for_character = {
 
 	is_shown = {
 		is_landed = yes
-		root = scope:player
+		CTFA_is_same_or_vassal_inside_realm_of = {
+			TARGET_CHARACTER = scope:player
+		}
 	}
 
 	is_valid = {
@@ -189,7 +196,9 @@ CTFA_sgui_unbind_vanity_title_for_character = {
 
 	is_shown = {
 		is_landed = yes
-		root = scope:player
+		CTFA_is_same_or_vassal_inside_realm_of = {
+			TARGET_CHARACTER = scope:player
+		}
 	}
 
 	is_valid = {

@@ -57,3 +57,16 @@ CTFA_is_vt_bound_former = {
 CTFA_is_vt_unbound = {
 	NOT = { CTFA_is_vt_bound = yes }
 }
+
+# Checks whether the scoped character
+# either matches TARGET_CHARACTER or
+# is their direct or indirect vassal.
+#
+# Scope: Character - Character to check.
+# TARGET_CHARACTER: Character - Holder of the realm or the same character.
+CTFA_is_same_or_vassal_inside_realm_of = {
+	OR = {
+		THIS = $TARGET_CHARACTER$
+		is_vassal_or_below_of = $TARGET_CHARACTER$
+	}
+}

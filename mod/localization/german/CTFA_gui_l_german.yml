@@ -28,7 +28,7 @@
 
  CTFA_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT:0 "#I Klicken, um die Anredeform zu ändern\nRechtsklicken, um die Anredeform zurückzusetzen#!"
  CTFA_TOOLTIP_BIND_VANITY_TITLE:0 "#T Ändere die [CTFA_form_of_address|E]#!\nFür [Title.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT$"
- CTFA_TOOLTIP_BIND_VANITY_TITLE_FOR_CHARACTER:0 "#T Ändere die [CTFA_form_of_address|E]#!\nFür deinen [primary_title|E] - [GetPlayer.GetPrimaryTitle.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER$"
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_FOR_CHARACTER:0 "#T Ändere die [CTFA_form_of_address|E]#!\nFür [Character.GetFirstNamePossessiveOrMyNoTooltip] [primary_title|E] - [Character.GetPrimaryTitle.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER$"
 
  #
  # Titles count label in character window
