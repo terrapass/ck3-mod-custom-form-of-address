@@ -11,7 +11,7 @@
  CTFA_VANILLA_TITLE_ADJECTIVE_FIELD:0 "形容词"
  CTFA_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT:0 "#I 左击编辑称呼\n右击恢复为标准称呼#!"
  CTFA_TOOLTIP_BIND_VANITY_TITLE:0 "#T 自定义[CTFA_form_of_address|E]#!\n[Title.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT$"
- CTFA_TOOLTIP_BIND_VANITY_TITLE_FOR_CHARACTER:0 "#T 自定义[CTFA_form_of_address|E]#!\n你的[primary_title|E] - [Character.GetPrimaryTitle.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER$"
+ CTFA_TOOLTIP_BIND_VANITY_TITLE_FOR_CHARACTER:0 "#T 自定义[CTFA_form_of_address|E]#!\n[Character.GetFirstNamePossessiveOrMyNoTooltip][primary_title|E]-[Character.GetPrimaryTitle.GetName]\n\n$CTFA_TOOLTIP_BIND_VANITY_TITLE_HELP_TEXT_FOR_CHARACTER$"
  CTFA_CV_TITLES:0 "[GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('CTFA_held_non_vanity_titles'))|V][titles|E]"
  CTFA_CV_TITLES_SINGULAR:0 "[GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('CTFA_held_non_vanity_titles'))|V][title|E]"
  CTFA_CURRENT_VANITY_TITLE_TYPE_TEXT:0 "[Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetName]统治者的[CTFA_form_of_address|E]"
