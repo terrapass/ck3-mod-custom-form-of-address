@@ -123,12 +123,19 @@ on_rank_down = {
 
 CTFA_on_rank_down = {
 	effect = {
-		primary_title = {
-			save_scope_as = CTFA_new_primary_title
-		}
+		if = {
+			limit = {
+				# Not interested in newly unlanded characters
+				exists = primary_title
+			}
 
-		CTFA_on_character_primary_title_changed = {
-			NEW_PRIMARY_TITLE = scope:CTFA_new_primary_title
+			primary_title = {
+				save_scope_as = CTFA_new_primary_title
+			}
+
+			CTFA_on_character_primary_title_changed = {
+				NEW_PRIMARY_TITLE = scope:CTFA_new_primary_title
+			}
 		}
 	}
 }
