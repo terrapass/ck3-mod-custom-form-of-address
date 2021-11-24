@@ -1,0 +1,90 @@
+﻿types CTFA_types_value_breakdown_overrides
+{
+	type vbox_list_interaction_title_selection = vbox {
+		name = "titles_grid"
+		datamodel = "[CharacterInteractionConfirmationWindow.GetTitles]"
+		layoutpolicy_horizontal = expanding
+		spacing = 3
+
+		item = {
+			widget = {
+				name = "title_list_item"
+				layoutpolicy_horizontal = expanding
+				size = { 0 45 }
+
+				# MOD(custom-form-of-address)
+				using = CTFA_hide_if_vanity_title_interaction
+				# END MOD
+
+				button_standard = {
+					name = "title_button"
+					datacontext = "[InteractionTitleItem.GetTitle]"
+					size = "[InteractionTitleItem.GetSize]"
+					onclick = "[InteractionTitleItem.OnClick]"
+					onrightclick = "[InteractionTitleItem.OnRightClick]"
+					button_ignore = none
+					down = "[InteractionTitleItem.IsSelected]"
+					enabled = "[InteractionTitleItem.IsSelectable]"
+
+					# MOD(custom-form-of-address)
+					#tooltip = "[InteractionTitleItem.GetTooltip]"
+					tooltip = "CTFA_TOOLTIP_INTERACTION_TITLE_ITEM"
+					# END MOD
+
+					using = tooltip_es
+					parentanchor = right
+
+					block "button_toggles" {
+						# MOD(custom-form-of-address)
+						enabled = "[InteractionTitleItem.IsSelectable]"
+						#enabled = "[And(InteractionTitleItem.IsSelectable, Not(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(InteractionTitleItem.GetTitle.MakeScope).End)))]"
+						# END MOD
+					}
+
+					coa_title_tiny_crown = {
+						position = { 0 -8 }
+					}
+
+					hbox = {
+						margin_left = 45
+						margin_right = 5
+
+						text_single = {
+							name = "text"
+							layoutpolicy_horizontal = expanding
+							text = "[InteractionTitleItem.GetTitle.GetNameNoTooltip]"
+						}
+
+						icon = {
+							name = "pressed_claim"
+							visible = "[GetPlayer.HasPressedClaimOnTitle( Title.Self )]"
+							size = { 24 24 }
+							texture = "gfx/interface/icons/title_status/icon_claim_pressed.dds"
+							tooltip = "REVOKE_TITLE_PRESSED_CLAIM"
+						}
+
+						icon = {
+							name = "unpressed_claim"
+							visible = "[GetPlayer.HasUnpressedClaimOnTitle( Title.Self )]"
+							size = { 24 24 }
+							texture = "gfx/interface/icons/title_status/icon_claim_unpressed.dds"
+							tooltip = "REVOKE_TITLE_UNPRESSED_CLAIM"
+						}
+
+						icon = {
+							name = "leased_out"
+							visible = "[Title.HasLeasedOutVassal]"
+							size = { 36 39 }
+							texture = "gfx/interface/icons/icon_holding_church.dds"
+							tooltip = "GRANT_TITLE_LEASED_OUT_VASSAL"
+						}
+
+						block "extra_title_items" {}
+					}
+				}
+
+				expand = {}
+			}
+		}
+	}
+}

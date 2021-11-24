@@ -37,6 +37,23 @@ CTFA_sgui_is_unbound_vanity_title = {
 	}
 }
 
+# IsValid() - whether title given as root is held by player's vassal and bound to a currently held VT
+CTFA_sgui_is_vassal_title_bound_to_current_vt = {
+	scope = title
+
+	saved_scopes = {
+		player
+	}
+
+	is_valid = {
+		exists = holder
+		holder = {
+			is_vassal_or_below_of = scope:player
+		}
+		CTFA_has_current_bound_vt = yes
+	}
+}
+
 # IsValid() - whether character given as root holds a vanity title
 CTFA_sgui_has_vanity_title = {
 	scope = character
