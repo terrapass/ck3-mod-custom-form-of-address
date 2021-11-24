@@ -60,3 +60,9 @@
 
  CTFA_VANILLA_COA_TOOLTIP_NO_HOLDER:0 "Не создано\n"
  CTFA_FOA_COA_TOOLTIP_NO_HOLDER:0 "Неиспользуемая [CTFA_form_of_address|El]\n"
+
+ #
+ # Grant/Revoke title item tooltip
+ #
+
+ CTFA_HAS_VT_TOOLTIP_INTERACTION_TITLE_ITEM:0 "#X @warning_icon! Нужно вернуть вассалу его стандартную [Concept('CTFA_form_of_address', 'форму обращения')|E], прежде чем отнимать у него [primary_title|El].#!\n\n"

@@ -21,3 +21,9 @@
  CTFA_TITLE_FOA_NON_PRIMARY:0 "[CTFA_foa|E]:[Title.GetHolder.GetTitleAsNameNoTooltip]#weak (来自[Title.GetHolder.GetPrimaryTitle.GetName])#!"
  CTFA_VANILLA_COA_TOOLTIP_NO_HOLDER:0 "不可创建\n"
  CTFA_FOA_COA_TOOLTIP_NO_HOLDER:0 "未使用[CTFA_form_of_address|E]\n"
+
+ #
+ # Grant/Revoke title item tooltip
+ #
+
+ CTFA_HAS_VT_TOOLTIP_INTERACTION_TITLE_ITEM:0 "#X @warning_icon! Vassal's [CTFA_form_of_address|E] must be reverted to standard one before you can strip them of their [primary_title|E].#!\n\n"

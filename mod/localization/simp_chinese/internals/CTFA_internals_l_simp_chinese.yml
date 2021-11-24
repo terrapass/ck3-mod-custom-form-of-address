@@ -14,3 +14,11 @@
  CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_MUST_SUBTRACT:0 "GetScriptedGui('CTFA_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)"
  CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DELTA:0 "Select_CFixedPoint($CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_MUST_SUBTRACT$, $CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DEDUCTION$, '(CFixedPoint)0.0')"
  CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER:0 "@prestige_icon![Subtract_CFixedPoint(ValueBreakdown.GetFixedPointValue, $CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER_DELTA$)|+=]"
+
+ #
+ # Internals for grant/revoke title item tooltip
+ #
+
+ CTFA_VANILLA_TOOLTIP_INTERACTION_TITLE_ITEM:0 "InteractionTitleItem.GetTooltip"
+ CTFA_TOOLTIP_INTERACTION_TITLE_ITEM_MUST_OVERRIDE:0 "And(Not(InteractionTitleItem.IsSelectable), GetScriptedGui('CTFA_sgui_is_vassal_title_bound_to_current_vt').IsValid(GuiScope.SetRoot(InteractionTitleItem.GetTitle.MakeScope).AddScope( 'player', GetPlayer.MakeScope ).End))"
+ CTFA_TOOLTIP_INTERACTION_TITLE_ITEM:0 "[SelectLocalization($CTFA_TOOLTIP_INTERACTION_TITLE_ITEM_MUST_OVERRIDE$, 'CTFA_HAS_VT_TOOLTIP_INTERACTION_TITLE_ITEM', '')][$CTFA_VANILLA_TOOLTIP_INTERACTION_TITLE_ITEM$]"
