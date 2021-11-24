@@ -1,8 +1,28 @@
-﻿# Scope: Title - Title to destroy, if it currently has a holder
+﻿# All CTFA mod-initiated title destructions should be performed through this scripted_effect.
+# (It currently contains additional logic ensuring correct behavior on VT destruction.)
+#
+# Scope: Title - Title to destroy, if it currently has a holder
 CTFA_try_destroy_title = {
 	if = {
 		limit = {
 			exists = holder
+		}
+
+		# This is a part of an ugly workaround to prevent
+		# king-level AI vassals from destroying their held VTs.
+		# This variable allows to distinguish between mod-initiated
+		# and AI-initiated VT destruction, so as to revert the latter
+		# in on_title_destroyed on_action.
+		if = {
+			limit = {
+				CTFA_is_vanity_title = yes
+			}
+
+			holder = {
+				add_character_flag = {
+					flag = CTFA_vt_destruction_allowed
+				}
+			}
 		}
 
 		holder = {

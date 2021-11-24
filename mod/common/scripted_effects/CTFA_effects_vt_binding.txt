@@ -17,9 +17,7 @@ CTFA_unbind_and_destroy_vanity_title = {
 					text = "bound VT must have the same holder as the title it's bound to"
 				}
 
-				holder = {
-					destroy_title = PREV
-				}
+				CTFA_try_destroy_title = yes
 			}
 		}
 
