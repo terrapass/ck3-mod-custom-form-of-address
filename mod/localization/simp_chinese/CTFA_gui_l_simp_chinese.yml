@@ -26,4 +26,4 @@
  # Grant/Revoke title item tooltip
  #
 
- CTFA_HAS_VT_TOOLTIP_INTERACTION_TITLE_ITEM:0 "#X @warning_icon! Vassal's [CTFA_form_of_address|E] must be reverted to standard one before you can strip them of their [primary_title|E].#!\n\n"
+ CTFA_HAS_VT_TOOLTIP_INTERACTION_TITLE_ITEM:0 "#X @warning_icon!封臣的[CTFA_form_of_address|E]必须重置为标准的，然后才能剥夺他们的[primary_title|E]。#!\n\n"
