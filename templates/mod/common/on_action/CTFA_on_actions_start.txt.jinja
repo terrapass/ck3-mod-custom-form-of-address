@@ -1,0 +1,15 @@
+﻿on_game_start_after_lobby = {
+	on_actions = { CTFA_on_game_start_after_lobby }
+}
+
+CTFA_on_game_start_after_lobby = {
+	effect = {
+		{% for i in range(vanity_titles_count) -%}
+		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_{{ i }} }
+		{% endfor %}
+		{% for i in range(vanity_titles_count) -%}
+		set_global_variable = { name = CTFA_vanity_title_{{ i }} value = title:d_CTFA_vanity_{{ i }} }
+		{% endfor %}
+	}
+}
+

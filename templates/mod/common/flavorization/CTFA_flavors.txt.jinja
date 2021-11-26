@@ -1,0 +1,10 @@
+﻿{% for n in range(vanity_titles_count) %}{% for gender in ['male', 'female'] %}
+CTFA_flavor_vanity_title_holder_{{ gender }}_{{ n }} = {
+	type = character
+	gender = {{ gender }}
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_{{ n }} }
+	top_liege = no
+}
+{% endfor %}{% endfor %}

@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "process",
+            "label": "Render mod files from templates",
+            "command": "${config:python.pythonPath}",
+            "args": [
+                "${workspaceFolder}/tools/jinja_dir_render.py",
+                "--verbose",
+                "--vars",
+                "templates/variables.yml",
+                "templates/mod",
+                "mod"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "echo": false,
+                "focus": false,
+                "group": "",
+                "panel": "shared",
+                "clear": true
+            },
+            "runOptions": {
+                //"runOn": "folderOpen"
+            },
+            "group": "build"
+        }
+    ]
+}
