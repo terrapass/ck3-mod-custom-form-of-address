@@ -81,39 +81,3 @@ CTFA_events.1002 = {
 		}
 	}
 }
-
-# Test event, not used in production.
-CTFA_events.1999 = {
-	type = character_event
-
-	hidden = yes
-
-	immediate = {
-		debug_log = "CTFA_events.1999 (test event)"
-
-		every_duchy = {
-			limit = {
-				CTFA_is_vanity_title = yes
-
-				# This works.
-				# is_target_in_global_variable_list = {
-				# 	name = CTFA_vanity_titles
-				# 	target = THIS
-				# }
-			}
-
-			# FIXME: Testing
-			#set_coa = title:k_papal_state
-			# END FIXME
-
-			debug_log = "HIT 1"
-		}
-
-		# This works.
-		# every_in_global_list = {
-		# 	variable = CTFA_vanity_titles
-
-		# 	debug_log = "HIT 2"
-		# }
-	}
-}
