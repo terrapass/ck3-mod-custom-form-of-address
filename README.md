@@ -18,10 +18,17 @@ Right-click "Customize FoA" button if you want to revert to the vanilla FoA.
 
 After you set a custom FoA for your primary title, it will remain tied to it and will be passed down to your heir. Should you change your primary title, either manually, by losing it or by inheriting a higher-ranked title, your character will stop using its FoA and will switch to the form of address for their new primary title.
 
-**Requires a new game to work.**
-Additionally, due to the way the game and this mod are implemented, your character must be at least a Duke to make use of a custom FoA (so no custom FoAs for Counts currently).
+Due to the way the game and this mod are implemented, your character must be **at least a Duke** to make use of a custom FoA (so no custom FoAs for Counts currently).
 
-**Compatible** with Ironman, **not compatible** with achievements.
+__________
+
+In the latest version of the mod you can now also set a custom FoA for any vassal who holds a Duchy or a higher title in your realm. However, for now please use this feature sparingly, since the number of supported simultaneously used custom forms of address is currently limited to 16. In future updates this limit will be increased. A feature to customize FoA for all vassals of the same rank at once might also be added later, if it proves implementable.
+
+__________
+
+The mod **requires a new game** to work.
+
+**Not compatible** with achievements but otherwise can be used in Ironman.
 
 Special thanks to the community of CK3 Mod Co-op Discord.
 
