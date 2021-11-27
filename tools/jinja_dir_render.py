@@ -11,7 +11,10 @@ from jinja2 import Environment, FileSystemLoader
 # Constants
 #
 
-CLI_DESCRIPTION = 'Renders all Jinja templates in a directory into files in another directory, preserving the folder structure.'
+CLI_DESCRIPTION = """
+Renders all Jinja templates in a directory into files in another directory, preserving the folder structure.
+Uses UTF-8 with BOM for target files and expects the same encoding from templates.
+"""
 
 SOURCE_ENCODING = 'utf_8_sig' # UTF-8 with BOM
 TARGET_ENCODING = 'utf_8_sig' # UTF-8 with BOM
@@ -23,7 +26,7 @@ TEMPLATE_GLOB      = '**/*' + TEMPLATE_EXTENSION
 # Command line arguments
 #
 
-parser = argparse.ArgumentParser(description=CLI_DESCRIPTION)
+parser = argparse.ArgumentParser(description=CLI_DESCRIPTION, formatter_class=argparse.RawDescriptionHelpFormatter)
 
 parser.add_argument('source_path', metavar='SOURCE_PATH', type=Path, help='root directory containing Jinja templates')
 parser.add_argument('target_path', metavar='TARGET_PATH', type=Path, help='target root directory for rendered files')
