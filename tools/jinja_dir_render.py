@@ -13,6 +13,7 @@ from jinja2 import Environment, FileSystemLoader
 
 CLI_DESCRIPTION = 'Renders all Jinja templates in a directory into files in another directory, preserving the folder structure.'
 
+SOURCE_ENCODING = 'utf_8_sig' # UTF-8 with BOM
 TARGET_ENCODING = 'utf_8_sig' # UTF-8 with BOM
 
 TEMPLATE_EXTENSION = '.jinja'
@@ -68,8 +69,12 @@ def template_name_to_target_file_path(target_dir_path: Path, template_name: str)
 # Main
 #
 
-jinja_env = Environment(loader=FileSystemLoader(args.source_path), autoescape=False)
-vars      = load_vars_from_yaml_file(args.vars) if not args.vars is None else dict()
+jinja_env = Environment(
+    loader=FileSystemLoader(args.source_path, encoding=SOURCE_ENCODING),
+    autoescape=False
+)
+
+vars = load_vars_from_yaml_file(args.vars) if not args.vars is None else dict()
 
 try:
     render_dir(jinja_env, args.source_path, args.target_path, vars, args.is_verbose)
