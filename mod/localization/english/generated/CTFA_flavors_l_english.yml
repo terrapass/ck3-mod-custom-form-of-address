@@ -2,7 +2,7 @@
  #
  # Holder flavors
  #
- # TODO: Pre-generate offline
+ 
  CTFA_flavor_vanity_title_holder_male_0:0 "[GetGlobalVariable('CTFA_vanity_title_0').Title.GetBaseNameNoTierNoTooltip]"
  CTFA_flavor_vanity_title_holder_female_0:0 "[GetGlobalVariable('CTFA_vanity_title_0').Title.GetAdjectiveNoTooltip]"
  CTFA_flavor_vanity_title_holder_male_1:0 "[GetGlobalVariable('CTFA_vanity_title_1').Title.GetBaseNameNoTierNoTooltip]"

@@ -1,5 +1,4 @@
-﻿# TODO: Pre-generate offline
-
+﻿
 d_CTFA_vanity_0 = {
 	color = { 0 0 0 }
 

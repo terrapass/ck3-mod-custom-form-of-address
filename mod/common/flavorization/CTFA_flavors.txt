@@ -1,5 +1,4 @@
-﻿# TODO: Pre-generate offline
-
+﻿
 CTFA_flavor_vanity_title_holder_male_0 = {
 	type = character
 	gender = male

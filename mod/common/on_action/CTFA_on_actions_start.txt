@@ -4,7 +4,6 @@
 
 CTFA_on_game_start_after_lobby = {
 	effect = {
-		# TODO: Pre-generate offline
 		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_0 }
 		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_1 }
 		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_2 }
@@ -21,8 +20,7 @@ CTFA_on_game_start_after_lobby = {
 		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_13 }
 		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_14 }
 		add_to_global_variable_list = { name = CTFA_vanity_titles target = title:d_CTFA_vanity_15 }
-
-		# TODO: Pre-generate offline
+		
 		set_global_variable = { name = CTFA_vanity_title_0 value = title:d_CTFA_vanity_0 }
 		set_global_variable = { name = CTFA_vanity_title_1 value = title:d_CTFA_vanity_1 }
 		set_global_variable = { name = CTFA_vanity_title_2 value = title:d_CTFA_vanity_2 }
@@ -39,5 +37,6 @@ CTFA_on_game_start_after_lobby = {
 		set_global_variable = { name = CTFA_vanity_title_13 value = title:d_CTFA_vanity_13 }
 		set_global_variable = { name = CTFA_vanity_title_14 value = title:d_CTFA_vanity_14 }
 		set_global_variable = { name = CTFA_vanity_title_15 value = title:d_CTFA_vanity_15 }
+		
 	}
 }

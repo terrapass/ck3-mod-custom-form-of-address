@@ -1,5 +1,4 @@
-﻿# TODO: Pre-generate offline
-
+﻿
 d_CTFA_vanity_0 = {
 	pattern = "pattern_solid.dds"
 	color1 = "white"
