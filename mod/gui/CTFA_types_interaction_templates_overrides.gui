@@ -35,10 +35,7 @@
 					parentanchor = right
 
 					block "button_toggles" {
-						# MOD(custom-form-of-address)
 						enabled = "[InteractionTitleItem.IsSelectable]"
-						#enabled = "[And(InteractionTitleItem.IsSelectable, Not(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(InteractionTitleItem.GetTitle.MakeScope).End)))]"
-						# END MOD
 					}
 
 					coa_title_tiny_crown = {
