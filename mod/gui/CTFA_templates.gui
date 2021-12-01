@@ -138,8 +138,14 @@ template "CTFA_title_window_mouse_hierarchy_enter_state" {
     }
 }
 
-template "CTFA_hide_held_vanity_title_modifier" {
-    visible = "[Not(EqualTo_string(ValueBreakdown.GetName, GetModifier('CTFA_held_vanity_title_modifier').GetName))]"
+template "CTFA_hide_extra_modifier" {
+    # This visibility check accomplishes the following:
+    # 1) Always hides "Using Custom FoA" (held VT) modifier from prestige value breakdown.
+    # 2) Hides "Held Duchies" modifier from prestige value breakdown, if the only reason
+    #    it would be shown in the first place is due to a hidden VT duchy, caused by custom FoA
+    #    (this is to prevent the tooltip from displaying "Held Duchies: +0.00" after value correction
+    #    in CTFA_VALUE_BREAKDOWN_HELD_DUCHY_MODIFIER localization.
+    visible = "[Not(Or(EqualTo_string(ValueBreakdown.GetName, GetModifier('CTFA_held_vanity_title_modifier').GetName), And(EqualTo_string(ValueBreakdown.GetName, GetModifier('held_duchy_modifier').GetName), And(GetScriptedGui('CTFA_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End), EqualTo_CFixedPoint(ValueBreakdown.GetFixedPointValue, '(CFixedPoint)0.2')))))]"
 }
 
 template "CTFA_hide_held_duchy_modifier" {

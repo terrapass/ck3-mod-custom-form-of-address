@@ -27,7 +27,7 @@
 
                     # MOD(custom-form-of-address)
                     ignoreinvisible = yes
-                    using = CTFA_hide_held_vanity_title_modifier
+                    using = CTFA_hide_extra_modifier
                     # END MOD
 
                     text_single = {
