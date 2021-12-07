@@ -1727,7 +1727,7 @@ window = {
 								}
 							}
 
-							# MOD(vanity-title)
+							# MOD(custom-form-of-address)
 							CTFA_vbox_titles_claims_box_3 = {}
 							# END MOD
 							vbox_titles_claims_box = {
