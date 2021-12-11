@@ -2,7 +2,7 @@
  #
  # Triggers
  #
- CTFA_trigger_existing_savegame:0 "[CTFA_form_of_address|E] customization is only supported in new savegames."
+ CTFA_trigger_existing_savegame:0 "[CTFA_form_of_address|E] 변경은 기존 세이브 파일에서는 불가능합니다."
  NOT_CTFA_trigger_existing_savegame:0 "$CTFA_trigger_existing_savegame$"
  CTFA_trigger_at_least_duchy_tier:0 "[CHARACTER.GetFirstNameOrMeNoTooltipRegnal|U] must be at least a $CTFA_GENDER_APPROPRIATE_DUKE_CONCEPT$ to use a custom [CTFA_foa|E]."
  NOT_CTFA_trigger_at_least_duchy_tier:0 "$CTFA_trigger_at_least_duchy_tier$"
@@ -12,12 +12,12 @@
  #
  # Modifiers
  #
- CTFA_held_vanity_title_modifier:0 "Using a Custom $game_concept_CTFA_form_of_address$"
- CTFA_held_vanity_title_modifier_desc:0 "This character's [primary_title|E] grants them a distinctive [CTFA_foa|E]"
+ CTFA_held_vanity_title_modifier:0 "사용자 정의 $game_concept_CTFA_form_of_address$ 적용 중"
+ CTFA_held_vanity_title_modifier_desc:0 "이 캐릭터의 [primary_title|E]는 [CTFA_foa|E]을 부여하고 있습니다."
 
  #
  # FoA suggestions
  #
 
- CTFA_vanity_title_name_suggest_default:0 "Supreme Lord"
- CTFA_vanity_title_name_suggest_default_adj:0 "Supreme Lady"
+ CTFA_vanity_title_name_suggest_default:0 "킹갓엠페러"
+ CTFA_vanity_title_name_suggest_default_adj:0 "제너럴충무공마제스티"
