@@ -1,0 +1,21 @@
+types CTFA_types_StA_compat {
+    # Authority level icon for window_character from Submission to Authority mod by Stik'
+    type CTFA_StA_authority_level_vbox = vbox {
+        visible = "[And(GetGlobalVariable('StA_is_loaded').IsSet, Character.HasLandedTitles)]"
+        spacing = -2
+        min_width = 40
+
+        widget = {
+            size = { 30 25 }
+
+            button_icon_highlight = {
+                datacontext = "[Character.GetActiveLawInGroupWithFlag( 'realm_law' )]"
+                size = { 35 35 }
+                parentanchor = center
+                texture = "[Law.GetIcon]"
+                tooltipwidget = { general_law_tooltip = {} }
+                using = tooltip_ws
+            }
+        }
+    }
+}

@@ -14,6 +14,8 @@
         blockoverride "crown" {}
 
         # MOD(custom-form-of-address)
+        using = CTFA_hide_if_vanity_title
+
         CTFA_icon_title_status_foa = {
             size = { 25 25 }
             position = { 5 0 }
@@ -25,6 +27,8 @@
         blockoverride "crown" {}
 
         # MOD(custom-form-of-address)
+        using = CTFA_hide_if_vanity_title
+
         CTFA_icon_title_status_foa = {
             position = { 10 5 }
         }
@@ -35,6 +39,8 @@
         blockoverride "crown" {}
 
         # MOD(custom-form-of-address)
+        using = CTFA_hide_if_vanity_title
+
         CTFA_icon_title_status_foa = {}
         # END MOD
     }
@@ -43,6 +49,8 @@
         blockoverride "crown" {}
 
         # MOD(custom-form-of-address)
+        using = CTFA_hide_if_vanity_title
+
         CTFA_icon_title_status_foa = {}
         # END MOD
     }

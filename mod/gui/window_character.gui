@@ -1519,6 +1519,11 @@ window = {
 								margin_top = 3
 								visible = "[Character.IsAlive]"
 
+								# MOD(custom-form-of-address)
+								# Compatibility hook for Submission to Authority mod by Stik'
+								CTFA_StA_authority_level_vbox = {}
+								# END MOD
+
 								vbox = {
 									visible = "[Character.HasLandedTitles]"
 									spacing = -2
