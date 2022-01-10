@@ -1,4 +1,4 @@
-﻿types CTFA_types_value_breakdown_overrides
+﻿types CTFA_types_interaction_templates_overrides
 {
 	type vbox_list_interaction_title_selection = vbox {
 		name = "titles_grid"
