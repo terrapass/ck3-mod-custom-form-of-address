@@ -1,0 +1,18 @@
+# Aliases for "public" types for use in unified gui files of Unified UI mod by TheGib770
+types CTFA_types_UniUI_compat {
+    # window_character.gui
+    type UniUI_CTFA_flowcontainer_edit_character_foa_offset = CTFA_flowcontainer_edit_character_foa_offset {}
+    type UniUI_CTFA_vbox_titles_claims_box_1 = CTFA_vbox_titles_claims_box_1 {}
+    type UniUI_CTFA_vbox_titles_claims_box_2 = CTFA_vbox_titles_claims_box_2 {}
+    type UniUI_CTFA_vbox_titles_claims_box_3 = CTFA_vbox_titles_claims_box_3 {}
+    type UniUI_CTFA_vbox_titles_claims_box_4 = CTFA_vbox_titles_claims_box_4 {}
+    type UniUI_CTFA_vbox_titles_claims_box_5 = CTFA_vbox_titles_claims_box_5 {}
+    type UniUI_CTFA_fixedgridbox_titles_box_bishop = CTFA_fixedgridbox_titles_box_bishop {}
+
+    # window_title.gui
+    type UniUI_CTFA_vbox_title_type_text = CTFA_vbox_title_type_text {}
+    type UniUI_CTFA_flowcontainer_title_foa = CTFA_flowcontainer_title_foa {}
+
+    # shared/value_breakdown.gui (partially overridden by CTFA_types_value_breakdown_overrides.gui)
+    type UniUI_CTFA_text_single_held_duchy_modifier_value = CTFA_text_single_held_duchy_modifier_value {}
+}

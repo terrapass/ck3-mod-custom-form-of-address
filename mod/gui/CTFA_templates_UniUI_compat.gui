@@ -1,0 +1,73 @@
+# Aliases for "public" templates for use in unified gui files of Unified UI mod by TheGib770
+
+#
+# Shared
+#
+
+template "UniUI_CTFA_hide_if_vanity_title" {
+    using = CTFA_hide_if_vanity_title
+}
+
+#
+# window_character.gui
+#
+
+template "UniUI_CTFA_character_window_show_state_actions" {
+    using = CTFA_character_window_show_state_actions
+}
+
+template "UniUI_CTFA_character_window_refresh_state" {
+    using = CTFA_character_window_refresh_state
+}
+
+template "UniUI_CTFA_character_window_mouse_hierarchy_enter_state" {
+    using = CTFA_character_window_mouse_hierarchy_enter_state
+}
+
+template "UniUI_CTFA_hide_if_has_vanity_title" {
+    using = CTFA_hide_if_has_vanity_title
+}
+
+#
+# window_title.gui
+#
+
+template "UniUI_CTFA_title_window_show_state_actions" {
+    using = CTFA_title_window_show_state_actions
+}
+
+template "UniUI_CTFA_title_window_mouse_hierarchy_enter_state" {
+    using = CTFA_title_window_mouse_hierarchy_enter_state
+}
+
+template "UniUI_CTFA_onclick_handle_primary_title_change" {
+    using = CTFA_onclick_handle_primary_title_change
+}
+
+#
+# shared/coat_of_arms.gui (partially overridden by CTFA_types_coa_title_overrides.gui)
+#
+
+template "UniUI_CTFA_hide_if_not_vanity_title" {
+    using = CTFA_hide_if_not_vanity_title
+}
+
+#
+# interaction_templates.gui (partially overridden by CTFA_types_interaction_templates_overrides.gui)
+#
+
+template "UniUI_CTFA_hide_if_vanity_title_interaction" {
+    using = CTFA_hide_if_vanity_title_interaction
+}
+
+#
+# shared/value_breakdown.gui (partially overridden by CTFA_types_value_breakdown_overrides.gui)
+#
+
+template "UniUI_CTFA_hide_extra_modifier" {
+    using = CTFA_hide_extra_modifier
+}
+
+template "UniUI_CTFA_hide_held_duchy_modifier" {
+    using = CTFA_hide_held_duchy_modifier
+}
