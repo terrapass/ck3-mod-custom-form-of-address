@@ -17,6 +17,9 @@
 		name = _hide
 		using = Animation_FadeOut_Standard
 		using = Sound_WindowHide_Standard
+		# MOD(custom-form-of-address)
+		using = CTFA_on_finish_clear_foa_mode
+		# END MOD
 	}
 
 	vbox = {

@@ -25,7 +25,6 @@ template "CTFA_edit_character_foa_delayed" {
 
         on_finish = "[GetVariableSystem.Set('CTFA_must_use_foa_mode_for_title_rename', 'true')]"
         on_finish = "[OpenTitleCustomizationWindow(Character.GetPrimaryTitle.MakeScope.Var('CTFA_bound_vanity_title').Title)]"
-        on_finish = "[GetVariableSystem.Clear('CTFA_must_use_foa_mode_for_title_rename')]"
 
         on_finish = "[GetVariableSystem.Clear('VTNL_is_edit_foa_delay_active')]"
     }
@@ -58,10 +57,13 @@ template "CTFA_edit_title_foa_delayed" {
 
         on_finish = "[GetVariableSystem.Set('CTFA_must_use_foa_mode_for_title_rename', 'true')]"
         on_finish = "[OpenTitleCustomizationWindow(Title.GetHolder.GetPrimaryTitle.MakeScope.Var('CTFA_bound_vanity_title').Title)]"
-        on_finish = "[GetVariableSystem.Clear('CTFA_must_use_foa_mode_for_title_rename')]"
 
         on_finish = "[GetVariableSystem.Clear('VTNL_is_edit_foa_delay_active')]"
     }
+}
+
+template "CTFA_on_finish_clear_foa_mode" {
+    on_finish = "[GetVariableSystem.Clear('CTFA_must_use_foa_mode_for_title_rename')]"
 }
 
 template "CTFA_hide_if_vanity_title" {
