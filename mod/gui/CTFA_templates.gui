@@ -66,6 +66,14 @@ template "CTFA_on_finish_clear_foa_mode" {
     on_finish = "[GetVariableSystem.Clear('CTFA_must_use_foa_mode_for_title_rename')]"
 }
 
+template "CTFA_hide_if_foa_mode" {
+    visible = "[Not(GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename'))]"
+}
+
+template "CTFA_hide_if_not_foa_mode" {
+    visible = "[GetVariableSystem.Exists('CTFA_must_use_foa_mode_for_title_rename')]"
+}
+
 template "CTFA_hide_if_vanity_title" {
     visible = "[Not(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End))]"
 }

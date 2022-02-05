@@ -1,26 +1,25 @@
 ﻿l_english:
  #
- # "Edit FoA" (aka hijacked "Rename Title") dialog labels
+ # "Edit FoA" (aka hijacked "Customize Title") window and confirmation dialog labels
  #
 
- CTFA_FOA_RENAME_TITLE_TITLE:0 "Edit Form of Address"
- CTFA_FOA_RENAME_TITLE_DESC:0 "Concatenate('Enter form of address for rulers of ', TITLE.MakeScope.Var('CTFA_bound_primary_title').Title.GetName)"
- CTFA_FOA_RENAME_TITLE_ACCEPT:0 "Save"
+ CTFA_FOA_TITLE_CUSTOMIZATION_HEADER:0 "Edit Form of Address"
+ CTFA_FOA_TITLE_CUSTOMIZATION_DESC:0 "Enter form of address for rulers of #high [Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetNameNoTooltip)]#!"
+
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "Customize FoA"
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "Save changes to Form of Address?"
  CTFA_FOA_TITLE_NAME_FIELD:0 "Male Form"
  CTFA_FOA_TITLE_ADJECTIVE_FIELD:0 "Female Form"
- #CTFA_FOA_RENAME_TOOLTIP:0 "Concatenate('#T Save#!\n', GameDialog.GetCanAcceptBlocker)"
 
  #
- # Vanilla "Rename Title" dialog labels
- # (see vanilla localization\english\gui\title_view_l_english.yml)
+ # Vanilla "Customize Title" window and confirmation dialog labels
+ # (see vanilla localization\english\gui\title_view_l_english.yml, localization\english\gui\coa_designer_l_english.yml)
  #
 
- CTFA_VANILLA_RENAME_TITLE_TITLE:0 "Concatenate('Rename ', TITLE.GetName)"
- CTFA_VANILLA_RENAME_TITLE_DESC:0 "Concatenate('Change the name and adjective of ', TITLE.GetName)"
- CTFA_VANILLA_RENAME_TITLE_ACCEPT:0 "Rename"
+ CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "Customize Title"
+ CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "Finish customizing your title, once you submit you cannot undo this change, are you sure you are ready to submit?"
  CTFA_VANILLA_TITLE_NAME_FIELD:0 "Name"
  CTFA_VANILLA_TITLE_ADJECTIVE_FIELD:0 "Adjective"
- #CTFA_VANILLA_RENAME_TOOLTIP:0 "Concatenate('#T Rename#!\n', GameDialog.GetCanAcceptBlocker)"
 
  #
  # "Edit FoA" buttton tooltip text
