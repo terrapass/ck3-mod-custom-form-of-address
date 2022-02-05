@@ -16,6 +16,8 @@
             margin = { 17 10 }
             spacing = 3
 
+            block "header" {}
+
             # MOD(custom-form-of-address)
             ignoreinvisible = yes
             # END MOD

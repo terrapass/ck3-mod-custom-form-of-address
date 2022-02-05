@@ -36,8 +36,6 @@ window = {
 	# END MOD
 
 	vbox = {
-		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = expanding
 		using = Window_Margins_Sidebar
 
 		######################################################
@@ -135,7 +133,7 @@ window = {
 									text_multi = {
 										text = "[TitleViewWindow.GetTitle.GetNameNoTooltip|U]"
 										default_format = "#high"
-										max_width = 380
+										max_width = 330
 										autoresize = yes
 										using = Font_Size_Big
 									}
@@ -146,9 +144,9 @@ window = {
 										# Note no closing brace here - this block is closed later
 									# END MOD
 									button_edit_text = {
-										visible = "[TitleViewWindow.GetTitle.CanPlayerRenameTitle]"
-										onclick = "[OpenTitleRenamePopup(TitleViewWindow.GetTitle)]"
-										tooltip = "EDIT_TITLE_NAME"
+										visible = "[TitleViewWindow.GetTitle.CanPlayerCustomizeTitle]"
+										onclick = "[OpenTitleCustomizationWindow(TitleViewWindow.GetTitle)]"
+										tooltip = "CUSTOMIZE_TITLE"
 									}
 									# MOD(custom-form-of-address)
 									} # This closes hbox
@@ -373,7 +371,7 @@ window = {
 									layoutpolicy_horizontal = expanding
 									align = center
 									max_width = 180
-									text = "[TitleViewWindow.GetTypeOfLanded]:"
+									raw_text = "[TitleViewWindow.GetTypeOfLanded]: "
 								}
 
 								button_tertiary = {
@@ -789,7 +787,7 @@ window = {
 									layoutpolicy_horizontal = expanding
 									margin = { 5 5 }
 									size = { 0 100 }
-									text = "     [TitleViewWindow.GetSuccessionDescription]"
+									raw_text = "     [TitleViewWindow.GetSuccessionDescription]"
 
 									icon = {
 										name = "has_laws"
@@ -909,18 +907,10 @@ window = {
 							button_standard = {
 								name = "toggle_find_vassal"
 								text = "FIND_VASSAL_HEADER"
-								visible = "[And( And( And( ObjectsEqual( Title.GetHolder, GetPlayer ), TitleViewWindow.GetTitle.CanUseFindVassal( GetPlayer ) ), Not( Title.IsBarony ) ), Not( Title.IsLeasedOut))]"
+								visible = "[And( And( ObjectsEqual( Title.GetHolder, GetPlayer ), TitleViewWindow.GetTitle.CanUseFindVassal( GetPlayer ) ), Not( Title.IsLeasedOut))]"
 
 								onclick = "[TitleViewWindow.ToggleFindVassalListWindow]"
 								tooltip = "FIND_VASSAL_BUTTON_TOOLTIP"
-							}
-
-							button_standard = {
-								name = "grant_to_local_noble"
-								visible = "[And( And( And( ObjectsEqual( Title.GetHolder, GetPlayer ), TitleViewWindow.GetTitle.CanUseFindVassal( GetPlayer ) ), Title.IsBarony ), Not( Title.IsLeasedOut))]"
-								text = "GRANT_TO_LOCAL_NOBLE_HEADER"
-								onclick = "[TitleViewWindow.GetTitle.CreateHolderForBarony]"
-								tooltip = "GRANT_TO_LOCAL_NOBLE_BUTTON_HOLDING_VIEW_TOOLTIP"
 							}
 						}
 

@@ -79,8 +79,6 @@
 						block "extra_title_items" {}
 					}
 				}
-
-				expand = {}
 			}
 		}
 	}
