@@ -7,6 +7,7 @@ CTFA_events_error_suppression.1001 = {
 
   trigger = {
     exists = global_var:CTFA_is_loaded
+    exists = global_var:CTFA_data_version
 
     # VT global variables
     

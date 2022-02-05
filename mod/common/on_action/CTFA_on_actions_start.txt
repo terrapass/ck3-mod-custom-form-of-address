@@ -12,6 +12,11 @@ CTFA_on_game_start = {
 			name = CTFA_is_loaded
 			value = yes
 		}
+
+		set_global_variable = {
+			name = CTFA_data_version
+			value = 1
+		}
 	}
 }
 
