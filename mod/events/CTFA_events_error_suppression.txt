@@ -1,0 +1,83 @@
+﻿namespace = CTFA_events_error_suppression
+
+# This is a fake event for suppression of "Variable CTFA_some_var is set but is never used" errors.
+# See https://github.com/Gr770/UnifiedUICK3/wiki/Global-Variables#getting-rid-of-startup-errors.
+CTFA_events_error_suppression.1001 = {
+  hidden = yes
+
+  trigger = {
+    exists = global_var:CTFA_is_loaded
+    exists = global_var:CTFA_data_version
+
+    # VT global variables
+    
+    exists = global_var:CTFA_vanity_title_0
+    exists = global_var:CTFA_vanity_title_1
+    exists = global_var:CTFA_vanity_title_2
+    exists = global_var:CTFA_vanity_title_3
+    exists = global_var:CTFA_vanity_title_4
+    exists = global_var:CTFA_vanity_title_5
+    exists = global_var:CTFA_vanity_title_6
+    exists = global_var:CTFA_vanity_title_7
+    exists = global_var:CTFA_vanity_title_8
+    exists = global_var:CTFA_vanity_title_9
+    exists = global_var:CTFA_vanity_title_10
+    exists = global_var:CTFA_vanity_title_11
+    exists = global_var:CTFA_vanity_title_12
+    exists = global_var:CTFA_vanity_title_13
+    exists = global_var:CTFA_vanity_title_14
+    exists = global_var:CTFA_vanity_title_15
+    exists = global_var:CTFA_vanity_title_16
+    exists = global_var:CTFA_vanity_title_17
+    exists = global_var:CTFA_vanity_title_18
+    exists = global_var:CTFA_vanity_title_19
+    exists = global_var:CTFA_vanity_title_20
+    exists = global_var:CTFA_vanity_title_21
+    exists = global_var:CTFA_vanity_title_22
+    exists = global_var:CTFA_vanity_title_23
+    exists = global_var:CTFA_vanity_title_24
+    exists = global_var:CTFA_vanity_title_25
+    exists = global_var:CTFA_vanity_title_26
+    exists = global_var:CTFA_vanity_title_27
+    exists = global_var:CTFA_vanity_title_28
+    exists = global_var:CTFA_vanity_title_29
+    exists = global_var:CTFA_vanity_title_30
+    exists = global_var:CTFA_vanity_title_31
+    exists = global_var:CTFA_vanity_title_32
+    exists = global_var:CTFA_vanity_title_33
+    exists = global_var:CTFA_vanity_title_34
+    exists = global_var:CTFA_vanity_title_35
+    exists = global_var:CTFA_vanity_title_36
+    exists = global_var:CTFA_vanity_title_37
+    exists = global_var:CTFA_vanity_title_38
+    exists = global_var:CTFA_vanity_title_39
+    exists = global_var:CTFA_vanity_title_40
+    exists = global_var:CTFA_vanity_title_41
+    exists = global_var:CTFA_vanity_title_42
+    exists = global_var:CTFA_vanity_title_43
+    exists = global_var:CTFA_vanity_title_44
+    exists = global_var:CTFA_vanity_title_45
+    exists = global_var:CTFA_vanity_title_46
+    exists = global_var:CTFA_vanity_title_47
+    exists = global_var:CTFA_vanity_title_48
+    exists = global_var:CTFA_vanity_title_49
+    exists = global_var:CTFA_vanity_title_50
+    exists = global_var:CTFA_vanity_title_51
+    exists = global_var:CTFA_vanity_title_52
+    exists = global_var:CTFA_vanity_title_53
+    exists = global_var:CTFA_vanity_title_54
+    exists = global_var:CTFA_vanity_title_55
+    exists = global_var:CTFA_vanity_title_56
+    exists = global_var:CTFA_vanity_title_57
+    exists = global_var:CTFA_vanity_title_58
+    exists = global_var:CTFA_vanity_title_59
+    exists = global_var:CTFA_vanity_title_60
+    exists = global_var:CTFA_vanity_title_61
+    exists = global_var:CTFA_vanity_title_62
+    exists = global_var:CTFA_vanity_title_63
+  }
+
+  effect = {
+      # Empty
+  }
+}

@@ -1,4 +1,30 @@
-﻿on_game_start_after_lobby = {
+﻿#
+# on_game_start
+#
+
+on_game_start = {
+	on_actions = { CTFA_on_game_start }
+}
+
+CTFA_on_game_start = {
+	effect = {
+		set_global_variable = {
+			name = CTFA_is_loaded
+			value = yes
+		}
+
+		set_global_variable = {
+			name = CTFA_data_version
+			value = 1
+		}
+	}
+}
+
+#
+# on_game_start_after_lobby
+#
+
+on_game_start_after_lobby = {
 	on_actions = { CTFA_on_game_start_after_lobby }
 }
 
