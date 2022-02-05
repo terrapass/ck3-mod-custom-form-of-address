@@ -1,26 +1,25 @@
 ﻿l_german:
  #
- # "Edit FoA" (aka hijacked "Rename Title") dialog labels
+ # "Edit FoA" (aka hijacked "Customize Title") window and confirmation dialog labels
  #
 
- CTFA_FOA_RENAME_TITLE_TITLE:0 "Anredeform ändern"
- CTFA_FOA_RENAME_TITLE_DESC:0 "Concatenate(Concatenate('Gib die Anredeform für Herrscher von ', TITLE.MakeScope.Var('CTFA_bound_primary_title').Title.GetName), ' ein')"
- CTFA_FOA_RENAME_TITLE_ACCEPT:0 "Speichern"
+ CTFA_FOA_TITLE_CUSTOMIZATION_HEADER:0 "Anredeform ändern"
+ CTFA_FOA_TITLE_CUSTOMIZATION_DESC:0 "Gib die Anredeform für Herrscher von #high [Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetNameNoTooltip)]#! ein"
+
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "Anredeform ändern"
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "Save changes to Form of Address?"
  CTFA_FOA_TITLE_NAME_FIELD:0 "Männliche Form"
  CTFA_FOA_TITLE_ADJECTIVE_FIELD:0 "Weibliche Form"
- #CTFA_FOA_RENAME_TOOLTIP:0 "Concatenate('#T Save#!\n', GameDialog.GetCanAcceptBlocker)"
 
  #
- # Vanilla "Rename Title" dialog labels
- # (see vanilla localization\english\gui\title_view_l_english.yml)
+ # Vanilla "Customize Title" window and confirmation dialog labels
+ # (see vanilla localization\english\gui\title_view_l_english.yml, localization\english\gui\coa_designer_l_english.yml)
  #
 
- CTFA_VANILLA_RENAME_TITLE_TITLE:0 "Concatenate(TITLE.GetName, ' umbenennen')"
- CTFA_VANILLA_RENAME_TITLE_DESC:0 "Concatenate('Ändert den Namen und das Adjektiv von ', TITLE.GetName)"
- CTFA_VANILLA_RENAME_TITLE_ACCEPT:0 "Umbenennen"
+ CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "Titel anpassen"
+ CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "Schließt die Anpassung Eures Titels ab. Nach der Abgabe könnt Ihr diese Änderungen nicht rückgängig machen. Seid Ihr Euch sicher, dass Ihr abgeben möchtet?"
  CTFA_VANILLA_TITLE_NAME_FIELD:0 "Name"
  CTFA_VANILLA_TITLE_ADJECTIVE_FIELD:0 "Adjektiv"
- #CTFA_VANILLA_RENAME_TOOLTIP:0 "Concatenate('#T Rename#!\n', GameDialog.GetCanAcceptBlocker)"
 
  #
  # "Edit FoA" buttton tooltip text

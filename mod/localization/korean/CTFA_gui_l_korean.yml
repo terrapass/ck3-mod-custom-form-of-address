@@ -1,26 +1,25 @@
 ﻿l_korean:
  #
- # "Edit FoA" (aka hijacked "Rename Title") dialog labels
+ # "Edit FoA" (aka hijacked "Customize Title") window and confirmation dialog labels
  #
 
- CTFA_FOA_RENAME_TITLE_TITLE:0 "Edit Form of Address"
- CTFA_FOA_RENAME_TITLE_DESC:0 "Concatenate('Enter form of address for rulers of ', TITLE.MakeScope.Var('CTFA_bound_primary_title').Title.GetName)"
- CTFA_FOA_RENAME_TITLE_ACCEPT:0 "$SAVE$"
+ CTFA_FOA_TITLE_CUSTOMIZATION_HEADER:0 "Edit Form of Address"
+ CTFA_FOA_TITLE_CUSTOMIZATION_DESC:0 "Enter form of address for rulers of #high [Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetNameNoTooltip)]#!"
+
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "Customize [CTFA_foa]"
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "Save changes to [CTFA_form_of_address]?"
  CTFA_FOA_TITLE_NAME_FIELD:0 "Male Form"
  CTFA_FOA_TITLE_ADJECTIVE_FIELD:0 "Female Form"
- #CTFA_FOA_RENAME_TOOLTIP:0 "Concatenate('#T Save#!\n', GameDialog.GetCanAcceptBlocker)"
 
  #
- # Vanilla "Rename Title" dialog labels
- # (see vanilla localization\english\gui\title_view_l_english.yml)
+ # Vanilla "Customize Title" window and confirmation dialog labels
+ # (see vanilla localization\english\gui\title_view_l_english.yml, localization\english\gui\coa_designer_l_english.yml)
  #
 
- CTFA_VANILLA_RENAME_TITLE_TITLE:0 "Concatenate(TITLE.GetName, ' 이름 변경')"
- CTFA_VANILLA_RENAME_TITLE_DESC:0 "Concatenate(TITLE.GetName, '의 이름 및 형용사형을 변경합니다')"
- CTFA_VANILLA_RENAME_TITLE_ACCEPT:0 "이름 변경"
+ CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "작위 사용자 지정"
+ CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "작위 사용자 지정을 완료합니다. 한 번 확정하면 다시 변경 사항을 되돌릴 수 없습니다. 완료할 준비가 되셨습니까?"
  CTFA_VANILLA_TITLE_NAME_FIELD:0 "이름"
  CTFA_VANILLA_TITLE_ADJECTIVE_FIELD:0 "형용사형"
- #CTFA_VANILLA_RENAME_TOOLTIP:0 "Concatenate('#T Rename#!\n', GameDialog.GetCanAcceptBlocker)"
 
  #
  # "Edit FoA" buttton tooltip text

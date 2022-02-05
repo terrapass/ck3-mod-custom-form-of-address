@@ -1,26 +1,25 @@
 ﻿l_russian:
  #
- # "Edit FoA" (aka hijacked "Rename Title") dialog labels
+ # "Edit FoA" (aka hijacked "Customize Title") window and confirmation dialog labels
  #
 
- CTFA_FOA_RENAME_TITLE_TITLE:0 "Изменить форму обращения"
- CTFA_FOA_RENAME_TITLE_DESC:0 "Concatenate('Введите форму обращения для владетелей титула ', TITLE.MakeScope.Var('CTFA_bound_primary_title').Title.GetName)"
- CTFA_FOA_RENAME_TITLE_ACCEPT:0 "Сохранить"
+ CTFA_FOA_TITLE_CUSTOMIZATION_HEADER:0 "Изменить форму обращения"
+ CTFA_FOA_TITLE_CUSTOMIZATION_DESC:0 "Введите форму обращения для владетелей титула #high [Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetNameNoTooltip)]#!"
+
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "$CTFA_FOA_TITLE_CUSTOMIZATION_HEADER$"
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "Сохранить изменения в [CTFA_foa]?"
  CTFA_FOA_TITLE_NAME_FIELD:0 "Мужская форма"
  CTFA_FOA_TITLE_ADJECTIVE_FIELD:0 "Женская форма"
- #CTFA_FOA_RENAME_TOOLTIP:0 "Concatenate('#T Сохранить#!\n', GameDialog.GetCanAcceptBlocker)"
 
  #
- # Vanilla "Rename Title" dialog labels
- # (see vanilla localization\english\gui\title_view_l_english.yml)
+ # Vanilla "Customize Title" window and confirmation dialog labels
+ # (see vanilla localization\english\gui\title_view_l_english.yml, localization\english\gui\coa_designer_l_english.yml)
  #
 
- CTFA_VANILLA_RENAME_TITLE_TITLE:0 "Concatenate('Переименовать ', TITLE.GetName)"
- CTFA_VANILLA_RENAME_TITLE_DESC:0 "Concatenate('Изменить имя и прилагательное титула ', TITLE.GetName)"
- CTFA_VANILLA_RENAME_TITLE_ACCEPT:0 "Переименовать"
+ CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "Настроить титул"
+ CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "После завершения настройки титула отменить изменения будет невозможно. Действительно завершить?"
  CTFA_VANILLA_TITLE_NAME_FIELD:0 "Имя"
  CTFA_VANILLA_TITLE_ADJECTIVE_FIELD:0 "Прилаг."
- #CTFA_VANILLA_RENAME_TOOLTIP:0 "Concatenate('#T Переименовать#!\n', GameDialog.GetCanAcceptBlocker)"
 
  #
  # "Edit FoA" buttton tooltip text

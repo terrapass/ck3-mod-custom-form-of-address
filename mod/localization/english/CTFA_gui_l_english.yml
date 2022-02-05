@@ -6,8 +6,8 @@
  CTFA_FOA_TITLE_CUSTOMIZATION_HEADER:0 "Edit Form of Address"
  CTFA_FOA_TITLE_CUSTOMIZATION_DESC:0 "Enter form of address for rulers of #high [Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetNameNoTooltip)]#!"
 
- CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "Customize FoA"
- CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "Save changes to Form of Address?"
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "Customize [CTFA_foa]"
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "Save changes to [CTFA_form_of_address]?"
  CTFA_FOA_TITLE_NAME_FIELD:0 "Male Form"
  CTFA_FOA_TITLE_ADJECTIVE_FIELD:0 "Female Form"
 
