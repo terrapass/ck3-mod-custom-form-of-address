@@ -286,3 +286,867 @@ CTFA_flavor_vanity_title_holder_female_15 = {
 	titles = { d_CTFA_vanity_15 }
 	top_liege = no
 }
+
+CTFA_flavor_vanity_title_holder_male_16 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_16 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_16 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_16 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_17 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_17 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_17 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_17 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_18 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_18 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_18 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_18 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_19 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_19 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_19 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_19 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_20 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_20 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_20 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_20 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_21 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_21 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_21 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_21 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_22 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_22 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_22 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_22 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_23 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_23 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_23 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_23 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_24 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_24 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_24 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_24 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_25 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_25 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_25 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_25 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_26 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_26 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_26 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_26 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_27 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_27 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_27 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_27 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_28 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_28 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_28 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_28 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_29 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_29 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_29 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_29 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_30 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_30 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_30 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_30 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_31 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_31 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_31 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_31 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_32 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_32 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_32 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_32 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_33 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_33 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_33 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_33 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_34 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_34 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_34 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_34 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_35 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_35 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_35 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_35 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_36 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_36 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_36 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_36 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_37 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_37 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_37 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_37 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_38 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_38 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_38 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_38 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_39 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_39 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_39 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_39 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_40 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_40 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_40 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_40 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_41 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_41 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_41 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_41 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_42 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_42 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_42 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_42 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_43 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_43 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_43 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_43 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_44 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_44 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_44 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_44 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_45 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_45 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_45 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_45 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_46 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_46 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_46 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_46 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_47 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_47 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_47 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_47 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_48 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_48 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_48 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_48 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_49 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_49 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_49 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_49 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_50 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_50 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_50 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_50 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_51 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_51 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_51 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_51 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_52 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_52 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_52 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_52 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_53 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_53 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_53 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_53 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_54 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_54 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_54 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_54 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_55 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_55 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_55 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_55 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_56 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_56 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_56 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_56 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_57 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_57 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_57 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_57 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_58 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_58 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_58 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_58 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_59 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_59 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_59 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_59 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_60 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_60 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_60 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_60 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_61 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_61 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_61 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_61 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_62 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_62 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_62 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_62 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_male_63 = {
+	type = character
+	gender = male
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_63 }
+	top_liege = no
+}
+
+CTFA_flavor_vanity_title_holder_female_63 = {
+	type = character
+	gender = female
+	special = holder
+	priority = 500
+	titles = { d_CTFA_vanity_63 }
+	top_liege = no
+}

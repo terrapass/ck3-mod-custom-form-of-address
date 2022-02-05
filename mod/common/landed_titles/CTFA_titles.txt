@@ -158,3 +158,483 @@ d_CTFA_vanity_15 = {
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 }
+
+d_CTFA_vanity_16 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_17 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_18 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_19 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_20 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_21 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_22 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_23 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_24 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_25 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_26 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_27 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_28 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_29 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_30 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_31 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_32 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_33 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_34 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_35 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_36 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_37 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_38 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_39 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_40 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_41 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_42 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_43 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_44 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_45 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_46 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_47 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_48 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_49 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_50 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_51 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_52 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_53 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_54 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_55 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_56 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_57 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_58 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_59 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_60 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_61 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_62 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
+
+d_CTFA_vanity_63 = {
+	color = { 0 0 0 }
+
+	definite_form = yes
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+}
