@@ -1,0 +1,20 @@
+﻿namespace = CTFA_events_error_suppression
+
+# This is a fake event for suppression of "Variable CTFA_some_var is set but is never used" errors.
+# See https://github.com/Gr770/UnifiedUICK3/wiki/Global-Variables#getting-rid-of-startup-errors.
+CTFA_events_error_suppression.1001 = {
+  hidden = yes
+
+  trigger = {
+    exists = global_var:CTFA_is_loaded
+
+    # VT global variables
+    {% for i in range(vanity_titles_count) %}
+    exists = global_var:CTFA_vanity_title_{{ i }}
+    {%- endfor %}
+  }
+
+  effect = {
+      # Empty
+  }
+}
