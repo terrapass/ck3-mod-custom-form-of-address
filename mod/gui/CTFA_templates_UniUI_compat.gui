@@ -9,6 +9,18 @@ template "UniUI_CTFA_hide_if_vanity_title" {
 }
 
 #
+# title_customization_window.gui
+#
+
+template "UniUI_CTFA_on_finish_clear_foa_mode" {
+    using = CTFA_on_finish_clear_foa_mode
+}
+
+template "UniUI_CTFA_hide_if_foa_mode" {
+    using = CTFA_hide_if_foa_mode
+}
+
+#
 # window_character.gui
 #
 

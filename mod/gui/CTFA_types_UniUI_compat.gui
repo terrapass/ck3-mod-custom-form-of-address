@@ -1,5 +1,8 @@
 # Aliases for "public" types for use in unified gui files of Unified UI mod by TheGib770
 types CTFA_types_UniUI_compat {
+    # title_customization_window.gui
+    type UniUI_CTFA_vbox_title_customization_foa_mode = CTFA_vbox_title_customization_foa_mode {}
+
     # window_character.gui
     type UniUI_CTFA_flowcontainer_edit_character_foa_offset = CTFA_flowcontainer_edit_character_foa_offset {}
     type UniUI_CTFA_vbox_titles_claims_box_1 = CTFA_vbox_titles_claims_box_1 {}
