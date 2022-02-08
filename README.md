@@ -8,6 +8,8 @@ _(a Crusader Kings III mod)_
 
 This mod allows you to enter and use your own form of address for your character based on their primary title.
 
+**Updated for CK3 version 1.5 (Fleur de Lis).**
+
 Sick of the standard "Duke", "Queen" or "Sultan"? Want a culturally specific term but there's no mod that adds it? Conquered half the map and feel that you should now be called "Great Super-God-Emperor" and not a boring old "Emperor"?
 With this mod you can now *address* ;) any of these problems.
 
@@ -16,13 +18,11 @@ With this mod you can now *address* ;) any of these problems.
 A new button for editing form of address (FoA) was added to character and primary title windows. Click it to enter your preferred male and female forms of address. This affects game UI, event texts etc. - everywhere your character is referred to by title you will see your new form of address.
 Right-click "Customize FoA" button if you want to revert to the vanilla FoA.
 
+Due to the way the game and this mod are implemented, your character must be [b]at least a Duke[/b] to make use of a custom FoA (so no custom FoAs for Counts currently).
+
 After you set a custom FoA for your primary title, it will remain tied to it and will be passed down to your heir. Should you change your primary title, either manually, by losing it or by inheriting a higher-ranked title, your character will stop using its FoA and will switch to the form of address for their new primary title.
 
-Due to the way the game and this mod are implemented, your character must be **at least a Duke** to make use of a custom FoA (so no custom FoAs for Counts currently).
-
-__________
-
-In the latest version of the mod you can now also set a custom FoA for any vassal who holds a Duchy or a higher title in your realm. However, for now please use this feature sparingly, since the number of supported simultaneously used custom forms of address is currently limited to 16. In future updates this limit will be increased. A feature to customize FoA for all vassals of the same rank at once might also be added later, if it proves implementable.
+You can also set a custom FoA for any vassal who holds a Duchy or a higher title in your realm.
 
 __________
 
