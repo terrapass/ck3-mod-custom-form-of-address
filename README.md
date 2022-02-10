@@ -38,3 +38,4 @@ Included localizations
 * Russian
 * Simplified Chinese by [kennyS1997](https://github.com/kennyS1997)
 * German by [MetaMeta](https://steamcommunity.com/id/MetaMetaSteam)
+* Korean by [Luka](https://steamcommunity.com/id/lukamodric10)
