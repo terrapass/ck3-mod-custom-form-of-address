@@ -1,12 +1,6 @@
 ﻿l_simp_chinese:
- CTFA_FOA_TITLE_CUSTOMIZATION_HEADER:0 "编辑称呼"
- CTFA_FOA_TITLE_CUSTOMIZATION_DESC:0 "输入统治者的称呼 [TITLE.MakeScope.Var('CTFA_bound_primary_title').Title.GetName)]"
- CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "$CTFA_FOA_TITLE_CUSTOMIZATION_HEADER$"
- CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "Save changes to [CTFA_form_of_address]?"
  CTFA_FOA_TITLE_NAME_FIELD:0 "男性形式"
  CTFA_FOA_TITLE_ADJECTIVE_FIELD:0 "女性形式"
- CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "自定义头衔"
- CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "完成你的头衔自定义，提交后你将无法撤销更改，确定要提交吗？"
  CTFA_VANILLA_TITLE_NAME_FIELD:0 "名字"
  CTFA_VANILLA_TITLE_ADJECTIVE_FIELD:0 "形容词"
  CTFA_TOOLTIP_BIND_VANITY_TITLE_ENABLED_TEXT:0 "#I 左击编辑称呼\n右击恢复为标准称呼#!"
@@ -21,9 +15,10 @@
  CTFA_TITLE_FOA_NON_PRIMARY:0 "[CTFA_foa|E]:[Title.GetHolder.GetTitleAsNameNoTooltip]#weak (来自[Title.GetHolder.GetPrimaryTitle.GetName])#!"
  CTFA_VANILLA_COA_TOOLTIP_NO_HOLDER:0 "不可创建\n"
  CTFA_FOA_COA_TOOLTIP_NO_HOLDER:0 "未使用[CTFA_form_of_address|E]\n"
-
- #
- # Grant/Revoke title item tooltip
- #
-
  CTFA_HAS_VT_TOOLTIP_INTERACTION_TITLE_ITEM:0 "#X @warning_icon!封臣的[CTFA_form_of_address|E]必须重置为标准的，然后才能剥夺他们的[primary_title|E]。#!\n\n"
+ CTFA_FOA_TITLE_CUSTOMIZATION_HEADER:0 "编辑称呼"
+ CTFA_FOA_TITLE_CUSTOMIZATION_DESC:0 "输入#high [Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetNameNoTooltip)]#!统治者的称呼"
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "自定义[CTFA_foa]"
+ CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "保存对[CTFA_form_of_address]的更改？"
+ CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "自定义头衔"
+ CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "完成自定义头衔后，一旦你提交后就不能撤销此次更改，你确定准备提交吗？"
