@@ -18,7 +18,7 @@ With this mod you can now *address* ;) any of these problems.
 A new button for editing form of address (FoA) was added to character and primary title windows. Click it to enter your preferred male and female forms of address. This affects game UI, event texts etc. - everywhere your character is referred to by title you will see your new form of address.
 Right-click "Customize FoA" button if you want to revert to the vanilla FoA.
 
-Due to the way the game and this mod are implemented, your character must be [b]at least a Duke[/b] to make use of a custom FoA (so no custom FoAs for Counts currently).
+Due to the way the game and this mod are implemented, your character must be **at least a Duke** to make use of a custom FoA (so no custom FoAs for Counts currently).
 
 After you set a custom FoA for your primary title, it will remain tied to it and will be passed down to your heir. Should you change your primary title, either manually, by losing it or by inheriting a higher-ranked title, your character will stop using its FoA and will switch to the form of address for their new primary title.
 
