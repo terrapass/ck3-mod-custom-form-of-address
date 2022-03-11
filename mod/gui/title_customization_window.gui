@@ -31,7 +31,7 @@
 		using = CTFA_hide_if_foa_mode
 		# END MOD
 
-		margin_top = 5
+		margin_top = 10
 
 		header_standard = {
 			datacontext = "[TitleCustomizationWindow.GetTitle]"
@@ -48,10 +48,23 @@
 			}
 		}
 
+		background = {
+			using = Background_Area_Dark
+			margin_top = 7
+			alpha = 0.3
+
+			modify_texture = {
+				texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_inverse.dds"
+				blend_mode = alphamultiply
+			}
+		}
+
 		vbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
-			margin = { 20 15 }
+			
+			margin = { 20 0 }
+			margin_bottom = 15
 			spacing = 10
 
 			background = {
@@ -72,26 +85,33 @@
 
 			hbox = {
 				name = "content"
-
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
+				
 				spacing = 10
-				margin_bottom = 20
+				margin_top = 20
+				margin_bottom = 25
 
 				vbox = {
 					name = "details_input"
 
 					layoutpolicy_vertical = expanding
-					minimumsize = { 300 -1 }
+					minimumsize = { 470 -1 }
+					spacing = 15
+
+					vbox = {
+						layoutpolicy_horizontal = expanding
 					spacing = 10
 
-					vbox_header_with_line = {
+						hbox = {
 						layoutpolicy_horizontal = expanding
-						spacing = 10
+							margin_left = 3
 
-						blockoverride "header_label"
-						{
+							text_label_left = {
+								layoutpolicy_horizontal = expanding
 							text = "CUSTOMIZATION_NAMING_HEADER"
+								using = Font_Size_Medium
+							}
 						}
 
 						editbox_standard_with_label = {
@@ -143,15 +163,21 @@
 						}
 					}
 
-					vbox_header_with_line = {
+					vbox = {
 						visible = "[TitleCustomizationWindow.ShowMapColorPicker]"
 						layoutpolicy_horizontal = expanding
 
 						spacing = 10
 
-						blockoverride "header_label"
-						{
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							margin_left = 3
+
+							text_label_left = {
+								layoutpolicy_horizontal = expanding
 							text = "MAP_COLOR_HEADER"
+								using = Font_Size_Medium
+							}
 						}
 
 						colorpicker_simple = {
@@ -179,20 +205,17 @@
 				layoutpolicy_horizontal = expanding
 
 				background = {
+					layoutpolicy_horizontal = expanding
 					using = Background_Area
-
 					margin = { 20 20}
 				}
 
 				button_primary = {
 					name = "finish_button"
-
 					text = "FINISH"
 					enabled = "[TitleCustomizationWindow.CanClickFinish]"
 					tooltip = "[TitleCustomizationWindow.GetCanClickFinishText]"
 					onclick = "[TitleCustomizationWindow.OnClickFinish]"
-
-					size = { 220 40 }
 				}
 			}
 		}
