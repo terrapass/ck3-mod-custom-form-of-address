@@ -1,4 +1,4 @@
-version="0.3.4"
+version="0.3.5"
 tags={
 	"Culture"
 	"Fixes"
@@ -6,5 +6,5 @@ tags={
 }
 name="Custom Title Form of Address"
 picture="thumbnail.png"
-supported_version="1.5.1.1"
+supported_version="1.6.0"
 remote_file_id="2653885896"
