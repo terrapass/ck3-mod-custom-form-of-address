@@ -131,7 +131,7 @@ CTFA_select_best_available_vanity_title = {
 		# Update selected VT and cost, if current title is better
 		if = {
 			limit = {
-				local_var:current_vanity_title_cost.compare_value < local_var:selected_vanity_title_cost.compare_value
+				local_var:current_vanity_title_cost < local_var:selected_vanity_title_cost
 			}
 
 			save_scope_as = selected_vanity_title
