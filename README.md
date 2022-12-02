@@ -8,7 +8,7 @@ _(a Crusader Kings III mod)_
 
 This mod allows you to enter and use your own form of address for your character based on their primary title.
 
-**Updated for CK3 version 1.7 (Bastion).**
+**Updated for CK3 version 1.8 (Robe).**
 
 Sick of the standard "Duke", "Queen" or "Sultan"? Want a culturally specific term but there's no mod that adds it? Conquered half the map and feel that you should now be called "Great Super-God-Emperor" and not a boring old "Emperor"?
 With this mod you can now *address* ;) any of these problems.
