@@ -62,7 +62,7 @@
 
 						icon = {
 							name = "unpressed_claim"
-							visible = "[GetPlayer.HasUnpressedClaimOnTitle( Title.Self )]"
+							visible = "[And(GetPlayer.HasClaimOnTitle( Title.Self ), Not(GetPlayer.HasPressedClaimOnTitle( Title.Self )))]"
 							size = { 24 24 }
 							texture = "gfx/interface/icons/title_status/icon_claim_unpressed.dds"
 							tooltip = "REVOKE_TITLE_UNPRESSED_CLAIM"
