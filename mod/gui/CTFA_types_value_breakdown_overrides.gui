@@ -1,12 +1,14 @@
 ﻿types CTFA_types_value_breakdown_overrides
 {
-    type widget_value_breakdown_tooltip = widget {
+    type widget_value_breakdown_list = widget {
         name = "values_grid"
         size = { 50 50 }
         alwaystransparent = no
 
-        background = {
-            using = Background_Area_Border_Solid
+        block "background" {
+            background = {
+                using = Background_Area_Border_Solid
+            }
         }
 
         vbox = {
@@ -15,6 +17,8 @@
             set_parent_size_to_minimum = yes
             margin = { 17 10 }
             spacing = 3
+
+   			block "list" {}
 
             block "header" {}
 
@@ -37,7 +41,7 @@
                         layoutpolicy_horizontal = expanding
                         text = "[ValueBreakdown.GetName]"
                         min_width = 180
-                        max_width = 250
+                        max_width = 275
                         fonttintcolor = "[TooltipInfo.GetTintColor]"
                         margin_right = 10
                     }
@@ -69,6 +73,8 @@
                         # Note no closing brace here - this block is closed later
                     # END MOD
                     text_single = {
+                        layoutpolicy_horizontal = expanding
+
                         visible = "[And( Not(ValueBreakdown.HasTooltip), ValueBreakdown.ShouldShowValue )]"
                         name = "value_with_no_tooltip"
                         text = "[ValueBreakdown.GetValue]"
