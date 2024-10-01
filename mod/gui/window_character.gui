@@ -1373,7 +1373,7 @@ window = {
 							margin_right = 2
 
 							# MOD(custom-form-of-address)
-							CTFA_vbox_titles_claims_box_2 = {}
+							CTFA_vbox_titles_claims_box = {}
 							# END MOD
 							vbox_titles_claims_box = {
 								visible = "[Not( Character.GetPrimaryTitle.HasFaction )]"
@@ -1404,18 +1404,6 @@ window = {
 									datamodel_wrap = 8
 								}
 							}
-
-							# MOD(custom-form-of-address)
-							CTFA_vbox_titles_claims_box_3 = {}
-							# END MOD
-
-							# MOD(custom-form-of-address)
-							CTFA_vbox_titles_claims_box_4 = {}
-							# END MOD
-
-							# MOD(custom-form-of-address)
-							CTFA_vbox_titles_claims_box_5 = {}
-							# END MOD
 
 							expand = {
 								layoutpolicy_horizontal = expanding
@@ -3637,7 +3625,7 @@ window = {
 				name = "other_player_name"
 				visible = "[And( Character.IsPlayer, Not( Character.IsLocalPlayer ) )]"
 
-				raw_text = " • #L [Character.GetHumanName]#!"
+				raw_text = " ï¿½ #L [Character.GetHumanName]#!"
 				tooltip = "AI_PERSONALITY_IS_PLAYER_TOOLTIP"
 				using = tooltip_se
 
@@ -3650,7 +3638,7 @@ window = {
 				name = "ai_personality"
 				visible = "[Not( Character.IsPlayer )]"
 
-				raw_text = " • #L [Character.GetAIPersonalityNoTooltip]#!"
+				raw_text = " ï¿½ #L [Character.GetAIPersonalityNoTooltip]#!"
 				tooltip = "AI_PERSONALITY_TT"
 				using = tooltip_se
 
