@@ -2,22 +2,18 @@
 
 window = {
 	name = "title_view_window"
+	size = { 650 100% }
+
 	movable = no
 	allow_outside = yes
-	layer = windows_layer
+	layer = middle
 
-	using = Window_Size_Sidebar
 	using = Window_Background_Sidebar
 
-	# [UniUI] [StA]
-	using = UniUI_StA_title_window_states
-	# [/StA] [/UniUI]
 	state = {
 		name = _show
 		position = { 0 0 }
-		# [UniUI] [Vanilla] better tab management
-		on_start = "[GetVariableSystem.Set( 'title_view_tab', 'de_jure_tab' )]"
-		# [/Vanilla] [/UniUI]
+		on_start = "[GetVariableSystem.Clear( 'display_allegiance' )]"
 		on_start = "[GetVariableSystem.Set( 'hide_bottom_left_HUD', 'true' )]"
 
 		using = Animation_FadeIn_Quick
@@ -70,28 +66,7 @@ window = {
 				layoutpolicy_horizontal = expanding
 
 				background = {
-					texture = "gfx/interface/component_tiles/tile_title_big_top_01.dds"
-					margin_bottom = 10
-					spriteType = Corneredtiled
-					spriteborder = { 0 18 }
-					texture_density = 2
-
-					modify_texture = {
-						name = "mask"
-						texture = "gfx/interface/component_masks/mask_title_big_top.dds"
-						spriteType = Corneredtiled
-						spriteborder = { 160 0 }
-						blend_mode = alphamultiply
-						alpha = 0.5
-					}
-
-					modify_texture = {
-						name = "overlay"
-						texture = "gfx/interface/component_overlay/overlay_title_big_top.dds"
-						spriteType = Corneredstretched
-						spriteborder = { 0 0 }
-						blend_mode = overlay
-					}
+					using = Background_Header_Tall
 				}
 
 				vbox = {
@@ -174,7 +149,9 @@ window = {
 									layoutpolicy_horizontal = expanding
 								}
 
+								# MOD(custom-form-of-address)
 								CTFA_vbox_title_type_text = {}
+								# END MOD
 							}
 
 							watch_window_button = {
@@ -293,7 +270,7 @@ window = {
 									parentanchor = right
 									onclick = "[TitleViewWindow.ToggleClaimants]"
 									tooltip = "TITLE_CLAIMANTS_TOOLTIP"
-									visible = "[Title.CanHaveClaim]"
+									visible = "[And(Title.CanHaveClaim, Not(TitleViewWindow.GetTitle.GetHolder.GetGovernment.IsType('landless_adventurer_government') ) )]"
 									enabled = "[GreaterThan_int32( TitleViewWindow.GetNumberOfClaimants, '(int32)0' )]"
 
 									blockoverride "button_text"
@@ -397,12 +374,9 @@ window = {
 			vbox = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
+				datacontext = "[Title.GetHolder]"
 
 				### TABS ###
-                # [UniUI] [Vanilla] Not StA
-				container = {
-					visible = "[Not(GetGlobalVariable('StA_is_loaded').IsSet)]"
-				# [/Vanilla] [/UniUI]
 				hbox = {
 					name = "tabs"
 					visible = "[Not(IsDataModelEmpty(TitleViewWindow.GetTitleAllegianceVassals))]"
@@ -413,10 +387,8 @@ window = {
 						name = "show_vassals"
 						text = "TITLE_VIEW_DE_JURE"
 						default_format = "#weak"
-						# [UniUI] [Vanilla] better tab management
-						down = "[GetVariableSystem.HasValue( 'title_view_tab', 'de_jure_tab' ) )]"
-						onclick = "[GetVariableSystem.Set( 'title_view_tab', 'de_jure_tab' )]"
-						# [/Vanilla] [/UniUI]
+						down = "[Not( GetVariableSystem.Exists( 'display_allegiance' ) )]"
+						onclick = "[GetVariableSystem.Clear( 'display_allegiance' )]"
 					}
 
 					button_tab = {
@@ -424,23 +396,15 @@ window = {
 						name = "show_allegiance"
 						text = "TITLE_VIEW_VASSALS"
 						default_format = "#weak"
-						# [UniUI] [Vanilla] better tab management
-						down = "[GetVariableSystem.HasValue( 'title_view_tab', 'vassals_tab' )]"
-						onclick = "[GetVariableSystem.Set( 'title_view_tab', 'vassals_tab' )]"
-						# [/Vanilla] [/UniUI]
+						down = "[GetVariableSystem.Exists( 'display_allegiance' )]"
+						onclick = "[GetVariableSystem.Set( 'display_allegiance', 'true' )]"
 					}
 				}
-				# [UniUI] [StA]
-				}
-				UniUI_StA_title_window_tabs = {}
-				# [/StA] [/UniUI]
 
 				vbox = {
 					name = "dejure_tab_contents"
 					datacontext = "[TitleViewWindow.GetTitle]"
-					# [UniUI] [StA]
-					visible = "[And(And(DataModelHasItems(TitleViewWindow.GetVassalGroupItems),GetVariableSystem.HasValue('title_view_tab','de_jure_tab')), And(Not(Title.IsMercenaryCompany),Not(Title.IsHolyOrder)))]"
-					# [/StA] [/UniUI]
+					visible = "[And(DataModelHasItems(TitleViewWindow.GetVassalGroupItems), Not(Or(GetVariableSystem.Exists( 'display_allegiance' ), Or(Title.IsMercenaryCompany,Title.IsHolyOrder))))]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 					margin_top = 10
@@ -522,9 +486,7 @@ window = {
 					name = "tab_contents_empty"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
-					# [UniUI] [Vanilla] better tab management
-					visible = "[Not(DataModelHasItems(TitleViewWindow.GetVassalGroupItems))]"
-					# [/Vanilla] [/UniUI]
+					visible = "[Not(Or(DataModelHasItems(TitleViewWindow.GetVassalGroupItems), GetVariableSystem.Exists( 'display_allegiance' )))]"
 
 					using = title_window_background_illustration
 
@@ -553,9 +515,7 @@ window = {
 
 				vbox = {
 					name = "vassals_tab_contents"
-					# [UniUI] [Vanilla] [StA] better tab management + Not StA
-					visible = "[And(GetVariableSystem.HasValue( 'title_view_tab','vassals_tab' ),Not(GetGlobalVariable('StA_is_loaded').IsSet))]"
-					# [/StA][/Vanilla] [/UniUI]
+					visible = "[GetVariableSystem.Exists( 'display_allegiance' )]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 					margin_top = 10
@@ -603,16 +563,25 @@ window = {
 					}
 				}
 
-				# [UniUI] [StA]
-				UniUI_StA_title_window_vassals_tab = {}
-				UniUI_StA_title_window_realm_law_tab = {}
-				expand = {}
-				# [/StA] [/UniUI]
+				vbox_domicile_button = {
+					visible = "[And( Title.HasHolder, And( Character.HasDomicile, Not(DataModelHasItems(TitleViewWindow.GetVassalGroupItems)) ) )]"
+				}
+
+				spacer = {
+					visible = "[TitleViewWindow.GetTitle.GetHolder.HasDomicile]"
+					size = { 10 10 }
+				}
 
 				hbox = {
-					margin = { 20 5 }
+					layoutpolicy_horizontal = expanding
+					margin = { 20 10 }
 					datacontext = "[TitleViewWindow.GetTitle.GetPreferredCapital]"
-					visible = "[And( Title.IsValid, Not( TitleViewWindow.GetTitle.HasFaction ) )]"
+					visible = "[And( And( Title.IsValid, Not( TitleViewWindow.GetTitle.HasFaction ) ), Not(TitleViewWindow.GetTitle.GetHolder.GetGovernment.IsType('landless_adventurer_government') ) )]"
+
+					background = {
+						using = Background_Area_Dark
+						alpha = 0.6
+					}
 
 					text_single = {
 						text = "TITLE_VIEW_DE_JURE_CAPITAL"
@@ -630,6 +599,132 @@ window = {
 						layoutpolicy_horizontal = expanding
 						text = "[Title.GetName]"
 					}
+
+					hbox = {
+						name = "buttons"
+
+						spacing = 5
+						visible = "[Not( Title.HasFaction )]"
+
+						hbox = {
+							datacontext = "[TitleViewWindow.GetTitle]"
+							datacontext = "[Title.GetHolder]"
+							visible = "[Not(Or(Title.IsMercenaryCompany,Title.IsHolyOrder))]"
+							ignoreinvisible = yes
+							spacing = 5
+
+							button_round = {
+								name = "remove_law"
+								visible = "[And( Character.IsLocalPlayer, TitleViewWindow.GetTitle.HasLaws )]"
+								enabled = "[IsValidCommand( TitleViewWindow.GetClearLaws )]"
+								onclick = "[CreateCommandPopup( TitleViewWindow.GetClearLaws )]"
+								tooltip = "[TitleViewWindow.GetClearLawsButtonTooltip]"
+
+								button_remove_laws = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+
+							button_round = {
+								name = "open_laws"
+								visible = "[And( Character.IsLocalPlayer, TitleViewWindow.CanAddLaws )]"
+								onclick = "[TitleViewWindow.ToggleLaws]"
+								tooltip = "ADD_LAWS_TOOLTIP"
+
+								button_add_laws = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+
+							button_round = {
+								name = "toggle_find_vassal"
+								visible = "[And( And( ObjectsEqual( Title.GetHolder, GetPlayer ), TitleViewWindow.GetTitle.CanUseFindVassal( GetPlayer ) ), Not( Title.IsLeasedOut))]"
+
+								onclick = "[TitleViewWindow.ToggleFindVassalListWindow]"
+								tooltip = "FIND_VASSAL_BUTTON_TOOLTIP"
+
+								button_grant_title_to_vassal = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+
+							button_round = {
+								name = "toggle_promote_candidate"
+								visible = "[And( And( GreaterThan_int32( Title.GetTierFrame, '(int32)3' ), Not(TitleViewWindow.GetTitle.HasLaws) ), Character.IsPlayerInteractionValid('influence_candidacy_interaction') )]"
+
+								enabled = "[Character.IsPlayerInteractionValid('influence_candidacy_interaction')]"
+								tooltip = "[Character.GetPlayerInteractionTooltip('influence_candidacy_interaction')]"
+								onclick = "[Character.OpenPlayerInteractionWithTargetTitle( 'influence_candidacy_interaction', Title.Self )]"
+
+								button_promote_candidate = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+
+							button_round = {
+								name = "toggle_generate_claim"
+								visible = "[And( And( GreaterThan_int32( Title.GetTierFrame, '(int32)3' ), Not(TitleViewWindow.GetTitle.HasLaws) ), Character.IsPlayerInteractionValid('start_generate_claim_interaction') )]"
+
+								enabled = "[Character.IsPlayerInteractionValid('start_generate_claim_interaction')]"
+								tooltip = "[Character.GetPlayerInteractionTooltip('start_generate_claim_interaction')]"
+								onclick = "[Character.OpenPlayerInteraction('start_generate_claim_interaction')]"
+
+								button_generate_claim = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+						}
+
+						hbox = {
+							datacontext = "[TitleViewWindow.GetTitle]"
+							datacontext = "[TitleViewWindow.GetTitle.GetHolder]"
+							visible = "[Not(Or(Title.IsMercenaryCompany,Title.IsHolyOrder))]"
+							spacing = 5
+
+							button_round = {
+								name = "destroy_title"
+								visible = "[TitleViewWindow.ShowDestroy]"
+								enabled = "[IsValidCommand( TitleViewWindow.GetDestroyTitle )]"
+								onclick = "[CreateCommandPopup( TitleViewWindow.GetDestroyTitle )]"
+								tooltip = "[TitleViewWindow.GetDestroyTitleButtonTooltip]"
+
+								button_destroy_title = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+
+							button_round = {
+								name = "make_primary_title"
+								visible = "[And( Character.IsLocalPlayer, TitleViewWindow.CanMakePrimary )]"
+								onclick = "[TitleViewWindow.MakePrimary]"
+								tooltip = "TITLE_MAKE_PRIMARY_TOOLTIP"
+
+								button_make_primary = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+
+							button_round = {
+								name = "usurp_title"
+								visible = "[And( Not(Character.IsLocalPlayer), TitleViewWindow.ShowUsurp )]"
+								enabled = "[IsValidCommand( TitleViewWindow.GetUsurpTitle )]"
+								onclick = "[CreateCommandPopup( TitleViewWindow.GetUsurpTitle )]"
+								tooltip = "[TitleViewWindow.GetUsurpTitleButtonTooltip]"
+
+								button_usurp_title = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+						}
+					}
 				}
 
 				divider = {
@@ -639,7 +734,7 @@ window = {
 				vbox = {
 					name = "create_title"
 					visible = "[And( Not( Title.IsBarony ), Not( TitleViewWindow.GetTitle.HasHolder ) )]"
-					margin = { 0 20 }
+					margin = { 0 25 }
 					spacing = 15
 
 					text_single = {
@@ -742,13 +837,39 @@ window = {
 						# MOD(custom-form-of-address)
 						using = CTFA_hide_if_vanity_title
 						# END MOD
-						enabled = "[TitleViewWindow.CanTitleBeCreated]"
-						text = "TITLE_VIEW_CREATE_TITLE"
-						onclick = "[TitleViewWindow.CreateTitle]"
+						enabled = "[IsValidCommand( TitleViewWindow.GetCreateTitle )]"
+						onclick = "[CreateCommandPopup( TitleViewWindow.GetCreateTitle )]"
 						tooltip = "[TitleViewWindow.GetCreateTitleButtonTooltip]"
-						# [UniUI] [StA]
-						using = UniUI_StA_title_window_create_title
-						# [/StA] [/UniUI]
+
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							margin = { 10 0 }
+
+							expand = {}
+
+							text_single = {
+						text = "TITLE_VIEW_CREATE_TITLE"
+								align = nobaseline
+								default_format = "#high"
+							}
+
+							spacer = {
+								size = { 5 0 }
+							}
+
+							icon = {
+								texture = "gfx/interface/icons/title_actions/create_title.dds"
+								size = { 25 25 }
+								alwaystransparent = yes
+
+								modify_texture = {
+									texture = "gfx/interface/colors/gold.dds"
+									alpha = 1
+								}
+							}
+
+							expand = {}
+						}
 					}
 				}
 
@@ -786,26 +907,39 @@ window = {
 
 					hbox = {
 						layoutpolicy_horizontal = expanding
-						margin = { 0 5 }
+						margin_bottom = 10
 
 						vbox = {
 							layoutpolicy_vertical = expanding
 							datacontext = "[TitleViewWindow.GetTitle.GetHolder]"
-
-							expand = {}
-
-							portrait_torso = {}
+							margin_right = -12
 
 							text_label_center = {
 								text = "TITLE_VIEW_HOLDER"
 								layoutpolicy_horizontal = expanding
 							}
+
+							expand = {}
+
+							portrait_torso = {}
+
 						}
 
 						vbox = {
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
 							visible = "[Not( Title.HasFaction )]"
+
+
+							vbox = {
+								visible = "[Not(Title.IsHolyOrder)]"
+								layoutpolicy_horizontal = expanding
+
+								text_label_center = {
+									text = "TITLE_VIEW_SUCCESSION"
+									layoutpolicy_horizontal = expanding
+								}
+							}
 
 							expand = {}
 
@@ -859,128 +993,108 @@ window = {
 								}
 							}
 
-							fixedgridbox = {
+							hbox = {
+								visible = "[Not( TitleViewWindow.ShowAppointment )]"
 								datamodel = "[TitleViewWindow.GetLineOfSuccession]"
-								datamodel_wrap = 4
-								flipdirection = yes
-								maxhorizontalslots = 4
-								maxverticalslots = 1
-								addcolumn = 90
-								addrow = 100
-
 								item = {
-									container = {
-										# animation_attention = {
-										# 	size = {100% 100%}
-										# 	visible = "[Character.IsLocalPlayer]"
-										# }
-
 										portrait_head_small = {}
 									}
 								}
+
+							hbox_admin_title_successor_candidates_list = {
+								visible = "[TitleViewWindow.ShowAppointment]"
+								datacontext = "[TitleViewWindow.GetSuccessorCandidateList]"
+
+								blockoverride "score_breakdown" {
+									datacontext = "[TitleViewWindow.GetSuccessionScoreBreakdown( Character.Self )]" 
 							}
+						}
 
-							vbox = {
-								visible = "[Not(Title.IsHolyOrder)]"
-								layoutpolicy_horizontal = expanding
+							hbox = {
+								visible = "[TitleViewWindow.ShowAppointment]"
+								margin_top = 8
+								spacing = 22
 
-								text_label_center = {
-									text = "TITLE_VIEW_SUCCESSION"
-									layoutpolicy_horizontal = expanding
+								button_standard = {
+									size = { 150 40 }
+
+									text = "TITLE_VIEW_APPOINTMENT"
+									onclick = "[ToggleGameViewData( 'title_appointment', Title.GetID )]"
+									tooltip = "TITLE_VIEW_APPOINTMENT_TOOLTIP"
 								}
+
+								# INVEST IN BEST LOCAL PLAYER CANDIDATE IF THEY EXIST
+								hbox = {
+									datacontext = "[TitleViewWindow.GetTitle]"
+									datacontext = "[TitleViewWindow.GetSuccessorCandidateList]"
+									datacontext = "[AdminVassalSuccessorCandidateList.GetBestLocalPlayerCandidate( '(int32)0' )]"
+									datacontext = "[AdminVassalSuccessorCandidate.GetCandidate]"
+
+									visible = "[And( TitleViewWindow.ShowAppointment, AdminVassalSuccessorCandidateList.ShowBestPlayerCandidateIndependently( '(int32)0' ) )]"
+									layoutpolicy_horizontal = expanding
+
+									button_standard = {
+										visible = "[Not(Or(Title.IsCounty,Title.IsBarony))]"
+										enabled = "[Character.IsPlayerInteractionValid('influence_candidacy_interaction')]"
+										tooltip = "[Character.GetPlayerInteractionTooltip('influence_candidacy_interaction')]"
+										onclick = "[Character.OpenPlayerInteractionWithTargetTitle('influence_candidacy_interaction', Title.Self)]"
+										size = { 180 40 }
+
+						hbox = {
+											layoutpolicy_horizontal = expanding
+											margin = { 8 4 }
+
+											button_promote_candidate = {
+												alwaystransparent = yes
 							}
+
+											text_single = {
+												text = ADMIN_VASSAL_DETAILS_VOTE_FOR_SUCCESSOR_BUTTON
+												align = nobaseline
+												default_format = "#clickable"
+											}
+							}
+							}
+						}
+
+								# INVEST IN ANYONE (FALLBACK)
+						hbox = {
+							datacontext = "[TitleViewWindow.GetTitle]"
+									datacontext = "[TitleViewWindow.GetSuccessorCandidateList]"
+
+									visible = "[And( TitleViewWindow.ShowAppointment, Not( AdminVassalSuccessorCandidateList.ShowBestPlayerCandidateIndependently( '(int32)0' ) ) )]"
+									layoutpolicy_horizontal = expanding
+
+									button_standard = {
+										visible = "[Not(Or(Title.IsCounty,Title.IsBarony))]"
+										enabled = "[Character.IsPlayerInteractionValid('influence_candidacy_interaction')]"
+										tooltip = "[Character.GetPlayerInteractionTooltip('influence_candidacy_interaction')]"
+										onclick = "[Character.GetTopLiege.OpenPlayerInteractionWithTargetTitle('influence_candidacy_interaction', Title.Self)]"
+										size = { 180 40 }
+
+										hbox = {
+											layoutpolicy_horizontal = expanding
+											margin = { 8 4 }
+
+											button_promote_candidate = {
+												alwaystransparent = yes
+							}
+
+											text_single = {
+												text = ADMIN_VASSAL_DETAILS_VOTE_FOR_SUCCESSOR_BUTTON
+												align = nobaseline
+												default_format = "#clickable"
+											}
+										}
+									}
+							}
+
+							}
+
+							expand = {}
 						}
 
 						expand = {}
-					}
-				}
-			}
-
-
-			hbox ={
-				name = "buttons"
-				margin = { 0 10 }
-				spacing = 5
-				visible = "[Not( Title.HasFaction )]"
-
-				hbox = {
-					spacing = 5
-
-					# MOD(custom-form-of-address)
-					using = CTFA_hide_if_vanity_title
-					# END MOD
-
-					vbox = {
-						spacing = 5
-
-						hbox = {
-							datacontext = "[TitleViewWindow.GetTitle]"
-							datacontext = "[Title.GetHolder]"
-							visible = "[Not(Or(Title.IsMercenaryCompany,Title.IsHolyOrder))]"
-							ignoreinvisible = yes
-							spacing = 5
-
-							button_tertiary = {
-								name = "remove_law"
-								visible = "[And( Character.IsLocalPlayer, TitleViewWindow.GetTitle.HasLaws )]"
-								text = "TITLE_VIEW_CLEAR_LAWS"
-								enabled = "[TitleViewWindow.CanClearLaws]"
-								onclick = "[TitleViewWindow.ClearLaws]"
-								tooltip = "[TitleViewWindow.GetClearLawsButtonTooltip]"
-							}
-
-							button_tertiary = {
-								name = "open_laws"
-								text = "TITLE_VIEW_SHOW_ADD_LAWS"
-								visible = "[And( Character.IsLocalPlayer, TitleViewWindow.CanAddLaws )]"
-								onclick = "[TitleViewWindow.ToggleLaws]"
-							}
-
-							button_standard = {
-								name = "toggle_find_vassal"
-								text = "FIND_VASSAL_HEADER"
-								visible = "[And( And( ObjectsEqual( Title.GetHolder, GetPlayer ), TitleViewWindow.GetTitle.CanUseFindVassal( GetPlayer ) ), Not( Title.IsLeasedOut))]"
-
-								onclick = "[TitleViewWindow.ToggleFindVassalListWindow]"
-								tooltip = "FIND_VASSAL_BUTTON_TOOLTIP"
-							}
-						}
-
-						hbox = {
-							datacontext = "[TitleViewWindow.GetTitle]"
-							datacontext = "[TitleViewWindow.GetTitle.GetHolder]"
-							visible = "[Not(Or(Title.IsMercenaryCompany,Title.IsHolyOrder))]"
-							spacing = 5
-
-							button_tertiary = {
-								name = "destroy_title"
-								text = "TITLE_VIEW_DESTROY_TITLE"
-								visible = "[TitleViewWindow.ShowDestroy]"
-								enabled = "[TitleViewWindow.CanTitleBeDestroyed]"
-								onclick = "[TitleViewWindow.DestroyTitle]"
-								tooltip = "[TitleViewWindow.GetDestroyTitleButtonTooltip]"
-							}
-
-							button_tertiary = {
-								name = "make_primary_title"
-								text = "TITLE_VIEW_MAKE_PRIMARY"
-								visible = "[And( Character.IsLocalPlayer, TitleViewWindow.CanMakePrimary )]"
-								onclick = "[TitleViewWindow.MakePrimary]"
-								# MOD(custom-form-of-address)
-								using = CTFA_onclick_handle_primary_title_change
-								# END MOD
-								tooltip = "TITLE_MAKE_PRIMARY_TOOLTIP"
-							}
-
-							button_primary = {
-								name = "usurp_title"
-								text = "TITLE_VIEW_USURP_TITLE"
-								visible = "[And( Not(Character.IsLocalPlayer), TitleViewWindow.ShowUsurp )]"
-								enabled = "[TitleViewWindow.CanTitleBeUsurped]"
-								onclick = "[TitleViewWindow.UsurpTitle]"
-								tooltip = "[TitleViewWindow.GetUsurpTitleButtonTooltip]"
-							}
-						}
 					}
 				}
 			}

@@ -125,6 +125,7 @@
 							blockoverride "editbox_properties"
 							{
 								text = "[TitleCustomizationWindow.GetTitleNameText]"
+								focus_on_visible = yes
 								ontextedited = "[TitleCustomizationWindow.OnEditTitleNameText]"
 							}
 						}
