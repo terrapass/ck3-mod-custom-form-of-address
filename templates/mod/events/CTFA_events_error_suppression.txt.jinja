@@ -4,6 +4,7 @@
 # See https://github.com/Gr770/UnifiedUICK3/wiki/Global-Variables#getting-rid-of-startup-errors.
 CTFA_events_error_suppression.1001 = {
   hidden = yes
+  orphan = yes
 
   trigger = {
     exists = global_var:CTFA_is_loaded
@@ -13,9 +14,5 @@ CTFA_events_error_suppression.1001 = {
     {% for i in range(vanity_titles_count) %}
     exists = global_var:CTFA_vanity_title_{{ i }}
     {%- endfor %}
-  }
-
-  effect = {
-      # Empty
   }
 }

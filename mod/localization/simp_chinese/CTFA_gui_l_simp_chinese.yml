@@ -17,7 +17,7 @@
  CTFA_FOA_COA_TOOLTIP_NO_HOLDER:0 "未使用[CTFA_form_of_address|E]\n"
  CTFA_HAS_VT_TOOLTIP_INTERACTION_TITLE_ITEM:0 "#X @warning_icon!封臣的[CTFA_form_of_address|E]必须重置为标准的，然后才能剥夺他们的[primary_title|E]。#!\n\n"
  CTFA_FOA_TITLE_CUSTOMIZATION_HEADER:0 "编辑称呼"
- CTFA_FOA_TITLE_CUSTOMIZATION_DESC:0 "输入#high [Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetNameNoTooltip)]#!统治者的称呼"
+ CTFA_FOA_TITLE_CUSTOMIZATION_DESC:0 "输入#high [Title.MakeScope.Var('CTFA_bound_primary_title').Title.GetNameNoTooltip]#!统治者的称呼"
  CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "自定义[CTFA_foa]"
  CTFA_FOA_TITLE_CUSTOMIZATION_CONFIRM_BODY:0 "保存对[CTFA_form_of_address]的更改？"
  CTFA_VANILLA_TITLE_CUSTOMIZATION_CONFIRM_TITLE:0 "自定义头衔"
