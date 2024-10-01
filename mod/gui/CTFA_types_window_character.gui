@@ -157,7 +157,7 @@
 
                             coa_title_tiny_crown = {
                                 name = "claim"
-                                tooltip_enabled = no
+                                tooltip_visible = no
 
 
                                 highlight_icon = {
