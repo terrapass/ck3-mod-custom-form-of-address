@@ -22,13 +22,13 @@
 				text_single = {
 					visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('CTFA_held_non_vanity_titles')), '(int32)1' )]"
 					align = nobaseline
-					text = "CV_TITLES"
+					text = "CTFA_CV_TITLES"
 				}
 
 				text_single = {
 					visible = "[Not(GreaterThan_int32( GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('CTFA_held_non_vanity_titles')), '(int32)1' ))]"
 					align = nobaseline
-					text = "CV_TITLES_SINGULAR"
+					text = "CTFA_CV_TITLES_SINGULAR"
 				}
 
 				expand = {}
