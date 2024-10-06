@@ -217,6 +217,12 @@
 	# Contains overrides to match the one usage of vanilla vbox_titles_claims_box in window_character.gui,
 	# so that the look is consistent with vanilla's box.
 	type CTFA_vbox_titles_claims_box = CTFA_vbox_titles_claims_box_base {
+		visible = "[And(Not( Character.GetPrimaryTitle.HasFaction ), GetScriptedGui('CTFA_sgui_has_vanity_title').IsValid(GuiScope.SetRoot(Character.MakeScope).End))]"
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+
+		using = Animation_Character_Window_Refresh
+
 		blockoverride "titles_max_slots"
 		{
 			datamodel_wrap = 8
