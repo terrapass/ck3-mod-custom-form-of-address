@@ -3,7 +3,7 @@
 	# Based on vanilla vbox_titles_claims_box and replaces it for VT-holder characters.
 	# The only major difference is that on-character CTFA_held_non_vanity_titles
 	# list is used as title list datamodel, instead of the built-in CharacterWindow.GetTitles.
-	type CTFA_vbox_titles_claims_box = vbox {
+	type CTFA_vbox_titles_claims_box_base = vbox {
 		## Titles
 		hbox = {
 			name = "titles"
@@ -212,6 +212,26 @@
 			}
 		}
 		expand = {}
+	}
+
+	# Contains overrides to match the one usage of vanilla vbox_titles_claims_box in window_character.gui,
+	# so that the look is consistent with vanilla's box.
+	type CTFA_vbox_titles_claims_box = CTFA_vbox_titles_claims_box_base {
+		blockoverride "titles_max_slots"
+		{
+			datamodel_wrap = 8
+		}
+
+		blockoverride "claims_extra_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetClaims), '(int32)8' )]"
+			text = "[GetNumberAbove_int32(GetDataModelSize(CharacterWindow.GetClaims), '(int32)8' )|=]"
+		}
+
+		blockoverride "claims_max_slots"
+		{
+			datamodel_wrap = 8
+		}
 	}
 
 	# Expandable title list
