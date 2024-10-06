@@ -5,7 +5,7 @@
         layoutpolicy_vertical = expanding
         ignoreinvisible = yes
 
-        visible = "[And(TitleViewWindow.GetTitle.CanPlayerCustomizeTitle, Not(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End)))]"
+        visible = "[And(And(TitleViewWindow.GetTitle.CanPlayerCustomizeTitle, Not(GetScriptedGui('CTFA_sgui_is_vanity_title').IsValid(GuiScope.SetRoot(Title.MakeScope).End))), Not(TitleViewWindow.GetTitle.GetHolder.GetGovernment.IsType('landless_adventurer_government')))]"
 
         text_multi = {
             visible = "[ObjectsEqual( Title.GetHolder.GetPrimaryTitle, Title.Self )]"
