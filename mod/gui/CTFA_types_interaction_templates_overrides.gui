@@ -19,7 +19,9 @@
 				button_standard = {
 					name = "title_button"
 					datacontext = "[InteractionTitleItem.GetTitle]"
+					parentanchor = right
 					size = "[InteractionTitleItem.GetSize]"
+					
 					onclick = "[InteractionTitleItem.OnClick]"
 					onrightclick = "[InteractionTitleItem.OnRightClick]"
 					button_ignore = none
@@ -32,19 +34,18 @@
 					# END MOD
 
 					using = tooltip_es
-					parentanchor = right
+					
 
 					block "button_toggles" {
 						enabled = "[InteractionTitleItem.IsSelectable]"
 					}
 
-					coa_title_tiny_crown = {
-						position = { 0 -8 }
-					}
-
 					hbox = {
-						margin_left = 45
+						margin_left = 5
 						margin_right = 5
+						spacing = 5
+
+						coa_title_tiny_crown = {}
 
 						text_single = {
 							name = "text"
