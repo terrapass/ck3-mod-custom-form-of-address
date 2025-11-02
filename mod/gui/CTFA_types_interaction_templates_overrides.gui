@@ -50,7 +50,7 @@
 						text_single = {
 							name = "text"
 							layoutpolicy_horizontal = expanding
-							text = "[InteractionTitleItem.GetTitle.GetNameNoTooltip]"
+							text = "[InteractionTitleItem.GetTitle.GetNameNoTooltip|U]"
 						}
 
 						icon = {
