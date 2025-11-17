@@ -3,7 +3,7 @@
  # Holder flavors
  #
  {% for i in range(vanity_titles_count) %}
- CTFA_flavor_vanity_title_holder_male_{{ i }}:0 "[GetGlobalVariable('CTFA_vanity_title_{{ i }}').Title.GetBaseNameNoTierNoTooltip]"
+ CTFA_flavor_vanity_title_holder_male_{{ i }}:0 "[GetGlobalVariable('CTFA_vanity_title_{{ i }}').Title.GetNameNoTooltip]"
  CTFA_flavor_vanity_title_holder_female_{{ i }}:0 "[GetGlobalVariable('CTFA_vanity_title_{{ i }}').Title.GetAdjectiveNoTooltip]"
  {%- endfor %}
 
